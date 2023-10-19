@@ -17,6 +17,7 @@ return new class extends Migration
             $table->date('dateNaissance');
             $table->string('lieuNaissance');
             $table->timestamps();
+            $table->string('img');
         });
     }
 
