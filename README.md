@@ -16,7 +16,7 @@ A project for school, somewhat a bootleg of "Netflix"
   </div></div>
 </li>
 <li>
-<p dir="auto">Create database <code>velflix</code> (you can change database name)</p>
+<p dir="auto">Create database <code>BuggyFlix</code> (you can change database name)</p>
 </li>
 <li>
 <p dir="auto">Create account and get an API key themoviedb <a href="https://www.themoviedb.org/settings/api" rel="nofollow"> here</a>. Make sure to copy <code>API Read Access Token (v4 auth)</code>.</p>
@@ -24,7 +24,7 @@ A project for school, somewhat a bootleg of "Netflix"
 <li>
 <p dir="auto">Go to <code>.env</code> file</p>
 <ul dir="auto">
-<li>set database credentials (<code>DB_DATABASE=velflix</code>, <code>DB_USERNAME=root</code>, <code>DB_PASSWORD=</code>)</li>
+<li>set database credentials (<code>DB_DATABASE=BuggyFlix</code>, <code>DB_USERNAME=root</code>, <code>DB_PASSWORD=</code>)</li>
 <li>paste <code>TMDB_TOKEN=(your API key)</code></li>
 </ul>
 <blockquote>
@@ -97,19 +97,9 @@ A project for school, somewhat a bootleg of "Netflix"
 </svg>
     </clipboard-copy>
   </div></div>
-<p dir="auto">this command will create 2 users (admin and normal user):</p>
-<blockquote>
-<p dir="auto">email: <a href="mailto:admin@gmail.com">admin@gmail.com</a> , password: password</p>
-</blockquote>
-<blockquote>
-<p dir="auto">email: <a href="mailto:user@gmail.com">user@gmail.com</a> , password: password</p>
-</blockquote>
 </li>
 <li>
 <p dir="auto">Run server</p>
-<blockquote>
-<p dir="auto">for valet users visit <code>velflix.test</code> in your favorite browser</p>
-</blockquote>
 <div class="highlight highlight-source-shell notranslate position-relative overflow-auto" dir="auto"><pre>php artisan serve</pre><div class="zeroclipboard-container position-absolute right-0 top-0">
     <clipboard-copy aria-label="Copy" class="ClipboardButton btn js-clipboard-copy m-2 p-0 tooltipped-no-delay" data-copy-feedback="Copied!" data-tooltip-direction="w" value="php artisan serve" tabindex="0" role="button">
       <svg aria-hidden="true" height="16" viewBox="0 0 16 16" version="1.1" width="16" data-view-component="true" class="octicon octicon-copy js-clipboard-copy-icon m-2">
