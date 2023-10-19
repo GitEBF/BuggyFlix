@@ -19,7 +19,7 @@ class BuggyflixController extends Controller
      */
     public function create()
     {
-        //
+        return View("buggyflix.create");
     }
 
     /**

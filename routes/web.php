@@ -14,9 +14,8 @@ use App\Http\Controllers\BuggyflixController;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
-
-Route::get('buggyflix', 
+Route::get('/', 
 [BuggyflixController::class, 'index'])->name('buggyflix.index');
+
+Route::get('buggyflix.create', 
+[BuggyflixController::class, 'create'])->name('buggyflix.create');
