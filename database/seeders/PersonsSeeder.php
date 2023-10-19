@@ -84,7 +84,7 @@ class PersonsSeeder extends Seeder
             [
                 'id' => 11,
                 'nom' => 'CO2',
-                'dateNaissance' => '0-0-0',
+                'dateNaissance' => '0-0-1',
                 'lieuNaissance' => 'Mes poumons',
                 'img' => 'https://cdn.shopify.com/s/files/1/0019/5952/files/CO2-Molecule-Image.jpg'
             ],
