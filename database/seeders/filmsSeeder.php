@@ -174,6 +174,22 @@ class FilmsSeeder extends Seeder
                 'langue' => 'arabe',
                 'subtitle' => 'EN-FR',
             ],
+            [
+                'id' => 11,
+                'titre' => 'Buggy Cheese : The Horror Movie',
+                'resume' => 'zebi ça fait peur en sah',
+                'type' =>'Film',
+                'brand' => 'buggy cheese',
+                'pochette' => 'https://th.bing.com/th/id/OIP.OYEiST_eod7_E41Qy9ycHAHaHa?pid=ImgDet&rs=1',
+                'duree' => '2h36',
+                'annee' => '2023',
+                'cote' => '9.8',
+                'rating' => 'PG-18',
+                'realisateur' => 10,
+                'producteur' => 9,
+                'langue' => 'arabe',
+                'subtitle' => 'EN-FR',
+            ],
         ]);
     }
 }
