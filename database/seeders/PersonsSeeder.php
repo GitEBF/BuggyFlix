@@ -10,20 +10,20 @@ class PersonsSeeder extends Seeder
 {
     public function run(): void
     {
-        DB::table('person')->insert([
+        DB::table('persons')->insert([
             [
                 'id' => 1,
                 'nom' => 'Isaac Pipoco',
                 'dateNaissance' => date('Y-m-d'),
                 'lieuNaissance' => 'Brésil',
-                'img' => 'https://postimg.cc/67qKQn5v'
+                'img' => 'https://i.postimg.cc/W461XwBX/Microsoft-Teams-image.jpg'
             ],
             [
                 'id' => 2,
                 'nom' => 'etijay',
                 'dateNaissance' => date('Y-m-d'),
                 'lieuNaissance' => 'Québec',
-                'img' => 'https://postimg.cc/xkXrQQtG'
+                'img' => 'https://i.postimg.cc/fbKMxTdP/Microsoft-Teams-image-1.png'
             ],
             [
                 'id' => 3,

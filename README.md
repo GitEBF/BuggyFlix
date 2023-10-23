@@ -19,17 +19,10 @@ A project for school, somewhat a bootleg of "Netflix"
 <p dir="auto">Create database <code>BuggyFlix</code> (you can change database name)</p>
 </li>
 <li>
-<p dir="auto">Create account and get an API key themoviedb <a href="https://www.themoviedb.org/settings/api" rel="nofollow"> here</a>. Make sure to copy <code>API Read Access Token (v4 auth)</code>.</p>
-</li>
-<li>
 <p dir="auto">Go to <code>.env</code> file</p>
 <ul dir="auto">
 <li>set database credentials (<code>DB_DATABASE=BuggyFlix</code>, <code>DB_USERNAME=root</code>, <code>DB_PASSWORD=</code>)</li>
-<li>paste <code>TMDB_TOKEN=(your API key)</code></li>
 </ul>
-<blockquote>
-<p dir="auto">Make sure to follow your database username and password</p>
-</blockquote>
 </li>
 <li>
 <p dir="auto">Install PHP dependencies</p>
