@@ -35,7 +35,7 @@ class PersonsSeeder extends Seeder
             [
                 'id' => 4,
                 'nom' => 'chumnon',
-                'dateNaissance' => date('Y-m-d'),
+                'dateNaissance' => '2005-1-28',
                 'lieuNaissance' => "Saint-Léonard-d'Aston",
                 'img' => 'https://yt3.googleusercontent.com/ytc/APkrFKZ28zhOMDr-gOrpDCssUYpg_o3jyMLpUluNo-et=s176-c-k-c0x00ffffff-no-rj'
             ],
