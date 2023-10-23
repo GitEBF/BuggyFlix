@@ -11,11 +11,13 @@ class BuggyflixController extends Controller
      * Display a listing of the resource.
      */
 
-     
+
     public function index()
     {
         $films = Film::all();
-        return View("buggyflix.index", compact('films'));
+        $filmsbyDate = Film::all();
+        $filmsbyDate = Film::orderBy('date')->get()->reverse();
+        return View("buggyflix.index", compact('films', 'filmsbyDate'));
     }
 
     /**

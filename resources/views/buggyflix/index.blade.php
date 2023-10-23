@@ -7,7 +7,7 @@
       <h1 id="home">Popular on Netflix</h1>
       <div class="box bg-lime-600">
         @if (count($films))
-          @foreach ($films as $film)
+          @foreach ($filmsbyDate as $film)
           <a href=""><img src="{{ $film->pochette}}" alt=""></a>
           @endforeach
         @else
