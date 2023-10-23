@@ -28,8 +28,8 @@ return new class extends Migration
             $table->string('subtitle');
             $table->unsignedBigInteger('realisateur');
             $table->unsignedBigInteger('producteur');
-            $table->foreign('realisateur')->references('id')->on('person');
-            $table->foreign('producteur')->references('id')->on('person');
+            $table->foreign('realisateur')->references('id')->on('persons');
+            $table->foreign('producteur')->references('id')->on('persons');
             $table->timestamps();
         });
     }
