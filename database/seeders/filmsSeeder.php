@@ -201,7 +201,7 @@ class FilmsSeeder extends Seeder
                 'type' =>'Film',
                 'genre' => 'Horreur',
                 'brand' => 'buggy cheese',
-                'pochette' => 'https://i.imgur.com/HjTTpOX.png',
+                'pochette' => 'https://imgur.com/a/g3L0Rjf',
                 'duree' => '2h36',
                 'annee' => '2023',
                 'date' => date('2023-04-30'),
