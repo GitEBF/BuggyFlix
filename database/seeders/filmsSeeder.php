@@ -21,7 +21,7 @@ class FilmsSeeder extends Seeder
                 'type' => 'Documentaire',
                 'genre' => 'Comédie',
                 'brand' => 'etijay corp',
-                'pochette' => 'https://grandmarcheistanbul.fr/wp-content/uploads/6420318000891.jpg',
+                'pochette' => 'https://th.bing.com/th/id/OIG.qeMDetbBbjOFFi_bjsgm?pid=ImgGn',
                 'duree' => '9h56',
                 'annee' => '2023',
                 'date' => date('2023-10-23'),
