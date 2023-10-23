@@ -190,7 +190,7 @@ class FilmsSeeder extends Seeder
                 'resume' => 'zebi ça fait peur en sah',
                 'type' =>'Film',
                 'brand' => 'buggy cheese',
-                'pochette' => 'https://imgur.com/a/g3L0Rjf',
+                'pochette' => 'https://i.imgur.com/HjTTpOX.png',
                 'duree' => '2h36',
                 'annee' => '2023',
                 'date' => date('2023-04-30'),
