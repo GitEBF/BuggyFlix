@@ -10,7 +10,7 @@ class PersonsSeeder extends Seeder
 {
     public function run(): void
     {
-        DB::table('person')->insert([
+        DB::table('persons')->insert([
             [
                 'id' => 1,
                 'nom' => 'Isaac Pipoco',
