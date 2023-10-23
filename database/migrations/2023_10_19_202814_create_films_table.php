@@ -16,9 +16,14 @@ return new class extends Migration
             $table->string('titre');
             $table->string('resume');
             $table->string('pochette');
+            $table->string('type');
+            $table->string('brand');
             $table->string('duree');
             $table->string('annee');
             $table->string('rating');
+            $table->string('cote');
+            $table->string('langue');
+            $table->string('subtitle');
             $table->unsignedBigInteger('realisateur');
             $table->unsignedBigInteger('producteur');
             $table->foreign('realisateur')->references('id')->on('person');
