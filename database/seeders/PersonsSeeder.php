@@ -16,14 +16,14 @@ class PersonsSeeder extends Seeder
                 'nom' => 'Isaac Pipoco',
                 'dateNaissance' => date('Y-m-d'),
                 'lieuNaissance' => 'Brésil',
-                'img' => 'https://postimg.cc/67qKQn5v'
+                'img' => 'https://i.postimg.cc/W461XwBX/Microsoft-Teams-image.jpg'
             ],
             [
                 'id' => 2,
                 'nom' => 'etijay',
                 'dateNaissance' => date('Y-m-d'),
                 'lieuNaissance' => 'Québec',
-                'img' => 'https://postimg.cc/xkXrQQtG'
+                'img' => 'https://i.postimg.cc/fbKMxTdP/Microsoft-Teams-image-1.png'
             ],
             [
                 'id' => 3,
