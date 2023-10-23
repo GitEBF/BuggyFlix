@@ -17,9 +17,11 @@ return new class extends Migration
             $table->string('resume');
             $table->string('pochette');
             $table->string('type');
+            $table->string('genre');
             $table->string('brand');
             $table->string('duree');
             $table->string('annee');
+            $table->date('date');
             $table->string('rating');
             $table->string('cote');
             $table->string('langue');
