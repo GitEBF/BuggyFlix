@@ -161,7 +161,7 @@ class FilmsSeeder extends Seeder
                 'annee' => '2024',
                 'date' => date('2024-05-20'),
                 'cote' => '7.5',
-                'rating' => 'PG',
+                'rating' => 'PG-18',
                 'realisateur' => 6,
                 'producteur' => 5,
                 'langue' => 'EN-FR',

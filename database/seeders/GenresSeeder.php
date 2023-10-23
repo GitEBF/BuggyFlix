@@ -50,6 +50,14 @@ class GenresSeeder extends Seeder
                 'id' => 9,
                 'nom' => 'Musical',
             ],
+            [
+                'id' => 10,
+                'nom' => 'Mythologie',
+            ],
+            [
+                'id' => 11,
+                'nom' => 'Jeunesse',
+            ],
         ]);
     }
 }
