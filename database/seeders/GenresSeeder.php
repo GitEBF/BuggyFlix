@@ -4,6 +4,7 @@ namespace Database\Seeders;
 
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
+use DB;
 
 class GenresSeeder extends Seeder
 {
@@ -15,39 +16,39 @@ class GenresSeeder extends Seeder
         DB::table('genres')->insert([
             [
                 'id' => 1,
-                'nom' => 'Action'
+                'nom' => 'Action',
             ],
             [
                 'id' => 2,
-                'nom' => 'Comédie'
+                'nom' => 'Comédie',
             ],
             [
                 'id' => 3,
-                'nom' => 'Horreur'
+                'nom' => 'Horreur',
             ],
             [
                 'id' => 4,
-                'nom' => 'Romance'
+                'nom' => 'Romance',
             ],
             [
                 'id' => 5,
-                'nom' => 'Aventure'
+                'nom' => 'Aventure',
             ],
             [
                 'id' => 6,
-                'nom' => 'Drame'
+                'nom' => 'Drame',
             ],
             [
                 'id' => 7,
-                'nom' => 'Fantastique'
+                'nom' => 'Fantastique',
             ],
             [
                 'id' => 8,
-                'nom' => 'Thriller'
+                'nom' => 'Thriller',
             ],
             [
                 'id' => 9,
-                'nom' => 'Musical'
+                'nom' => 'Musical',
             ],
         ]);
     }
