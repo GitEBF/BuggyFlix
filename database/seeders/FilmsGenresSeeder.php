@@ -13,7 +13,7 @@ class FilmsGenresSeeder extends Seeder
      */
     public function run(): void
     {
-        DB::table('film_genres')->insert([
+        DB::table('film_genre')->insert([
             [
                 'film_id' => 1,
                 'genre_id' => 1,
