@@ -22,11 +22,7 @@ A project for school, somewhat a bootleg of "Netflix"
 <p dir="auto">Go to <code>.env</code> file</p>
 <ul dir="auto">
 <li>set database credentials (<code>DB_DATABASE=BuggyFlix</code>, <code>DB_USERNAME=root</code>, <code>DB_PASSWORD=</code>)</li>
-<li>paste <code>TMDB_TOKEN=(your API key)</code></li>
 </ul>
-<blockquote>
-<p dir="auto">Make sure to follow your database username and password</p>
-</blockquote>
 </li>
 <li>
 <p dir="auto">Install PHP dependencies</p>
