@@ -17,7 +17,8 @@ class BuggyflixController extends Controller
         $films = Film::all();
         $filmsbyDate = Film::all();
         $filmsbyDate = Film::orderBy('date')->get()->reverse();
-        return View("buggyflix.index", compact('films', 'filmsbyDate'));
+
+        return view("buggyflix.index", compact('films', 'filmsbyDate'));
     }
 
     /**
