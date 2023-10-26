@@ -14,9 +14,10 @@
                     <p style="font-size: 14px; color: grey; position: relative; top: 2px;">{{$person->dateNaissance}}</p>
                 </div>
             </div> 
-        </div> @endforeach </div>
+        </div> @endforeach 
+    </div>
                 @else
                 <a href=""><img src="https://github.com/carlosavilae/Netflix-Clone/blob/master/img/t1.PNG?raw=true"alt=""></a>
                 @endif
-        </div>
+</div>
         @endsection
