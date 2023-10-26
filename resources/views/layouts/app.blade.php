@@ -6,9 +6,8 @@
 <script defer src="https://use.fontawesome.com/releases/v5.1.0/js/all.js"
     integrity="sha384-3LK/3kTpDE/Pkp8gTNp2gR/2gOiwQ6QaO7Td0zV76UFJVhqLl4Vl3KL1We6q6wR9"
     crossorigin="anonymous"></script>
-<link rel="stylesheet" href="main.css">
-<link href="css/tailwind.css" rel="stylesheet">
-</link>
+<link rel="stylesheet" href="{{asset('css/main.css')}}">
+<link href="{{asset('css/tailwind.css')}}" rel="stylesheet">
 </head>
 
 <body>

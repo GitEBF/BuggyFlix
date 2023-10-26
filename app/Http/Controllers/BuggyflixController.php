@@ -39,9 +39,9 @@ class BuggyflixController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(string $id)
+    public function show(Film $film)
     {
-        //
+        return View('buggyflix.show', compact('film'));
     }
 
     /**
