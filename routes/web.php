@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\BuggyflixController;
+use App\Http\Controllers\PersonsController;
 
 /*
 |--------------------------------------------------------------------------
@@ -19,3 +20,5 @@ Route::get('/',
 
 Route::get('buggyflix.create', 
 [BuggyflixController::class, 'create'])->name('buggyflix.create');
+
+Route::get('buggyflix/person', [PersonsController::class, 'index'])->name('buggyflix.person');
