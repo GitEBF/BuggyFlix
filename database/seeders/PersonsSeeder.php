@@ -14,30 +14,30 @@ class PersonsSeeder extends Seeder
             [
                 'id' => 1,
                 'nom' => 'Isaac Pipoco',
-                'dateNaissance' => date('Y-m-d'),
+                'dateNaissance' => '2005-2-26',
                 'lieuNaissance' => 'Brésil',
                 'img' => 'https://i.postimg.cc/W461XwBX/Microsoft-Teams-image.jpg'
             ],
             [
                 'id' => 2,
                 'nom' => 'etijay',
-                'dateNaissance' => date('Y-m-d'),
+                'dateNaissance' => '2005-5-20',
                 'lieuNaissance' => 'Québec',
                 'img' => 'https://i.postimg.cc/fbKMxTdP/Microsoft-Teams-image-1.png'
             ],
             [
                 'id' => 3,
                 'nom' => 'Master Buggy-Cheese',
-                'dateNaissance' => '0-1-1',
+                'dateNaissance' => '1997-08-08',
                 'lieuNaissance' => 'Orange Cheese Town',
-                'img' => 'https://cegeptroisrivieres-my.sharepoint.com/:i:/g/personal/etienne_blanchard_frappier_01_edu_cegeptr_qc_ca/Ee4mD-092B1Io5fP8hNNq2sB5XFzH1G_5NhbVpfmxbvw6w?e=W1hrbK'
+                'img' => 'https://i.pinimg.com/736x/96/41/15/964115aa813deb8064db05180d18decf.jpg'
             ],
             [
                 'id' => 4,
                 'nom' => 'chumnon',
                 'dateNaissance' => '2005-1-28',
                 'lieuNaissance' => "Saint-Léonard-d'Aston",
-                'img' => 'https://yt3.googleusercontent.com/ytc/APkrFKZ28zhOMDr-gOrpDCssUYpg_o3jyMLpUluNo-et=s176-c-k-c0x00ffffff-no-rj'
+                'img' => 'https://i.postimg.cc/L8VFjN4x/image.png'
             ],
             [
                 'id' => 5,
@@ -65,7 +65,7 @@ class PersonsSeeder extends Seeder
                 'nom' => 'Cell',
                 'dateNaissance' => '2015-04-28',
                 'lieuNaissance' => 'Agario',
-                'img' => 'https://static.wikia.nocookie.net/agario/images/7/7a/Obama.jpg/revision/latest/scale-to-width-down/250?cb=20150717203049'
+                'img' => 'https://www.seekpng.com/png/detail/357-3574725_ykle-agario-premium-skins-agario-mobile-line-split.png'
             ],
             [
                 'id' => 9,
