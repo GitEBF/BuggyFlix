@@ -16,10 +16,14 @@ class BuggyflixController extends Controller
     public function index()
     {
         $films = Film::all();
-        
+        $genreId = 1;
+        $actionfilms = Film::whereHas('genres', function($query) use ($genreId) {$query->where('genre_id', $genreId);})->get();
+        $genreId = 3;
+        $horrorfilms = Film::whereHas('genres', function($query) use ($genreId) {$query->where('genre_id', $genreId);})->get();
+        $genreId = 6;
+        $dramefilms = Film::whereHas('genres', function($query) use ($genreId) {$query->where('genre_id', $genreId);})->get();
         $filmsbyDate = Film::orderBy('date')->get()->reverse();
-        $actionGenre = Genre::find(1)->filmGenre();
-        return view("buggyflix.index", compact('films', 'filmsbyDate', 'actionGenre'));
+        return view("buggyflix.index", compact('films', 'filmsbyDate', 'actionfilms', 'horrorfilms', 'dramefilms'));
     }
 
     /**
