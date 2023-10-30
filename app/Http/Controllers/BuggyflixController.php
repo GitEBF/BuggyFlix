@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Film;
+use App\Models\Genre;
 
 class BuggyflixController extends Controller
 {
@@ -15,10 +16,10 @@ class BuggyflixController extends Controller
     public function index()
     {
         $films = Film::all();
-        $filmsbyDate = Film::all();
+        
         $filmsbyDate = Film::orderBy('date')->get()->reverse();
-
-        return view("buggyflix.index", compact('films', 'filmsbyDate'));
+        $actionGenre = Genre::find(1)->filmGenre();
+        return view("buggyflix.index", compact('films', 'filmsbyDate', 'actionGenre'));
     }
 
     /**
