@@ -25,10 +25,6 @@ return new class extends Migration
             $table->string('cote');
             $table->string('langue');
             $table->string('subtitle');
-            $table->unsignedBigInteger('realisateur');
-            $table->unsignedBigInteger('producteur');
-            $table->foreign('realisateur')->references('id')->on('persons');
-            $table->foreign('producteur')->references('id')->on('persons');
             $table->timestamps();
         });
     }

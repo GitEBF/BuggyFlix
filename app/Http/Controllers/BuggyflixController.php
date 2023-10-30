@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Film;
+use App\Models\Genre;
 
 class BuggyflixController extends Controller
 {
@@ -15,10 +16,14 @@ class BuggyflixController extends Controller
     public function index()
     {
         $films = Film::all();
-        $filmsbyDate = Film::all();
+        $genreId = 1;
+        $actionfilms = Film::whereHas('genres', function($query) use ($genreId) {$query->where('genre_id', $genreId);})->get();
+        $genreId = 3;
+        $horrorfilms = Film::whereHas('genres', function($query) use ($genreId) {$query->where('genre_id', $genreId);})->get();
+        $genreId = 6;
+        $dramefilms = Film::whereHas('genres', function($query) use ($genreId) {$query->where('genre_id', $genreId);})->get();
         $filmsbyDate = Film::orderBy('date')->get()->reverse();
-
-        return view("buggyflix.index", compact('films', 'filmsbyDate'));
+        return view("buggyflix.index", compact('films', 'filmsbyDate', 'actionfilms', 'horrorfilms', 'dramefilms'));
     }
 
     /**
