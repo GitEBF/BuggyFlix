@@ -80,14 +80,14 @@ class ActeursSeeder extends Seeder
             [
                 'id' => 10,
                 'person_id' => 7,
-                'film_id' => 8,
+                'film_id' => 9,
                 'role' => "Personnage principal",
                 'nomPersonnage' => 'Juju Predateur'
             ],
             [
                 'id' => 11,
                 'person_id' => 10,
-                'film_id' => 8,
+                'film_id' => 9,
                 'role' => "Voiture",
                 'nomPersonnage' => 'Juju mobile'
             ],
