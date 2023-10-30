@@ -26,8 +26,6 @@ class FilmsSeeder extends Seeder
                 'date' => date('2023-10-23'),
                 'cote' => '9.7',
                 'rating' => 'G',
-                'realisateur' => 1,
-                'producteur' => 2,
                 'langue' => 'EN-FR',
                 'subtitle' => 'EN-FR',
             ],
@@ -43,8 +41,7 @@ class FilmsSeeder extends Seeder
                 'date' => date('2022-10-24'),
                 'cote' => '20',
                 'rating' => 'PG-18',
-                'realisateur' => 3,
-                'producteur' => 4,
+                
                 'langue' => 'EN-FR',
                 'subtitle' => 'EN-FR',
             ],
@@ -60,8 +57,7 @@ class FilmsSeeder extends Seeder
                 'date' => date('2022-10-25'),
                 'cote' => '20',
                 'rating' => 'G',
-                'realisateur' => 3,
-                'producteur' => 4,
+               
                 'langue' => 'EN-FR',
                 'subtitle' => 'EN-FR',
             ],
@@ -77,8 +73,7 @@ class FilmsSeeder extends Seeder
                 'date' => date('2023-09-13'),
                 'cote' => '8.5',
                 'rating' => 'PG-13',
-                'realisateur' => 5,
-                'producteur' => 6,
+                
                 'langue' => 'EN-FR',
                 'subtitle' => 'EN-FR',
             ],
@@ -94,8 +89,7 @@ class FilmsSeeder extends Seeder
                 'date' => date('2024-11-09'),
                 'cote' => '9.2',
                 'rating' => 'PG',
-                'realisateur' => 7,
-                'producteur' => 8,
+                
                 'langue' => 'EN-FR',
                 'subtitle' => 'EN-FR',
             ],
@@ -111,8 +105,7 @@ class FilmsSeeder extends Seeder
                 'date' => date('2023-03-24'),
                 'cote' => '7.8',
                 'rating' => 'PG-18',
-                'realisateur' => 9,
-                'producteur' => 10,
+                
                 'langue' => 'EN-FR',
                 'subtitle' => 'EN-FR',
             ],
@@ -128,8 +121,7 @@ class FilmsSeeder extends Seeder
                 'date' => date('2025-06-12'),
                 'cote' => '8.0',
                 'rating' => 'PG-18',
-                'realisateur' => 2,
-                'producteur' => 1,
+                
                 'langue' => 'EN-FR',
                 'subtitle' => 'EN-ES-FR',
             ],
@@ -145,8 +137,7 @@ class FilmsSeeder extends Seeder
                 'date' => date('2024-07-13'),
                 'cote' => '8.7',
                 'rating' => 'PG-18',
-                'realisateur' => 4,
-                'producteur' => 3,
+               
                 'langue' => 'EN-FR',
                 'subtitle' => 'EN-ES-FR',
             ],
@@ -162,8 +153,7 @@ class FilmsSeeder extends Seeder
                 'date' => date('2024-05-20'),
                 'cote' => '7.5',
                 'rating' => 'PG-18',
-                'realisateur' => 6,
-                'producteur' => 5,
+                
                 'langue' => 'EN-FR',
                 'subtitle' => 'EN-FR-JPN',
             ],
@@ -179,8 +169,7 @@ class FilmsSeeder extends Seeder
                 'date' => date('2025-12-24'),
                 'cote' => '9.0',
                 'rating' => 'G',
-                'realisateur' => 8,
-                'producteur' => 7,
+                
                 'langue' => 'arabe',
                 'subtitle' => 'EN-FR',
             ],
@@ -196,8 +185,7 @@ class FilmsSeeder extends Seeder
                 'date' => date('2023-04-30'),
                 'cote' => '9.8',
                 'rating' => 'PG-18',
-                'realisateur' => 10,
-                'producteur' => 9,
+                
                 'langue' => 'arabe',
                 'subtitle' => 'EN-FR',
             ],
