@@ -35,10 +35,18 @@ class PersonsController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(string $id)
+    public function zoom(Person $person)
     {
-        //
+        return View('buggyflix.zoom', compact('person'));
     }
+
+ 
+    public function acteur($person_id)
+    {
+        $person = Person::with('acteurs')->findOrFail($person_id);
+        return view('buggyflix.cinemographie', compact('person'));
+    }
+    
 
     /**
      * Show the form for editing the specified resource.
