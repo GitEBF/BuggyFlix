@@ -1,0 +1,62 @@
+/*Style de la page d'un film*/
+
+@media(min-width: 900px){
+  .pageFilm{
+    display: flex;
+    flex-direction: row;
+    height: 50%;
+    margin-left: -50px;
+    margin-right: -50px;
+    margin-top: 50px;
+  }
+
+  .infoFilm{
+    width: 50%;
+    margin-left: 50px;
+    text-align: left;
+  }
+
+  .titreFilm{
+    font-size: 40px;
+    font-weight: bold;
+    letter-spacing: -1px
+  }
+
+  .imgFilm{
+    display: flex;
+    width: 50%;
+    justify-content: end;
+  }
+
+  .pochetteFilm{
+    height:100%;
+    align-self: flex-end;
+  }
+
+
+}
+
+/*
+@media(max-width: 900px){
+  
+  .pageFilm{
+    display: flex;
+    flex-direction: column-reverse;
+    height: 50%;
+    margin-top: 60px;
+    justify-items: center;
+  }
+
+  .infoFilm{
+  }
+
+  .imgFilm{
+    display: flex;
+    justify-content: end;
+  }
+
+  .pochetteFilm{
+    height: 100%;
+  }
+}
+*/
