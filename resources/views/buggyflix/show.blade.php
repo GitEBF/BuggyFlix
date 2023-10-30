@@ -8,19 +8,22 @@
     <div class="pageFilm">
         <div class="infoFilm">
             <h1 class="titreFilm">{{$film->titre}} </h1>
-            <a>{{$film->cote}} </a>
-            <a>{{$film->date}} </a>
-            <a>{{$film->duree}} </a>
-            </br>
-            <a>{{$film->rating}} </a>
-            <a>{{$film->type}} </a>
-            <a>liste des genres</a>
-            </br>
+            <div class="groupe">
+                <a>{{$film->cote}} </a>
+                <a>{{$film->date}} </a>
+                <a>{{$film->duree}} </a>
+            </div>
+            <div class="groupe">
+                <a>{{$film->rating}} </a>
+                <a>{{$film->type}} </a>
+                <a>liste des genres</a>
+            </div>
             <a>{{$film->resume}} </a>
             </br>
-            <a>{{$film->langue}} </a>
-            <a>{{$film->subtitle}} </a>
-            </br>
+            <div class="groupe">
+                <a>{{$film->langue}} </a>
+                <a>{{$film->subtitle}} </a>
+            </div>
             <a>{{$film->brand}} </a>
             </br>
             <a>Acteur: liste des acteurs</a>
