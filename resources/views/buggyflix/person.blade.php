@@ -1,21 +1,22 @@
 @extends("layouts.app")
 
 @section("contenu")
-<section class="main-container">
-    <div class="row">
-        @if (count($persons))
-            @foreach ($persons as $person)
-            <div class="col-3">
-                <img class="vw-50" src="{{$person->img}}">
-                <h1>{{$person->nom}}</h1>
-                <p>{{$person->dateNaissance}}</p>
-            </div>
-            @endforeach 
+
+<section class="main-container flex justify-center">
+
+<div class="location" id="home">
+      <h1 id="home">Les gens toutes biggie</h1>
+      <div class="box">
+      @if (count($persons))
+        @foreach ($persons as $person)
+          <a href="{{ route('buggyflix.cinemographie', [$person]) }}"><img src="{{$person->img}}" alt="" class="h-48 w-48 mx-auto"></a>
+          @endforeach 
         @else
-            <div class="col-12">
-                <p>mallo</p>
-            </div>
+          <a href=""><img src="https://github.com/carlosavilae/Netflix-Clone/blob/master/img/t1.PNG?raw=true" alt=""></a>
         @endif
-    </div>
+      </div>
+  </div>
 </section>
+
 @endsection
+

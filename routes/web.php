@@ -25,3 +25,9 @@ Route::get('buggyflix.create',
 [BuggyflixController::class, 'create'])->name('buggyflix.create');
 
 Route::get('buggyflix/person', [PersonsController::class, 'index'])->name('buggyflix.person');
+
+Route::get('buggyflix/person/{person}', 
+[PersonsController::class, 'zoom'])->name('buggyflix.zoom');
+
+Route::get('buggyflix/cinemographie/{person}', 
+[PersonsController::class, 'acteur'])->name('buggyflix.cinemographie');
