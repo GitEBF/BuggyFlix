@@ -20,6 +20,7 @@ Route::get('/buggyflix',
 
 Route::get('buggyflix/film/{film}', 
 [BuggyflixController::class, 'show'])->name('buggyflix.show');
+
 Route::get('buggyflix.create', 
 [BuggyflixController::class, 'create'])->name('buggyflix.create');
 
