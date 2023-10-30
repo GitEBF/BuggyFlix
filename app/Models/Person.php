@@ -7,6 +7,6 @@ use Illuminate\Database\Eloquent\Model;
 
 class Person extends Model
 {
-    use HasFactory;
     protected $table = 'Persons';
+    use HasFactory;
 }
