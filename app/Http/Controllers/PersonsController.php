@@ -3,22 +3,17 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\Film;
+use App\Models\Person;
 
-class BuggyflixController extends Controller
+class PersonsController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
-
-
     public function index()
     {
-        $films = Film::all();
-        $filmsbyDate = Film::all();
-        $filmsbyDate = Film::orderBy('date')->get()->reverse();
-
-        return view("buggyflix.index", compact('films', 'filmsbyDate'));
+        $persons = Person::all();
+        return view("buggyflix.person", compact('persons'));
     }
 
     /**
@@ -26,7 +21,7 @@ class BuggyflixController extends Controller
      */
     public function create()
     {
-        return View("buggyflix.create");
+        //
     }
 
     /**
