@@ -6,8 +6,10 @@
 <script defer src="https://use.fontawesome.com/releases/v5.1.0/js/all.js"
     integrity="sha384-3LK/3kTpDE/Pkp8gTNp2gR/2gOiwQ6QaO7Td0zV76UFJVhqLl4Vl3KL1We6q6wR9"
     crossorigin="anonymous"></script>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
 <link rel="stylesheet" href="{{asset('css/main.css')}}">
 <link href="{{asset('css/tailwind.css')}}" rel="stylesheet">
+
 </head>
 
 <body>
