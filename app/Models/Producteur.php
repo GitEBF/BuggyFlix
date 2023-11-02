@@ -12,11 +12,11 @@ class Producteur extends Model
 
     public function person()
     {
-       return $this->belongsTo('App\Model\Person');
+       return $this->belongsTo('App\Models\Person');
     }
 
     public function film()
     {
-        return $this->belongsTo(Film::class, 'film_id');
+        return $this->belongsTo('App\Models\Film');
     }
 }

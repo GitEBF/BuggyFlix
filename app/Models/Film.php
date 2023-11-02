@@ -11,19 +11,19 @@ class Film extends Model
     protected $table = 'films';
     use HasFactory;
 
-    public function genres() : HasMany {
+    public function genres(){
         return $this->hasMany('App\Models\FilmGenre');
     }
 
-    public function acteurs() : HasMany {
+    public function acteurs(){
         return $this->hasMany('App\Models\Acteur');
     }
 
-    public function producteurs() : HasMany {
+    public function producteurs(){
         return $this->hasMany('App\Models\Producteur');
     }
 
-    public function realisateur() : HasMany {
+    public function realisateurs() {
         return $this->hasMany('App\Models\Realisateur');
     }
 }

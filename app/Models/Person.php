@@ -16,4 +16,13 @@ class Person extends Model
         return $this->hasMany('App\Models\Acteur');
     }
     
+    public function producteurs()
+    {
+        return $this->hasMany('App\Models\Producteur');
+    }
+
+    public function realisateurs()
+    {
+        return $this->hasMany('App\Models\Realisateur');
+    }
 }

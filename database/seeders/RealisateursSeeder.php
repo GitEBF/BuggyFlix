@@ -16,58 +16,58 @@ class RealisateursSeeder extends Seeder
         DB::table('realisateurs')->insert([
             [
                 'id' => 1,
-                'personID' => 1,
-                'filmID' => 1
+                'person_id' => 1,
+                'film_id' => 1
             ],
             [
                 'id' => 2,
-                'personID' => 5,
-                'filmID' => 2
+                'person_id' => 5,
+                'film_id' => 2
             ],
             [
                 'id' => 3,
-                'personID' => 2,
-                'filmID' => 3
+                'person_id' => 2,
+                'film_id' => 3
             ],
             [
                 'id' => 4,
-                'personID' => 1,
-                'filmID' => 4
+                'person_id' => 1,
+                'film_id' => 4
             ],
             [
                 'id' => 5,
-                'personID' => 10,
-                'filmID' => 5
+                'person_id' => 10,
+                'film_id' => 5
             ],
             [
                 'id' => 6,
-                'personID' => 4,
-                'filmID' => 6
+                'person_id' => 4,
+                'film_id' => 6
             ],
             [
                 'id' => 7,
-                'personID' => 4,
-                'filmID' => 7
+                'person_id' => 4,
+                'film_id' => 7
             ],
             [
                 'id' => 8,
-                'personID' => 4,
-                'filmID' => 8
+                'person_id' => 4,
+                'film_id' => 8
             ],
             [
                 'id' => 9,
-                'personID' => 7,
-                'filmID' => 9
+                'person_id' => 7,
+                'film_id' => 9
             ],
             [
                 'id' => 10,
-                'personID' => 11,
-                'filmID' => 10
+                'person_id' => 11,
+                'film_id' => 10
             ],
             [
                 'id' => 11,
-                'personID' => 6,
-                'filmID' => 11
+                'person_id' => 6,
+                'film_id' => 11
             ]
         ]);
     }
