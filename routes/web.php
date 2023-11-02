@@ -21,8 +21,11 @@ Route::get('/buggyflix',
 Route::get('buggyflix/film/{film}', 
 [BuggyflixController::class, 'show'])->name('buggyflix.show');
 
-Route::get('buggyflix.create', 
+Route::get('buggyflix/create/film', 
 [BuggyflixController::class, 'create'])->name('buggyflix.create');
+
+Route::get('buggyflix/create/person', 
+[PersonsController::class, 'create'])->name('buggyflix.create');
 
 Route::get('buggyflix/person', [PersonsController::class, 'index'])->name('buggyflix.person');
 
