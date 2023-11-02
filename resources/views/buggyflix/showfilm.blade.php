@@ -12,6 +12,8 @@
                 <a class="infoCote">{{$film->cote}} </a>
                 <a class="uneInfo">{{$film->date}} </a>
                 <a class="uneInfo">{{$film->duree}} </a>
+                <a class="uneInfo">{{$film->langue}} </a>
+                <a class="uneInfo">{{$film->subtitle}} </a>
             </div>
             <div class="groupe">
                 <a class="uneInfo">{{$film->rating}} </a>
@@ -23,18 +25,23 @@
             <div class="resumeFilm">
                 <a >{{$film->resume}} </a>
             </div>
-            <div class="groupe">
-                <a class="uneInfo">{{$film->langue}} </a>
-                <a class="uneInfo">{{$film->subtitle}} </a>
+            <div class="groupePersons">
+                <a class="uneInfo" > Acteur:
+                    @foreach ($film->acteurs as $acteur)
+                        <a href="{{ route('buggyflix.cinemographie', [$acteur->person->id]) }}" class="persons">~{{$acteur->person->nom}}</a>
+                    @endforeach
+                </a>
+                <a class="uneInfo">Producteur:
+                    @foreach ($film->producteurs as $producteur)
+                        <a href="{{ route('buggyflix.cinemographie', [$producteur->person->id]) }}" class="persons">~{{$producteur->person->nom}}</a>
+                    @endforeach
+                </a>
+                <a class="uneInfo">Réalisateur: 
+                    @foreach ($film->realisateurs as $realisateur)
+                        <a href="{{ route('buggyflix.cinemographie', [$realisateur->person->id]) }}" class="persons">~{{$realisateur->person->nom}}</a>
+                    @endforeach
+                </a>
             </div>
-            <a class="uneInfo"> Acteur: 
-            @foreach ($film->acteurs as $acteur)
-                <a href="{{ route('buggyflix.cinemographie', [$acteur->person->id]) }}">~{{$acteur->person->nom}}~</a>
-            @endforeach
-             </a>
-            <a>Réalisateur: liste des réalisateur</a>
-            </br>
-            <a>Producteur: liste des producteur</a>
         </div>
         <div class="imgFilm">
             <img class="pochetteFilm" src="{{$film->pochette}}">
