@@ -68,6 +68,11 @@ class ProducteursSeeder extends Seeder
                 'id' => 11,
                 'person_id' => 1,
                 'film_id' => 11
+            ],
+            [
+                'id' => 12,
+                'person_id' => 2,
+                'film_id' => 12
             ]
         ]);
     }

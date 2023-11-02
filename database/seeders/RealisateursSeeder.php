@@ -68,6 +68,11 @@ class RealisateursSeeder extends Seeder
                 'id' => 11,
                 'person_id' => 6,
                 'film_id' => 11
+            ],
+            [
+                'id' => 12,
+                'person_id' => 9,
+                'film_id' => 12
             ]
         ]);
     }
