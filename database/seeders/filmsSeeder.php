@@ -185,8 +185,22 @@ class FilmsSeeder extends Seeder
                 'date' => date('2023-04-30'),
                 'cote' => '9.8',
                 'rating' => 'PG-18',
-                
                 'langue' => 'arabe',
+                'subtitle' => 'EN-FR',
+            ],
+                  [
+                'id' => 12,
+                'titre' => 'roche papier sciseaux contre juju',
+                'resume' => 'on bet des cookies avec buggy !!!',
+                'type' =>'Film',
+                'brand' => 'buggy cheese',
+                'pochette' => 'https://th.bing.com/th/id/OIG.VOsZZ2AH6qox_d7jxRoK?pid=ImgGn&w=1024&h=1024&rs=1',
+                'duree' => '6h74',
+                'annee' => '2067',
+                'date' => date('2023-04-30'),
+                'cote' => '9.9',
+                'rating' => 'PG-21',
+                'langue' => 'EN-FR',
                 'subtitle' => 'EN-FR',
             ],
         ]);
