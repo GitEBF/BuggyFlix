@@ -21,7 +21,8 @@ class PersonsController extends Controller
      */
     public function create()
     {
-        //
+        $persons = Person::all();
+        return view("buggyflix.create.person", compact('persons'));
     }
 
     /**

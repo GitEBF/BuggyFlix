@@ -4,7 +4,7 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <section class="main-container flex justify-center">
 <div class="location" id="home">
-<a class="top-right-link"><i class="fa fa-plus"></i></a>
+<a class="top-right-link" href="{{ route('buggyflix.create.person')}}"><i class="fa fa-plus"></i></a>
       <h1 id="home">Les gens toutes biggie</h1>
       <div class="box">
       @if (count($persons))
