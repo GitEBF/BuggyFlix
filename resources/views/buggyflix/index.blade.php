@@ -8,11 +8,6 @@
     @if (count($films))
     @foreach ($filmsbyDate as $film)
     <a href="{{ route('buggyflix.show', [$film]) }}"><img src="{{ $film->pochette}}" alt=""></a>
-      <ul>
-      @foreach($film->genres as $genre)
-      <li>{{ $genre->genre->nom}}</li>
-      @endforeach
-      </ul>
     @endforeach
 
     @else
