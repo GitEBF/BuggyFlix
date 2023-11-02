@@ -14,4 +14,16 @@ class Film extends Model
     public function genres() : HasMany {
         return $this->hasMany('App\Models\FilmGenre');
     }
+
+    public function acteurs() : HasMany {
+        return $this->hasMany('App\Models\Acteur');
+    }
+
+    public function producteurs() : HasMany {
+        return $this->hasMany('App\Models\Producteur');
+    }
+
+    public function realisateur() : HasMany {
+        return $this->hasMany('App\Models\Realisateur');
+    }
 }
