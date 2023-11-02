@@ -12,7 +12,7 @@ class Acteur extends Model
 
     public function person()
     {
-       return $this->belongsTo('App\Model\Person');
+       return $this->belongsTo(Person::class, 'person_id');
     }
 
     public function film()

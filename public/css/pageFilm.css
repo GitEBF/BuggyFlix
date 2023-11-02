@@ -35,7 +35,21 @@
     align-self: flex-end;
   }
 
+  .uneInfo{
+    color:rgb(184, 184, 184);
+    margin-right: 10px;
+  }
 
+  .infoCote{
+    color:rgb(6, 236, 6);
+    margin-right: 10px;
+  }
+
+  .resumeFilm{
+    margin-top: 5px;
+    margin-bottom: 5px;
+    color:rgb(218, 213, 213);
+  }
 }
 
 /*
