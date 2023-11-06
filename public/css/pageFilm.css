@@ -27,7 +27,7 @@
   .imgFilm{
     display: flex;
     width: 50%;
-    justify-content: end;
+    justify-content: center;
   }
 
   .pochetteFilm{
