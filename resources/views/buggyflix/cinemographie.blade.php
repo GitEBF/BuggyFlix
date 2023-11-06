@@ -13,9 +13,16 @@
                         <li>Role: {{$acteur->role}}</li>
                         <li>Nom du personnage : {{$acteur->nomPersonnage}}</li>
                     @endforeach
-            @else
-                <p>Cette personne n'est pas un acteur.</p>
             @endif
+            @foreach ($person->producteurs as $producteur)
+                <h1>Film : {{$producteur->film->titre}}</h1>
+                <li>Role: Producteur</li>
+            @endforeach
+            @foreach ($person->realisateurs as $realisateur)
+                <h1>Film : {{$realisateur->film->titre}}</h1>
+                <li>Role: Réalisateur</li>
+            @endforeach
+
         @else
             <p>Cette personne n'existe pas</p>
         @endif

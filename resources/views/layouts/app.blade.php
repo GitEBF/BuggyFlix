@@ -21,7 +21,7 @@
             <ul class="ml-12 hidden w-1/2 flex-row space-x-3 text-sm lg:flex">
                 <a class="" href="{{ route('buggyflix.index')}}">Home</a>
                 <a class="" href="{{ route('buggyflix.person')}}">Acteur</a>
-                <li>Films</li>
+                <a class="" href="{{ route('buggyflix.create.film')}}">Film</a>
                 <li>Latest</li>
                 <li>My List</li>
                 <li>Watch Again</li>
