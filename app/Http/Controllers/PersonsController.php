@@ -26,6 +26,18 @@ class PersonsController extends Controller
         return view("buggyflix.create.person", compact('persons'));
     }
 
+    public function createActeur(){
+        return View("buggyflix.create.acteur");
+    }
+    
+    public function createRealisateur(){
+        return View("buggyflix.create.realisateur");
+    }
+
+    public function createProducteur(){
+        return View("buggyflix.create.producteur");
+    }
+
     /**
      * Store a newly created resource in storage.
      */
@@ -56,7 +68,6 @@ class PersonsController extends Controller
         $person = Person::with('acteurs')->findOrFail($person_id);
         return view('buggyflix.cinemographie', compact('person'));
     }
-    
 
     /**
      * Show the form for editing the specified resource.

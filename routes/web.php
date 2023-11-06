@@ -27,6 +27,15 @@ Route::get('buggyflix/create/film',
 Route::get('buggyflix/create/person', 
 [PersonsController::class, 'create'])->name('buggyflix.create.person');
 
+Route::get('buggyflix/create/acteur', 
+[PersonsController::class, 'createActeur'])->name('buggyflix.create.acteur');
+
+Route::get('buggyflix/create/producteur', 
+[PersonsController::class, 'createProducteur'])->name('buggyflix.create.producteur');
+
+Route::get('buggyflix/create/realisateur', 
+[PersonsController::class, 'createRealisateur'])->name('buggyflix.create.realisateur');
+
 Route::post('/acteurs', 
 [PersonsController::class, 'store'])->name('acteurs.store');
 
