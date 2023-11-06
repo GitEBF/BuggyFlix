@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Acteur;
 use Illuminate\Http\Request;
 use App\Models\Person;
+use Illuminate\Support\Facades\Log;
 
 class PersonsController extends Controller
 {
@@ -32,11 +33,12 @@ class PersonsController extends Controller
     public function store(Request $request)
     {
         try{
-            $persons=new Acteur($request->all());
+            $persons=new Person($request->all());
             $persons->save();
             }
             
             catch(\Throwable$e){
+                Log::debug($e);
             }
             return redirect()->route('buggyflix.index');
             
