@@ -3,17 +3,6 @@
 @section("contenu")
 <link rel="stylesheet" href="{{ asset('css/form.css') }}">
 <section class="main-container"> <!-- component -->
-@if(isset($errors) && $errors->any())
-    
-    <div class="alert alert-danger">
-        @foreach($errors->all() as $error)
-            <p>{{ $error }}</p>
-        @endforeach
-    </div>
-
-@endif
-
-
 <section class="max-w-4xl p-6 mx-auto bgFlix rounded-md shadow-md mt-20">
 <h1 class="text-xl font-bold text-white capitalize dark:text-white">Creation Acteur</h1>
 <form method="post" action="{{ route('acteurs.store') }}">
@@ -46,6 +35,15 @@
         <button
             class="px-6 py-2 leading-5 text-white transition-colors duration-200 transform bg-pink-500 rounded-md hover:bg-pink-700 focus:outline-none focus:bg-gray-600">Save</button>
     </div>
+    @if(isset($errors) && $errors->any())
+    
+    <div class="alert alert-danger">
+        @foreach($errors->all() as $error)
+            <p>{{ $error }}</p>
+        @endforeach
+    </div>
+
+    @endif
 </form>
 </div>
 <div>
