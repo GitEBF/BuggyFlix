@@ -6,6 +6,7 @@ use App\Models\Acteur;
 use Illuminate\Http\Request;
 use App\Models\Person;
 use App\Models\Film;
+use App\Http\Requests\PersonRequest;
 use Illuminate\Support\Facades\Log;
 
 class PersonsController extends Controller
@@ -49,17 +50,19 @@ class PersonsController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
+    public function store(PersonRequest $request)
     {
         try{
             $persons=new Person($request->all());
             $persons->save();
+            return redirect()->route('buggyflix.index');
             }
             
             catch(\Throwable$e){
                 Log::debug($e);
             }
             return redirect()->route('buggyflix.index');
+            
     }
 
     public function storeActeur(Request $request)
@@ -74,8 +77,6 @@ class PersonsController extends Controller
             }
             return redirect()->route('buggyflix.index');
     }
-
-    
 
     /**
      * Display the specified resource.

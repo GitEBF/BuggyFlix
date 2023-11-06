@@ -24,6 +24,7 @@ class PersonRequest extends FormRequest
         return [
             'nom' => 'required',
             'dateNaissance' => 'required',
+            'lieuNaissance' => 'required',
             'img' => 'required',
         ];
     }
@@ -33,6 +34,7 @@ class PersonRequest extends FormRequest
         return [
             'nom.required' => 'Le champ nom est obligatoire',
             'dateNaissance.required' => 'Le champ date de naissance est obligatoire',
+            'lieuNaissance.required' => 'Le champ du lieu de naissance est obligatoire',
             'img.required' => 'Le champ image est obligatoire',
         ];
     }
