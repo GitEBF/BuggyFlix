@@ -52,10 +52,16 @@
   }
 
   .groupePersons{
+    height: 50%;
+    justify-content: flex-end;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .unRole{
     display: flex;
     flex-direction: column;
     justify-content: flex-end;
-    height: 50%;
   }
 
   .persons{
@@ -65,8 +71,19 @@
   }
 
   .persons:hover{
-    font-size: 15.5px;
-    color:rgb(79, 118, 151)
+    color:rgb(69, 103, 131)
+  }
+
+  .ajoutRole{
+    margin-left: 15px;
+    color: rgb(192, 191, 191);
+    display: none;
+  }
+
+  .unRole:hover{
+    .ajoutRole{
+    display: block;
+    }
   }
 }
 

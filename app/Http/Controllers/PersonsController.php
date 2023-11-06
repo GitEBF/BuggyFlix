@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Acteur;
 use Illuminate\Http\Request;
 use App\Models\Person;
+use App\Models\Film;
 use Illuminate\Support\Facades\Log;
 
 class PersonsController extends Controller
@@ -28,15 +29,21 @@ class PersonsController extends Controller
     }
 
     public function createActeur(){
-        return View("buggyflix.create.acteur");
+        $persons = Person::all();
+        $films = Film::all();
+        return View("buggyflix.create.acteur", compact('persons','films'));
     }
     
     public function createRealisateur(){
-        return View("buggyflix.create.realisateur");
+        $persons = Person::all();
+        $films = Film::all();
+        return View("buggyflix.create.realisateur" , compact('persons','films'));
     }
 
     public function createProducteur(){
-        return View("buggyflix.create.producteur");
+        $persons = Person::all();
+        $films = Film::all();
+        return View("buggyflix.create.producteur" , compact('persons','films'));
     }
 
     /**
@@ -53,8 +60,22 @@ class PersonsController extends Controller
                 Log::debug($e);
             }
             return redirect()->route('buggyflix.index');
-            
     }
+
+    public function storeActeur(Request $request)
+    {
+        try{
+            $acteurs=new Acteur($request->all());
+            $acteurs->save();
+            }
+            
+            catch(\Throwable$e){
+                Log::debug($e);
+            }
+            return redirect()->route('buggyflix.index');
+    }
+
+    
 
     /**
      * Display the specified resource.
