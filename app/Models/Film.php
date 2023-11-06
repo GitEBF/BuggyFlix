@@ -9,6 +9,7 @@ use Illuminate\Database\Eloquent\Relations\HasMany;
 class Film extends Model
 {
     protected $table = 'films';
+    protected $fillable = ['titre','resume','pochette','type','brand','duree','annee','date','rating','cote','langue','subtitle'];
     use HasFactory;
 
     public function genres() : HasMany {

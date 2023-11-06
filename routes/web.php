@@ -34,3 +34,6 @@ Route::get('buggyflix/person/{person}',
 
 Route::get('buggyflix/cinemographie/{person}', 
 [PersonsController::class, 'acteur'])->name('buggyflix.cinemographie');
+
+Route::post('buggyflix/create/film',
+[BuggyflixController::class, 'store'])->name('buggyflix.store');

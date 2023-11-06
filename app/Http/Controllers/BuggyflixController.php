@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Film;
 use App\Models\Genre;
+use Illuminate\Http\Response;
 
 class BuggyflixController extends Controller
 {
@@ -31,7 +32,7 @@ class BuggyflixController extends Controller
      */
     public function create()
     {
-        return View("buggyflix.create");
+        return View("buggyflix.create.film");
     }
 
     /**
