@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Acteur;
 use Illuminate\Http\Request;
 use App\Models\Person;
 
@@ -21,7 +22,8 @@ class PersonsController extends Controller
      */
     public function create()
     {
-        //
+        $persons = Person::all();
+        return view("buggyflix.create.person", compact('persons'));
     }
 
     /**
@@ -29,7 +31,15 @@ class PersonsController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        try{
+            $persons=new Acteur($request->all());
+            $persons->save();
+            }
+            
+            catch(\Throwable$e){
+            }
+            return redirect()->route('buggyflix.index');
+            
     }
 
     /**

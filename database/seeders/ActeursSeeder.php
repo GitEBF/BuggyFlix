@@ -126,6 +126,20 @@ class ActeursSeeder extends Seeder
                 'role' => "Le témoin",
                 'nomPersonnage' => 'Charle Oscar 2ieme du nom'
             ],
+            [
+                'id' => 17,
+                'person_id' => 7,
+                'film_id' => 12,
+                'role' => "Personnage principal",
+                'nomPersonnage' => 'Juju lePuits'
+            ],
+            [
+                'id' => 18,
+                'person_id' => 3,
+                'film_id' => 12,
+                'role' => "Ennemie",
+                'nomPersonnage' => 'La main couper'
+            ],
         ]);
     }
 }

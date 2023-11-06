@@ -50,6 +50,24 @@
     margin-bottom: 5px;
     color:rgb(218, 213, 213);
   }
+
+  .groupePersons{
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    height: 50%;
+  }
+
+  .persons{
+    font-size: 15px;
+    color:rgb(110, 139, 165);
+    margin-left: 15px;
+  }
+
+  .persons:hover{
+    font-size: 15.5px;
+    color:rgb(79, 118, 151)
+  }
 }
 
 /*

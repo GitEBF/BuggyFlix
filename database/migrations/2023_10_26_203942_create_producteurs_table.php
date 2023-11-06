@@ -13,11 +13,11 @@ return new class extends Migration
     {
         Schema::create('producteurs', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger('personID');
-            $table->unsignedBigInteger('filmID');
+            $table->unsignedBigInteger('person_id');
+            $table->unsignedBigInteger('film_id');
 
-            $table->foreign('personID')->references('id')->on('persons');
-            $table->foreign('filmID')->references('id')->on('films');
+            $table->foreign('person_id')->references('id')->on('persons');
+            $table->foreign('film_id')->references('id')->on('films');
         });
     }
 
