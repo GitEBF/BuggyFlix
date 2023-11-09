@@ -66,7 +66,7 @@ class PersonsController extends Controller
             
     }
 
-    public function storeActeur(Request $request)
+    public function storeActeur(ActeurRequest $requests)
     {
         try{
             $acteurs=new Acteur($request->all());
@@ -116,22 +116,16 @@ class PersonsController extends Controller
      */
     public function destroy($id)
     {
-       try{
+      
           $person = Person::findOrFail($id);
-          $person->acteurs()->detach();
-          $person->realisateurs()->detach();
-          $person->producteurs()->detach();
-          $person->films()->detach();
-                
+          $person->acteurs()->delete();
+          $person->realisateurs()->delete();
+          $person->producteurs()->delete();
+
           $person->delete();
                 return redirect()->route('buggyflix.person')->with('message', "Suppression de " . $person->nom . " réussi!");
-        }
-        catch(\Throwable $e){
-           
-           Log::debug($e);
-           return redirect()->route('buggyflix.person')->withErrors(['la suppression n\'a pas fonctionné']); 
-         }
-            return redirect()->route('buggyflix.person');
+        
+        //return redirect()->route('buggyflix.person');
     }
     
 }
