@@ -46,7 +46,7 @@ Route::patch('/buggyflix/persons/{person}/modifier',
 [PersonsController::class, 'update'])->name('persons.update');
 
 Route::post('/acteurs', 
-[PersonsController::class, 'store'])->name('acteurs.store');
+[PersonsController::class, 'storeActeur'])->name('acteurs.store');
 
 Route::get('buggyflix/person', [PersonsController::class, 'index'])->name('buggyflix.person');
 
