@@ -3,6 +3,12 @@
 @section("contenu")
 <section class="main-container">
     <div>
+        <form method="POST" action="{{route('persons.destroy', [$person->id]) }}">
+            @csrf
+            @method('DELETE')
+            <button type="submit" class="top-right-link"><i class="fa fa-trash"></i></button>
+        </form>
+        
         <h1>Page de {{$person->nom}}</h1>
         @if (isset($person))
             <li>{{$person->dateNaissance}} </li>
@@ -28,4 +34,17 @@
         @endif
     </div>
 </section>
+
+<style>
+    .top-right-link {
+      position: absolute;
+      top: 80px;
+      right: 10px; 
+      background-color: #D81f26;
+      color: #ffffff; 
+      padding: 10px 15px;
+      border-radius: 5px;
+    }
+  </style>
+
 @endsection

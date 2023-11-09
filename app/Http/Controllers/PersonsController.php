@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use App\Models\Person;
 use App\Models\Film;
 use App\Http\Requests\PersonRequest;
+use App\Http\Requests\ActeurRequest;
 use Illuminate\Support\Facades\Log;
 
 class PersonsController extends Controller
@@ -65,10 +66,11 @@ class PersonsController extends Controller
             
     }
 
-    public function storeActeur(Request $request)
+    public function storeActeur(ActeurRequest $requests)
     {
         try{
             $acteurs=new Acteur($request->all());
+            
             $acteurs->save();
             }
             
@@ -112,8 +114,18 @@ class PersonsController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(string $id)
+    public function destroy($id)
     {
-        //
+      
+          $person = Person::findOrFail($id);
+          $person->acteurs()->delete();
+          $person->realisateurs()->delete();
+          $person->producteurs()->delete();
+
+          $person->delete();
+                return redirect()->route('buggyflix.person')->with('message', "Suppression de " . $person->nom . " réussi!");
+        
+        //return redirect()->route('buggyflix.person');
     }
+    
 }
