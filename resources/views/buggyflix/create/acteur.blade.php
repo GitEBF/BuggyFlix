@@ -3,15 +3,7 @@
 @section("contenu")
 <link rel="stylesheet" href="{{ asset('css/form.css') }}">
 <section class="main-container"> <!-- component -->
-@if(isset($errors) && $errors->any())
-    
-    <div class="alert alert-danger">
-        @foreach($errors->all() as $error)
-            <p>{{ $error }}</p>
-        @endforeach
-    </div>
 
-@endif
 
 
 <section class="max-w-4xl p-6 mx-auto bgFlix rounded-md shadow-md mt-20">
@@ -56,6 +48,17 @@
         </button>
     </div>
 </form>
+
+@if(isset($errors) && $errors->any())
+    
+    <div class="alert alert-danger">
+        @foreach($errors->all() as $error)
+            <p>{{ $error }}</p>
+        @endforeach
+    </div>
+
+@endif
+
 </div>
 <div>
     </section>
