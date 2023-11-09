@@ -112,8 +112,24 @@ class PersonsController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(string $id)
+    public function destroy($id)
     {
-        //
+       try{
+          $person = Person::findOrFail($id);
+          $person->acteurs()->detach();
+          $person->realisateurs()->detach();
+          $person->producteurs()->detach();
+          $person->films()->detach();
+                
+          $person->delete();
+                return redirect()->route('buggyflix.person')->with('message', "Suppression de " . $person->nom . " réussi!");
+        }
+        catch(\Throwable $e){
+           
+           Log::debug($e);
+           return redirect()->route('buggyflix.person')->withErrors(['la suppression n\'a pas fonctionné']); 
+         }
+            return redirect()->route('buggyflix.person');
     }
+    
 }
