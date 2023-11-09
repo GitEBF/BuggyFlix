@@ -3,6 +3,12 @@
 @section("contenu")
 <section class="main-container">
     <div>
+        <form method="POST" action="{{route('persons.destroy', [$person->id]) }}">
+            @csrf
+            @method('DELETE')
+            <button type="submit"><i class="fa fa-plus"></i></button>
+        </form>
+        
         <h1>Page de {{$person->nom}}</h1>
         @if (isset($person))
             <li>{{$person->dateNaissance}} </li>
