@@ -8,6 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class Acteur extends Model
 {
     protected $table = "acteurs";
+    protected $fillable = ['person_id','film_id','role','nomPersonnage'];
     use HasFactory;
 
     public function person()

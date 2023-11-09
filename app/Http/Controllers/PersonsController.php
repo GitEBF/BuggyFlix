@@ -66,18 +66,27 @@ class PersonsController extends Controller
             
     }
 
-    public function storeActeur(ActeurRequest $requests)
+    public function storeActeur(ActeurRequest $request)
     {
         try{
-            $acteurs=new Acteur($request->all());
+            $person = Person::find($request->person_id);
+            $film = Film::find($request->film_id);
             
-            $acteurs->save();
+            $acteur = new Acteur($request->all());
+            
+            $acteur->save();
+            
+            $acteur->person()->associate($person); 
+            $acteur->film()->associate($film); 
+            
+            $acteur->save();
+            
+            return redirect()->route('buggyflix.index');
             }
-            
             catch(\Throwable$e){
                 Log::debug($e);
             }
-            return redirect()->route('buggyflix.index');
+            //return redirect()->route('buggyflix.index');
     }
 
     /**
@@ -121,7 +130,6 @@ class PersonsController extends Controller
                 Log::debug($e);
                 return redirect()->route('buggyflix.person')->withErrors(['la modification n\'a pas fonctionné']); 
             }
-            return redirect()->route('buggyflix.person');
         }
     
 
