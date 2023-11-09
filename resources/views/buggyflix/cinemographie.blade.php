@@ -3,6 +3,7 @@
 @section("contenu")
 <section class="main-container">
     <div>
+        <a class="top-right-link-2" href="{{ route('buggyflix.edit.person', [$person])}}"><i class="fa fa-wrench"></i></a>
         <form method="POST" action="{{route('persons.destroy', [$person->id]) }}">
             @csrf
             @method('DELETE')
@@ -40,6 +41,16 @@
       position: absolute;
       top: 80px;
       right: 10px; 
+      background-color: #D81f26;
+      color: #ffffff; 
+      padding: 10px 15px;
+      border-radius: 5px;
+    }
+
+    .top-right-link-2 {
+      position: absolute;
+      top: 80px;
+      right: 60px; 
       background-color: #D81f26;
       color: #ffffff; 
       padding: 10px 15px;
