@@ -33,7 +33,7 @@ class ActeurRequest extends FormRequest
     {
         return [
             'person_id.required' => 'Sélectionner un nom dans la liste',
-            'film.required' => 'Sélectionner un film dans la liste',
+            'film_id.required' => 'Sélectionner un film dans la liste',
             'role.required' => "Quel est le role de l'acteur?",
             'nomPersonnage.required' => 'Quel est le nom du personnage?',
         ];

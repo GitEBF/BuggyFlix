@@ -3,10 +3,11 @@
 namespace App\Http\Controllers;
 
 use App\Models\Acteur;
-use Illuminate\Http\Requests;
+use Illuminate\Http\Request;
 use App\Models\Person;
 use App\Models\Film;
 use App\Http\Requests\PersonRequest;
+use App\Http\Requests\ActeurRequest;
 use Illuminate\Support\Facades\Log;
 
 class PersonsController extends Controller
@@ -50,7 +51,7 @@ class PersonsController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(PersonRequest $requests)
+    public function store(PersonRequest $request)
     {
         try{
             $persons=new Person($request->all());
@@ -65,10 +66,11 @@ class PersonsController extends Controller
             
     }
 
-    public function storeActeur(ActeurRequest $requests)
+    public function storeActeur(Request $request)
     {
         try{
             $acteurs=new Acteur($request->all());
+            
             $acteurs->save();
             }
             

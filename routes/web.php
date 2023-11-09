@@ -40,7 +40,7 @@ Route::post('/persons',
 [PersonsController::class, 'store'])->name('persons.store');
 
 Route::post('/acteurs', 
-[PersonsController::class, 'store'])->name('acteurs.store');
+[PersonsController::class, 'storeActeur'])->name('acteurs.store');
 
 Route::get('buggyflix/person', [PersonsController::class, 'index'])->name('buggyflix.person');
 
