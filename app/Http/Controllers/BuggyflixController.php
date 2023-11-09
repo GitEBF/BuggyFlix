@@ -40,7 +40,16 @@ class BuggyflixController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        try {
+            $film = new Film($request->all());
+            $film->save();
+        }
+
+        catch (\Throwable $e){
+            Log::debug($e);
+        }
+
+        return redirect()->route("buggyflix.index");
     }
 
     /**

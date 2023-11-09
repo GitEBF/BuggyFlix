@@ -27,6 +27,9 @@ Route::get('buggyflix/create/film',
 Route::get('buggyflix/create/person', 
 [PersonsController::class, 'create'])->name('buggyflix.create.person');
 
+Route::get('buggyflix/edit/{person}', 
+[PersonsController::class, 'edit'])->name('buggyflix.edit.person');
+
 Route::get('buggyflix/create/acteur', 
 [PersonsController::class, 'createActeur'])->name('buggyflix.create.acteur');
 
@@ -38,6 +41,9 @@ Route::get('buggyflix/create/realisateur',
 
 Route::post('/persons', 
 [PersonsController::class, 'store'])->name('persons.store');
+
+Route::patch('/buggyflix/persons/{person}/modifier', 
+[PersonsController::class, 'update'])->name('persons.update');
 
 Route::post('/acteurs', 
 [PersonsController::class, 'storeActeur'])->name('acteurs.store');

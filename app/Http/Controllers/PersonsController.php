@@ -98,18 +98,32 @@ class PersonsController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(string $id)
+    public function edit(Person $person)
     {
-        //
+         return View('buggyflix.edit.person', compact('person'));
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, string $id)
-    {
-        //
-    }
+    public function update(PersonRequest $request, Person $person)
+        {
+            try{
+                $person->nom = $request->nom;
+                $person->dateNaissance = $request->dateNaissance;
+                $person->lieuNaissance = $request->lieuNaissance;
+                $person->img = $request->img;
+                
+                $person->save();
+                return redirect()->route('buggyflix.person')->with('message', "Modification de " . $person->nom . " réussi!");
+            }
+            catch(\Throwable $e){
+                Log::debug($e);
+                return redirect()->route('buggyflix.person')->withErrors(['la modification n\'a pas fonctionné']); 
+            }
+            return redirect()->route('buggyflix.person');
+        }
+    
 
     /**
      * Remove the specified resource from storage.
