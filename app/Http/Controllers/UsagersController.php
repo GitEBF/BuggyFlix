@@ -14,6 +14,11 @@ class UsagersController extends Controller
         //
     }
 
+    public function showLoginForm()
+    {
+        
+    }
+
     /**
      * Show the form for creating a new resource.
      */
