@@ -25,6 +25,7 @@
                 <li>Latest</li>
                 <li>My List</li>
                 <li>Watch Again</li>
+                <a class="" href="{{ route('UsagersController.logout')}}">Deconnexion</a>
             </ul>
             </nav>
         </div>

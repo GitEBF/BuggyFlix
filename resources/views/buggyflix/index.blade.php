@@ -4,6 +4,7 @@
 @section("contenu")
 <!-- MAIN CONTAINER -->
 <section class="main-container">
+  @auth
   <div class="location" id="home"> <h1 id="home">Popular on Netflix</h1> <div class="box">
     @if (count($films))
     @foreach ($filmsbyDate as $film)
@@ -38,6 +39,8 @@
     <a href="{{ route('buggyflix.show', [$film]) }}"><img src="{{ $film->pochette}}" alt=""></a>
     @endforeach
   </div>
-
+  @else
+   <p>Veuillez vous connecter</p>
+  @endauth
   <!-- END OF MAIN CONTAINER -->
   @endsection

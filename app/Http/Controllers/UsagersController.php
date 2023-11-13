@@ -2,8 +2,8 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
-
+use Auth;
+use App\Http\Requests\LoginRequest;
 class UsagersController extends Controller
 {
     /**
@@ -11,14 +11,30 @@ class UsagersController extends Controller
      */
     public function index()
     {
-        //
+        
     }
 
     public function showLoginForm()
     {
-        
+        return view("buggyflix.loginForm");
     }
 
+    public function login(LoginRequest $request) {
+        $reussi = Auth::attempt(['email' => $request->email, 'password' => $request->password]);
+
+        if ($reussi) {
+            return redirect()->route('buggyflix.index')->with('message', "Connexion réussie");
+        } else {
+            return redirect()->route('UsagersController.login')->withErrors(['Informations invalides']);
+        }
+    }
+
+    public function logout(): RedirectResponse
+    {
+        Auth::logout();
+     
+        return redirect('/');
+    }
     /**
      * Show the form for creating a new resource.
      */

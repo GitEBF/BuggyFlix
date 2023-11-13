@@ -3,7 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\BuggyflixController;
 use App\Http\Controllers\PersonsController;
-
+use App\Http\Controllers\UsagersController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -63,13 +63,13 @@ Route::delete('buggyflix/cinemographie/{id}',
 [PersonsController::class, 'destroy'])->name('persons.destroy');
 
 // Usagers
-Route::get('login', 
+Route::get('buggyflix/login', 
 [UsagersController::class, 'showLoginForm'])->name('UsagersController.showLoginForm');
 
-Route::post('login', 
+Route::post('buggyflix/login',
 [UsagersController::class, 'login'])->name('UsagersController.login');
 
-Route::post('logout', 
+Route::get('buggyflix/logout', 
 [UsagersController::class, 'logout'])->name('UsagersController.logout');
 
 // Films
