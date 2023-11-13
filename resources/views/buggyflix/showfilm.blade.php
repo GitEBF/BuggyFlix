@@ -5,6 +5,12 @@
 <section class="main-container" >
     <div >
 @if (isset($film))
+<a class="top-right-link-2" href="{{ route('buggyflix.edit.film', [$film])}}"><i class="fa fa-wrench"></i></a>
+        <form method="POST" action="{{route('film.destroy', [$film->id]) }}">
+            @csrf
+            @method('DELETE')
+            <button type="submit" class="top-right-link"><i class="fa fa-trash"></i></button>
+        </form>
     <div class="pageFilm">
         <div class="infoFilm">
             <h1 class="titreFilm">{{$film->titre}} </h1>
@@ -61,4 +67,30 @@
 @endif
     </div>
 </section>
+
+
+<style>
+    .top-right-link {
+      position: absolute;
+      top: 80px;
+      right: 10px; 
+      background-color: #D81f26;
+      color: #ffffff; 
+      padding: 10px 15px;
+      border-radius: 5px;
+    }
+
+    .top-right-link-2 {
+      position: absolute;
+      top: 80px;
+      right: 60px; 
+      background-color: #D81f26;
+      color: #ffffff; 
+      padding: 10px 15px;
+      border-radius: 5px;
+    }
+  </style>
+
 @endsection
+
+

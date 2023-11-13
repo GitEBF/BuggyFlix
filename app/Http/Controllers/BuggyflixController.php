@@ -82,6 +82,12 @@ class BuggyflixController extends Controller
      */
     public function destroy(string $id)
     {
-        //
+        $film = Film::findOrFail($id);
+        $film->acteurs()->delete();
+        $film->realisateurs()->delete();
+        $film->producteurs()->delete();
+
+        $film->delete();
+              return redirect()->route('buggyflix.index')->with('message', "Suppression de " . $film->titre . " réussi!");
     }
 }

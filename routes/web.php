@@ -71,3 +71,10 @@ Route::post('login',
 
 Route::post('logout', 
 [UsagersController::class, 'logout'])->name('UsagersController.logout');
+
+// Films
+Route::delete('buggyflix/film/{id}', 
+[BuggyflixController::class, 'destroy'])->name('film.destroy');
+
+Route::get('buggyflix/edit/{film}', 
+[PersonsController::class, 'edit'])->name('buggyflix.edit.film');
