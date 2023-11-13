@@ -8,6 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class Producteur extends Model
 {
     protected $table = "producteurs";
+    protected $fillable = ['person_id','film_id'];
     use HasFactory;
 
     public function person()
