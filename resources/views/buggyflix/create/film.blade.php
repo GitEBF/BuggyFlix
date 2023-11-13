@@ -4,7 +4,7 @@
 <link rel="stylesheet" href="{{ asset('css/form.css') }}"> <section class="main-container"> <!-- component -->
 <section class="max-w-4xl p-6 mx-auto bgFlix rounded-md shadow-md mt-20">
 <h1 class="text-xl font-bold text-white capitalize dark:text-white">Creation Film</h1>
-<form method="post" action="{{ route('acteurs.store') }}">
+<form method="post" action="{{ route('buggyflix.store') }}">
     <div class="grid grid-cols-1 gap-6 mt-4 sm:grid-cols-2">
         <div>
             <label class="text-white dark:text-gray-200" for="titre">Titre</label>
