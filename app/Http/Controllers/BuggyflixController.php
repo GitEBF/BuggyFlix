@@ -64,18 +64,37 @@ class BuggyflixController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(string $id)
+    public function edit(Film $film)
     {
-        //
+        return View('buggyflix.edit.film', compact('film'));
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, string $id)
-    {
-        //
-    }
+    public function update(FilmRequest $request, Film $film)
+        {
+            try{
+                $film->titre = $request->titre;
+                $film->resume = $request->resume;
+                $film->pochette = $request->pochette;
+                $film->type = $request->type;
+                $film->brand = $request->brand;
+                $film->duree = $request->duree;
+                $film->date = $request->date;
+                $film->rating = $request->rating;
+                $film->cote = $request->cote;
+                $film->langue = $request->langue;
+                $film->subtitle = $request->subtitle;
+                
+                $film->save();
+                return redirect()->route('buggyflix.index')->with('message', "Modification de " . $film->titre . " réussi!");
+            }
+            catch(\Throwable $e){
+                Log::debug($e);
+                return redirect()->route('buggyflix.index')->withErrors(['la modification n\'a pas fonctionné']); 
+            }
+        }
 
     /**
      * Remove the specified resource from storage.
