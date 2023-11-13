@@ -3,11 +3,15 @@
 namespace App\Http\Controllers;
 
 use App\Models\Acteur;
+use App\Models\Producteur;
+use App\Models\Realisateur;
 use Illuminate\Http\Request;
 use App\Models\Person;
 use App\Models\Film;
 use App\Http\Requests\PersonRequest;
 use App\Http\Requests\ActeurRequest;
+use App\Http\Requests\ProducteurRequest;
+use App\Http\Requests\RealisateurRequest;
 use Illuminate\Support\Facades\Log;
 
 class PersonsController extends Controller
@@ -86,9 +90,50 @@ class PersonsController extends Controller
             catch(\Throwable$e){
                 Log::debug($e);
             }
-            //return redirect()->route('buggyflix.index');
     }
 
+    public function storeProducteur(ProducteurRequest $request)
+    {
+        try{
+            $person = Person::find($request->person_id);
+            $film = Film::find($request->film_id);
+            
+            $producteur = new Producteur($request->all());
+            
+            $producteur->save();
+            
+            $producteur->person()->associate($person); 
+            $producteur->film()->associate($film); 
+            
+            $producteur->save();
+            
+            return redirect()->route('buggyflix.index');
+            }
+            catch(\Throwable$e){
+                Log::debug($e);
+            }
+    }
+    public function storeRealisateur(RealisateurRequest $request)
+    {
+        try{
+            $person = Person::find($request->person_id);
+            $film = Film::find($request->film_id);
+            
+            $realisateur = new Realisateur($request->all());
+            
+            $realisateur->save();
+            
+            $realisateur->person()->associate($person); 
+            $realisateur->film()->associate($film); 
+            
+            $realisateur->save();
+            
+            return redirect()->route('buggyflix.index');
+            }
+            catch(\Throwable$e){
+                Log::debug($e);
+            }
+    }
     /**
      * Display the specified resource.
      */
@@ -149,5 +194,34 @@ class PersonsController extends Controller
         
         //return redirect()->route('buggyflix.person');
     }
+
+    public function destroyActeur($id)
+    {
+          $acteur = Acteur::findOrFail($id);
+
+          $acteur->delete();
+                return redirect()->route('buggyflix.person')->with('message', "Suppression du rôle réussi!");
+        
+        //return redirect()->route('buggyflix.person');
+    }
     
+    public function destroyProducteur($id)
+    {
+          $producteur = Producteur::findOrFail($id);
+
+          $producteur->delete();
+                return redirect()->route('buggyflix.person')->with('message', "Suppression du rôle réussi!");
+        
+        //return redirect()->route('buggyflix.person');
+    }
+
+    public function destroyRealisateur($id)
+    {
+          $realisateur = Realisateur::findOrFail($id);
+
+          $realisateur->delete();
+                return redirect()->route('buggyflix.person')->with('message', "Suppression du rôle réussi!");
+        
+        //return redirect()->route('buggyflix.person');
+    }
 }

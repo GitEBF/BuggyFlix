@@ -1,5 +1,5 @@
 @extends("layouts.app")
-
+<link rel="stylesheet" href="{{asset('css/pageInfoPerson.css')}}">
 @section("contenu")
 <section class="main-container">
     <div>
@@ -16,18 +16,51 @@
             <li>{{$person->lieuNaissance}} </li>
             @if ($person->acteurs->count() > 0)
                     @foreach ($person->acteurs as $acteur)
-                        <h1>Film : {{$acteur->film->titre}}</h1>
-                        <li>Role: {{$acteur->role}}</li>
-                        <li>Nom du personnage : {{$acteur->nomPersonnage}}</li>
+                        <div class="rowRole">
+                            <div class="infoRole">
+                                <h1>Film : {{$acteur->film->titre}}</h1>
+                                <li>Role: {{$acteur->role}}</li>
+                                <li>Nom du personnage : {{$acteur->nomPersonnage}}</li>
+                            </div>
+                            <div class="supRole">
+                            <form method="POST" action="{{route('acteurs.destroy', [$acteur->id]) }}">
+                                @csrf
+                                @method('DELETE')
+                                <button type="submit"><i class="fa fa-trash"></i></button>
+                            </form>
+                            </div>
+                        </div>  
                     @endforeach
             @endif
             @foreach ($person->producteurs as $producteur)
-                <h1>Film : {{$producteur->film->titre}}</h1>
-                <li>Role: Producteur</li>
+            <div class="rowRole">
+                <div class="infoRole">
+                    <h1>Film : {{$producteur->film->titre}}</h1>
+                    <li>Role: Producteur</li>
+                </div>
+                <div class="supRole">
+                    <form method="POST" action="{{route('producteurs.destroy', [$producteur->id]) }}">
+                        @csrf
+                        @method('DELETE')
+                        <button type="submit"><i class="fa fa-trash"></i></button>
+                    </form>
+                </div>
+            </div>  
             @endforeach
             @foreach ($person->realisateurs as $realisateur)
+            <div class="rowRole">
+                <div class="infoRole">
                 <h1>Film : {{$realisateur->film->titre}}</h1>
                 <li>Role: Réalisateur</li>
+                </div>
+                <div class="supRole">
+                    <form method="POST" action="{{route('realisateurs.destroy', [$realisateur->id]) }}">
+                        @csrf
+                        @method('DELETE')
+                        <button type="submit"><i class="fa fa-trash"></i></button>
+                    </form>
+                    </div>
+                </div>
             @endforeach
 
         @else
