@@ -2,10 +2,11 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
+use App\Http\Requests\FilmRequest;
 use App\Models\Film;
 use App\Models\Genre;
 use Illuminate\Http\Response;
+use Illuminate\Support\Facades\Log;
 
 class BuggyflixController extends Controller
 {
@@ -38,7 +39,7 @@ class BuggyflixController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
+    public function store(FilmRequest $request)
     {
         try {
             $film = new Film($request->all());
@@ -63,24 +64,49 @@ class BuggyflixController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(string $id)
+    public function edit(Film $film)
     {
-        //
+        return View('buggyflix.edit.film', compact('film'));
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, string $id)
-    {
-        //
-    }
+    public function update(FilmRequest $request, Film $film)
+        {
+            try{
+                $film->titre = $request->titre;
+                $film->resume = $request->resume;
+                $film->pochette = $request->pochette;
+                $film->type = $request->type;
+                $film->brand = $request->brand;
+                $film->duree = $request->duree;
+                $film->date = $request->date;
+                $film->rating = $request->rating;
+                $film->cote = $request->cote;
+                $film->langue = $request->langue;
+                $film->subtitle = $request->subtitle;
+                
+                $film->save();
+                return redirect()->route('buggyflix.index')->with('message', "Modification de " . $film->titre . " réussi!");
+            }
+            catch(\Throwable $e){
+                Log::debug($e);
+                return redirect()->route('buggyflix.index')->withErrors(['la modification n\'a pas fonctionné']); 
+            }
+        }
 
     /**
      * Remove the specified resource from storage.
      */
     public function destroy(string $id)
     {
-        //
+        $film = Film::findOrFail($id);
+        $film->acteurs()->delete();
+        $film->realisateurs()->delete();
+        $film->producteurs()->delete();
+
+        $film->delete();
+              return redirect()->route('buggyflix.index')->with('message', "Suppression de " . $film->titre . " réussi!");
     }
 }

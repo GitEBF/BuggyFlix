@@ -76,3 +76,23 @@ Route::delete('/producteurs/{id}',
 
 Route::delete('/realisateurs/{id}', 
 [PersonsController::class, 'destroyRealisateur'])->name('realisateurs.destroy');
+
+// Usagers
+Route::get('login', 
+[UsagersController::class, 'showLoginForm'])->name('UsagersController.showLoginForm');
+
+Route::post('login', 
+[UsagersController::class, 'login'])->name('UsagersController.login');
+
+Route::post('logout', 
+[UsagersController::class, 'logout'])->name('UsagersController.logout');
+
+// Films
+Route::delete('buggyflix/film/{id}', 
+[BuggyflixController::class, 'destroy'])->name('film.destroy');
+
+Route::get('buggyflix/edit/film/{film}', 
+[BuggyflixController::class, 'edit'])->name('buggyflix.edit.film');
+
+Route::patch('/buggyflix/film/{film}/modifier', 
+[BuggyflixController::class, 'update'])->name('buggyflix.update');
