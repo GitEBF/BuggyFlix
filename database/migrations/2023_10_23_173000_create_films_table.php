@@ -19,7 +19,6 @@ return new class extends Migration
             $table->string('type');
             $table->string('brand');
             $table->string('duree');
-            $table->string('annee');
             $table->date('date');
             $table->string('rating');
             $table->string('cote');

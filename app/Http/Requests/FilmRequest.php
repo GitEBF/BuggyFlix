@@ -22,8 +22,8 @@ class FilmRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'titre' => 'required|min:10|max:75',
-            'resume' => 'required|min:10',
+            'titre' => 'required',
+            'resume' => 'required',
             'type' => 'required',
             'brand' => 'required',
             'pochette' => 'required',
@@ -39,17 +39,17 @@ class FilmRequest extends FormRequest
     public function messages(): array
     {
         return [
-            'titre.required' => 'required',
-            'resume.required' => 'required',
-            'type.required' => 'required',
-            'brand.required' => 'required',
-            'pochette.required' => 'required',
-            'cote.required' => 'required',
-            'duree.required' => 'required',
-            'rating.required' => 'required',
-            'date.required' => 'required',
-            'langue.required' => 'required',
-            'subtitle.required' => 'required'
+            'titre.required' => 'Veuillez insérer un titre',
+            'resume.required' => 'Veuillez insérer un résumé',
+            'type.required' => 'Veuillez insérer un type',
+            'brand.required' => 'Veuillez insérer un brand',
+            'pochette.required' => 'Veuillez insérer une pochette',
+            'cote.required' => 'Veuillez insérer une cote',
+            'duree.required' => 'Veuillez insérer une durée',
+            'rating.required' => 'Veuillez insérer un rating',
+            'date.required' => 'Veuillez insérer une date',
+            'langue.required' => 'Veuillez insérer une langue',
+            'subtitle.required' => 'Veuillez insérer un sous-titre'
         ];
     }
 }

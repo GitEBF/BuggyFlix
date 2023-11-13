@@ -2,11 +2,19 @@
 
 namespace App\Http\Controllers;
 
+<<<<<<< HEAD
+=======
+use Illuminate\Http\Request;
+>>>>>>> 29ab6479a7d1d8e75f3bace01e5048ad02ff28fb
 use App\Http\Requests\FilmRequest;
 use App\Models\Film;
 use App\Models\Genre;
 use Illuminate\Http\Response;
 use Illuminate\Support\Facades\Log;
+<<<<<<< HEAD
+=======
+
+>>>>>>> 29ab6479a7d1d8e75f3bace01e5048ad02ff28fb
 
 class BuggyflixController extends Controller
 {
