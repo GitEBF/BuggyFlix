@@ -3,9 +3,12 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Http\Requests\FilmRequest;
 use App\Models\Film;
 use App\Models\Genre;
 use Illuminate\Http\Response;
+use Illuminate\Support\Facades\Log;
+
 
 class BuggyflixController extends Controller
 {
@@ -38,7 +41,7 @@ class BuggyflixController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
+    public function store(FilmRequest $request)
     {
         try {
             $film = new Film($request->all());
