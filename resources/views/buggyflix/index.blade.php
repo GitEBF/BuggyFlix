@@ -20,7 +20,7 @@
   @endrole
 
   @role(1,3)
-  <div class="location" id="home"> <h1 id="home">Popular on Netflix</h1> <div class="box">
+  <div class="location" id="home"> <h1 id="home">Film pour enfant</h1> <div class="box">
     @if (count($films))
     @foreach ($filmsPG as $film)
     <a href="{{ route('buggyflix.show', [$film]) }}"><img src="{{ $film->pochette}}" alt=""></a>
