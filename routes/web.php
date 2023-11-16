@@ -88,6 +88,13 @@ Route::post('buggyflix/login',
 Route::get('buggyflix/logout', 
 [UsagersController::class, 'logout'])->name('UsagersController.logout');
 
+Route::get('buggyflix/signin', 
+[UsagersController::class, 'signin'])->name('UsagersController.signin');
+
+Route::post('/login', 
+[UsagersController::class, 'store'])->name('UsagersController.store');
+
+
 // Films
 Route::delete('buggyflix/film/{id}', 
 [BuggyflixController::class, 'destroy'])->name('film.destroy');

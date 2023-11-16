@@ -35,6 +35,12 @@ class UsagersController extends Controller
      
         return redirect('/buggyflix');
     }
+
+    public function signin()
+    {
+     
+        return view('buggyflix.signinForm');
+    }
     /**
      * Show the form for creating a new resource.
      */
@@ -46,9 +52,19 @@ class UsagersController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
+    public function store(UsagerRequest $request)
     {
-        //
+        try{
+            $usager=new Usager($request->all());
+            $usager->save();
+            return redirect()->route('buggyflix.login');
+            }
+            
+            catch(\Throwable$e){
+                Log::debug($e);
+            }
+            return redirect()->route('buggyflix.signin');
+            
     }
 
     /**
