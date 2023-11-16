@@ -3,13 +3,14 @@
 @section("contenu")
 <section class="main-container">
     <div>
+    @role('1')
         <a class="top-right-link-2" href="{{ route('buggyflix.edit.person', [$person])}}"><i class="fa fa-wrench"></i></a>
         <form method="POST" action="{{route('persons.destroy', [$person->id]) }}">
             @csrf
             @method('DELETE')
             <button type="submit" class="top-right-link"><i class="fa fa-trash"></i></button>
         </form>
-        
+        @endrole
         <h1>Page de {{$person->nom}}</h1>
         @if (isset($person))
             <li>{{$person->dateNaissance}} </li>
@@ -22,6 +23,7 @@
                                 <li>Role: {{$acteur->role}}</li>
                                 <li>Nom du personnage : {{$acteur->nomPersonnage}}</li>
                             </div>
+                            @role('1')
                             <div class="supRole">
                             <form method="POST" action="{{route('acteurs.destroy', [$acteur->id]) }}">
                                 @csrf
@@ -29,6 +31,7 @@
                                 <button type="submit"><i class="fa fa-trash"></i></button>
                             </form>
                             </div>
+                            @endrole
                         </div>  
                     @endforeach
             @endif
@@ -38,6 +41,7 @@
                     <h1>Film : {{$producteur->film->titre}}</h1>
                     <li>Role: Producteur</li>
                 </div>
+                @role('1')
                 <div class="supRole">
                     <form method="POST" action="{{route('producteurs.destroy', [$producteur->id]) }}">
                         @csrf
@@ -45,6 +49,7 @@
                         <button type="submit"><i class="fa fa-trash"></i></button>
                     </form>
                 </div>
+                @endrole
             </div>  
             @endforeach
             @foreach ($person->realisateurs as $realisateur)
@@ -53,6 +58,7 @@
                 <h1>Film : {{$realisateur->film->titre}}</h1>
                 <li>Role: Réalisateur</li>
                 </div>
+                @role('1')
                 <div class="supRole">
                     <form method="POST" action="{{route('realisateurs.destroy', [$realisateur->id]) }}">
                         @csrf
@@ -60,6 +66,7 @@
                         <button type="submit"><i class="fa fa-trash"></i></button>
                     </form>
                     </div>
+                    @endrole
                 </div>
             @endforeach
 

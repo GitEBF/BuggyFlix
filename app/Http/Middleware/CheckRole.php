@@ -26,7 +26,7 @@ class CheckRole
             } else {
             // Vérifie si le rôle de l'utilisateur est autorisé
                 if (!in_array($user->role, $roles)) {
-                    return redirect()->route('UsagersController.login'); // Rediriger vers la page de connexion
+                    return redirect()->route('buggyflix.index'); // Rediriger vers la page de connexion
                 }
             }
             return $next($request);

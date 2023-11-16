@@ -20,7 +20,7 @@ Route::get('/buggyflix',
 [BuggyflixController::class, 'index'])->name('buggyflix.index');
 
 Route::get('buggyflix/film/{film}', 
-[BuggyflixController::class, 'show'])->name('buggyflix.show')->middleware('CheckRole:1');
+[BuggyflixController::class, 'show'])->name('buggyflix.show')->middleware('CheckRole:1,2,3');
 
 Route::get('buggyflix/create/film', 
 [BuggyflixController::class, 'create'])->name('buggyflix.create.film')->middleware('CheckRole:1');
@@ -96,7 +96,7 @@ Route::post('/login',
 
 
 // Films
-Route::delete('buggyflix/film/{id}', 
+Route::delete('delete/film/{id}', 
 [BuggyflixController::class, 'destroy'])->name('film.destroy');
 
 Route::get('buggyflix/edit/film/{film}', 

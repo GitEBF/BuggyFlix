@@ -6,7 +6,9 @@
 <section class="main-container flex justify-center">
 @auth
 <div class="location" id="home">
+@role('1')
   <a class="top-right-link" href="{{ route('buggyflix.create.person')}}"><i class="fa fa-plus"></i></a>
+  @endrole
       <h1 id="home">Les gens toutes biggie</h1>
       <div class="box">
       @if (count($persons))
