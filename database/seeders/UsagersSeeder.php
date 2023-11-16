@@ -18,7 +18,7 @@ class UsagersSeeder extends Seeder
             [
                 'email' => 'yup@hotmail.ca',
                 'birthDate' => '2014-03-21',
-                'role' => 1,
+                'role' => '1',
                 'password' => Hash::make('buggyCheese')
             ],
         ]);

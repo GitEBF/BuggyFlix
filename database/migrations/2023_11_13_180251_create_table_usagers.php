@@ -16,7 +16,7 @@ return new class extends Migration
             $table->string("email");
             $table->string("password");
             $table->date("birthDate");
-            $table->unsignedBigInteger("role");
+            $table->string("role");
             $table->timestamps();
         });
     }
