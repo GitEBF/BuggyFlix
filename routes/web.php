@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\BuggyflixController;
 use App\Http\Controllers\PersonsController;
 use App\Http\Controllers\UsagersController;
+use App\Http\Middleware\CheckRole;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -92,7 +93,7 @@ Route::delete('buggyflix/film/{id}',
 [BuggyflixController::class, 'destroy'])->name('film.destroy');
 
 Route::get('buggyflix/edit/film/{film}', 
-[BuggyflixController::class, 'edit'])->name('buggyflix.edit.film');
+[BuggyflixController::class, 'edit'])->name('buggyflix.edit.film')->middleware('CheckRole:admin');
 
 Route::patch('/buggyflix/film/{film}/modifier', 
 [BuggyflixController::class, 'update'])->name('buggyflix.update');

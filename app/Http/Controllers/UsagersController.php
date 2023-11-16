@@ -29,11 +29,11 @@ class UsagersController extends Controller
         }
     }
 
-    public function logout(): RedirectResponse
+    public function logout()
     {
         Auth::logout();
      
-        return redirect('/');
+        return redirect('/buggyflix');
     }
     /**
      * Show the form for creating a new resource.

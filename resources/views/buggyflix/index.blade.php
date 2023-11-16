@@ -40,7 +40,9 @@
     @endforeach
   </div>
   @else
-   <p>Veuillez vous connecter</p>
+  <div class="main-container location" id="home">
+   <a class="location" href="{{ route('UsagersController.login')}}"><p>Veuillez vous connecter</p></a>
+</div>
   @endauth
   <!-- END OF MAIN CONTAINER -->
   @endsection
