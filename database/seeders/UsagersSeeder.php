@@ -22,13 +22,13 @@ class UsagersSeeder extends Seeder
                 'password' => Hash::make('buggyCheese')
             ],
             [
-                'email' => 'root',
+                'email' => 'root@root.ca',
                 'birthDate' => '1710-03-21',
                 'role' => '1',
                 'password' => Hash::make('root')
             ],
             [
-                'email' => 'kid',
+                'email' => 'kid@kid.ca',
                 'birthDate' => '2022-03-21',
                 'role' => '3',
                 'password' => Hash::make('kid')
