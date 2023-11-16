@@ -34,7 +34,7 @@
   @endrole
 
 
-  @role(1,2,3)
+  @role(1,2)
   <h1 id="myList">Action</h1>
   <div class="box">
     @foreach ($actionfilms as $film)
