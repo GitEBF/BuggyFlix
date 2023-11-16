@@ -18,19 +18,19 @@ class UsagersSeeder extends Seeder
             [
                 'email' => 'yup@hotmail.ca',
                 'birthDate' => '2014-03-21',
-                'role' => 2,
+                'role' => '2',
                 'password' => Hash::make('buggyCheese')
             ],
             [
                 'email' => 'root',
                 'birthDate' => '1710-03-21',
-                'role' => 1,
+                'role' => '1',
                 'password' => Hash::make('root')
             ],
             [
                 'email' => 'kid',
                 'birthDate' => '2022-03-21',
-                'role' => 3,
+                'role' => '3',
                 'password' => Hash::make('kid')
             ],
         ]);
