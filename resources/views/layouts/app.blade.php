@@ -25,7 +25,9 @@
                 <li>Latest</li>
                 <li>My List</li>
                 <li>Watch Again</li>
+                @role('1,2,3')
                 <a class="" href="{{ route('UsagersController.logout')}}">Deconnexion</a>
+                @endrole
             </ul>
             </nav>
         </div>
