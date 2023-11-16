@@ -14,7 +14,7 @@ class CheckRole
      *
      * @param  \Closure(\Illuminate\Http\Request): (\Symfony\Component\HttpFoundation\Response)  $next
      */
-    public function handle(LoginRequest $request, Closure $next, ...$roles): Response
+    public function handle(Request $request, Closure $next, ...$roles): Response
         {
             // Vérifie si l'utilisateur est connecté
             $user = $request->user();

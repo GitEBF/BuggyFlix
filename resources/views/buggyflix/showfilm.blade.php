@@ -5,12 +5,14 @@
 <section class="main-container" >
     <div >
 @if (isset($film))
+@role('1')
 <a class="top-right-link-2" href="{{ route('buggyflix.edit.film', [$film])}}"><i class="fa fa-wrench"></i></a>
         <form method="POST" action="{{route('film.destroy', [$film->id]) }}">
             @csrf
             @method('DELETE')
             <button type="submit" class="top-right-link"><i class="fa fa-trash"></i></button>
         </form>
+@endrole
     <div class="pageFilm">
         <div class="infoFilm">
             <h1 class="titreFilm">{{$film->titre}} </h1>
