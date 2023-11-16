@@ -21,7 +21,10 @@ class AppServiceProvider extends ServiceProvider
     public function boot(): void
     {
         Blade::directive('role', function ($role) {
-            return "<?php if(auth()->check() && auth()->user()->role === $role): ?>";
+            $roles = explode(',', $role);
+            $roles = array_map('trim', $roles);
+        
+            return "<?php if(auth()->check() && in_array(auth()->user()->role, [" . implode(',', $roles) . "])): ?>";
         });
 
         Blade::directive('endrole', function () {
