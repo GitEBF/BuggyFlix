@@ -41,9 +41,7 @@
     <a href="{{ route('buggyflix.show', [$film]) }}"><img src="{{ $film->pochette}}" alt=""></a>
     @endforeach
   </div>
-  @endrole
 
-  @role(1,2)
   <h1 id="myList">Horreur</h1>
   <div class="box">
     @foreach ($horrorfilms as $film)
