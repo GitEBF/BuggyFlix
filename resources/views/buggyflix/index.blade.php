@@ -5,7 +5,7 @@
 <!-- MAIN CONTAINER -->
 <section class="main-container">
   @auth
-  @role(2,1,3)
+  @role(1,2)
   <div class="location" id="home"> <h1 id="home">Popular on Netflix</h1> <div class="box">
     @if (count($films))
     @foreach ($filmsbyDate as $film)
