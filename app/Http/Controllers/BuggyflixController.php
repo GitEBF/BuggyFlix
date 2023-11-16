@@ -26,8 +26,8 @@ class BuggyflixController extends Controller
         $genreId = 6;
         $dramefilms = Film::whereHas('genres', function($query) use ($genreId) {$query->where('genre_id', $genreId);})->get();
         $filmsbyDate = Film::orderBy('date')->get()->reverse();
-        $filmsPG = Film::whereHas('cote','PG');
-        return view("buggyflix.index", compact('films', 'filmsbyDate', 'filmPG' ,'actionfilms', 'horrorfilms', 'dramefilms'));
+        $filmsPG = Film::where('cote','PG')->get();
+        return view("buggyflix.index", compact('films', 'filmsbyDate', 'filmsPG' ,'actionfilms', 'horrorfilms', 'dramefilms'));
     }
 
     /**

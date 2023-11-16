@@ -5,7 +5,7 @@
 <!-- MAIN CONTAINER -->
 <section class="main-container">
   @auth
-  @role('1','2')
+  @role('1,2')
   <div class="location" id="home"> <h1 id="home">Popular on Netflix</h1> <div class="box">
     @if (count($films))
     @foreach ($filmsbyDate as $film)
@@ -19,7 +19,7 @@
   </div>
   @endrole
 
-  @role('1','3')
+  @role('1,3')
   <div class="location" id="home"> <h1 id="home">Popular on Netflix</h1> <div class="box">
     @if (count($films))
     @foreach ($filmsPG as $film)
@@ -34,7 +34,7 @@
   @endrole
 
 
-  @role('1','2','3')
+  @role('1,2,3')
   <h1 id="myList">Action</h1>
   <div class="box">
     @foreach ($actionfilms as $film)
@@ -43,7 +43,7 @@
   </div>
   @endrole
 
-  @role('1','2')
+  @role('1,2')
   <h1 id="myList">Horreur</h1>
   <div class="box">
     @foreach ($horrorfilms as $film)
