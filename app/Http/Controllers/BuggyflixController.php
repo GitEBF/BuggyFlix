@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Http\Requests\FilmRequest;
 use App\Models\Film;
 use App\Models\Genre;
+use App\Models\FilmGenre;
 use Illuminate\Http\Response;
 use Illuminate\Support\Facades\Log;
 
@@ -105,6 +106,7 @@ class BuggyflixController extends Controller
         $film->acteurs()->delete();
         $film->realisateurs()->delete();
         $film->producteurs()->delete();
+        $film->genres()->delete();
 
         $film->delete();
               return redirect()->route('buggyflix.index')->with('message', "Suppression de " . $film->titre . " réussi!");
