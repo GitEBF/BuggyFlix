@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Auth;
 use App\Http\Requests\LoginRequest;
+use App\Http\Requests\UsagerRequest;
 class UsagersController extends Controller
 {
     /**
