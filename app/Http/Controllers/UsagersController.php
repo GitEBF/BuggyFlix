@@ -58,13 +58,14 @@ class UsagersController extends Controller
         try{
             $usager=new Usager($request->all());
             $usager->save();
-            return redirect()->route('buggyflix.index');
+            return redirect()->route('UsagersController.index');
             }
             
             catch(\Throwable$e){
                 Log::debug($e);
+                return redirect()->route('UsagersController.signin');
             }
-            return redirect()->route('buggyflix.signin');
+            
             
     }
 
