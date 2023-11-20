@@ -33,6 +33,12 @@ class UsagersSeeder extends Seeder
                 'role' => '3',
                 'password' => Hash::make('kid')
             ],
+            [
+                'email' => 'lamothear02@gmail.com',
+                'birthDate' => '2005-01-28',
+                'role' => '1',
+                'password' => Hash::make('123soleil')
+            ],
         ]);
     }
 }
