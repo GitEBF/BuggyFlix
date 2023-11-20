@@ -67,7 +67,7 @@
             </div>
         </div>
         <div class="imgFilm">
-            <img class="pochetteFilm" src="{{$film->pochette}}">
+            <img src="{{ asset('img/films/' . $film->pochette)}}" alt="" title="{{$film->pochette}}">
         </div>
     </div>
 @else
