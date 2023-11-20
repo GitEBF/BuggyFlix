@@ -24,8 +24,21 @@ class UsagerRequest extends FormRequest
         return [
             'email' => 'required',
             'password' => 'required',
-            'check_password' => 'required',
+            'confirm_password' => 'required|confirmed',
             'date' => 'required'
+        ];  
+
+        
+    }
+
+    public function messages(): array
+    {
+        return [
+            'email.required' => 'Sélectionner un email dans la liste',
+            'password.required' => 'Sélectionner un password dans la liste',
+            'check_password.required' => 'Sélectionner un check_password dans la liste',
+            'date.required' => 'Sélectionner un date dans la liste',
+            'confirm_password.confirmed' => 'confirm?'
         ];
     }
 }
