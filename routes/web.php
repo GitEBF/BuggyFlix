@@ -17,7 +17,7 @@ use App\Http\Middleware\CheckRole;
 */
 
 Route::get('/buggyflix', 
-[BuggyflixController::class, 'index'])->name('buggyflix.index');
+[BuggyflixController::class, 'index'])->name('buggyflix.index')->middleware('CheckRole:1,2,3');
 
 Route::get('buggyflix/film/{film}', 
 [BuggyflixController::class, 'show'])->name('buggyflix.show')->middleware('CheckRole:1,2,3');
