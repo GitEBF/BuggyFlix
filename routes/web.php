@@ -88,10 +88,10 @@ Route::post('buggyflix/login',
 Route::get('buggyflix/logout', 
 [UsagersController::class, 'logout'])->name('UsagersController.logout');
 
-Route::get('buggyflix/signin', 
-[UsagersController::class, 'signin'])->name('UsagersController.signin');
+Route::post('buggyflix/signin', 
+[UsagersController::class, 'showSignInForm'])->name('UsagersController.showSignInForm');
 
-Route::post('/login', 
+Route::get('buggyflix/signin', 
 [UsagersController::class, 'store'])->name('UsagersController.store');
 
 
