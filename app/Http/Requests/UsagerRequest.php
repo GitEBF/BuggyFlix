@@ -11,7 +11,7 @@ class UsagerRequest extends FormRequest
      */
     public function authorize(): bool
     {
-        return false;
+        return true;
     }
 
     /**
@@ -24,7 +24,7 @@ class UsagerRequest extends FormRequest
         return [
             'email' => 'required',
             'password' => 'required',
-            'confirm_password' => 'required|confirmed',
+            'password_confirmation' => 'required|confirmed',
             'date' => 'required'
         ];  
 
@@ -36,7 +36,7 @@ class UsagerRequest extends FormRequest
         return [
             'email.required' => 'Sélectionner un email dans la liste',
             'password.required' => 'Sélectionner un password dans la liste',
-            'check_password.required' => 'Sélectionner un check_password dans la liste',
+            'password_confirmation.required' => 'Sélectionner un check_password dans la liste',
             'date.required' => 'Sélectionner un date dans la liste',
             'confirm_password.confirmed' => 'confirm?'
         ];
