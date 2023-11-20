@@ -4,7 +4,10 @@ namespace App\Http\Controllers;
 
 use Auth;
 use App\Http\Requests\LoginRequest;
+use App\Models\Usager;
 use App\Http\Requests\UsagerRequest;
+use Illuminate\Support\Facades\Log;
+
 class UsagersController extends Controller
 {
     /**
@@ -55,15 +58,23 @@ class UsagersController extends Controller
      */
     public function store(UsagerRequest $request)
     {
+
         try{
-            $usager=new Usager($request->all());
+                    // Calculate age based on birthDate
+        $birthDate = strtotime($request->birthDate);
+        $age = date('Y') - date('Y', $birthDate);
+
+        // Assign role based on age
+        $role = ($age >= 14) ? '2' : '3';
+            $usager = new Usager($request->all());
+            $usager->role = $role;
             $usager->save();
-            return redirect()->route('UsagersController.index');
+            return redirect()->route('buggyflix.index');
             }
             
             catch(\Throwable$e){
                 Log::debug($e);
-                return redirect()->route('UsagersController.signin');
+                return redirect()->route('UsagersController.store');
             }
             
             

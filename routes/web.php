@@ -17,7 +17,7 @@ use App\Http\Middleware\CheckRole;
 */
 
 Route::get('/buggyflix', 
-[BuggyflixController::class, 'index'])->name('buggyflix.index');
+[BuggyflixController::class, 'index'])->name('buggyflix.index')->middleware('CheckRole:1,2,3');
 
 Route::get('buggyflix/film/{film}', 
 [BuggyflixController::class, 'show'])->name('buggyflix.show')->middleware('CheckRole:1,2,3');
@@ -89,7 +89,7 @@ Route::post('buggyflix/login',
 Route::get('buggyflix/logout', 
 [UsagersController::class, 'logout'])->name('UsagersController.logout');
 
-Route::post('buggyflix/signin/a', 
+Route::post('buggyflix/signin', 
 [UsagersController::class, 'store'])->name('UsagersController.store');
 
 Route::get('buggyflix/signin', 

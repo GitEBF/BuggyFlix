@@ -11,15 +11,12 @@
             <label class="text-white dark:text-gray-200" for="email">Email</label>
             <input id="email" type="email" name="email"
                 class="block w-full px-4 py-2 mt-2 text-white-700 bg-white border border-gray-300 rounded-md bgFlixLight dark:text-gray-300 dark:border-gray-600 focus:border-red-500 dark:focus:border-red-500 focus:outline-none focus:ring ring-red-600">
-        </div>
+        </div>  
         <div>
             <label class="text-white dark:text-gray-200" for="password">Mot de passe</label>
             <input id="password" type="password" name="password"
                 class="block w-full px-4 py-2 mt-2 text-white-700 bg-white border border-gray-300 rounded-md bgFlixLight dark:text-gray-300 dark:border-gray-600 focus:border-red-500 dark:focus:border-red-500 focus:outline-none focus:ring ring-red-600">
         </div>
-        
-
-        
         <div>
             <label class="text-white dark:text-gray-200" for="password_confirmation">Réécrire mot de passe</label>
             <input id="password_confirmation" type="password" name="password_confirmation"
@@ -27,10 +24,14 @@
         </div>
         
         <div>
-            <label class="text-white dark:text-gray-200" for="date">Date de Naissance</label>
-            <input id="date" type="date" name="date"
+            <label class="text-white dark:text-gray-200" for="birthDate">Date de Naissance</label>
+            <input id="birthDate" type="date" name="birthDate"
                 class="block w-full px-4 py-2 mt-2 text-white-700 bg-white border border-white-300 rounded-md bgFlixLight dark:text-red-300 dark:border-red-600 focus:border-red-500 dark:focus:border-red-500 focus:outline-none focus:ring ring-red-600">
         </div>
+
+        <div>
+            <p></p>
+</div>
 
     <div class="flex justify-end mt-6">
         <button
