@@ -20,9 +20,15 @@
     <div class="flex justify-end mt-6">
         <button
             class="px-6 py-2 leading-5 text-white transition-colors duration-200 transform bg-red-600 rounded-md hover:bg-red-800 focus:outline-none focus:bg-gray-600">Connexion</button>
-    </div>
+            <button class="padSignin px-6 py-2 leading-5 text-white transition-colors duration-200 transform bg-red-600 rounded-md hover:bg-red-800 focus:outline-none focus:bg-gray-600">
+                <a href="{{ route('UsagersController.showSignInForm')}}">Créer Compte</a>
+            </button>
+        </div>
 </form>
-<a href="{{ route('UsagersController.showSignInForm')}}">SignIn</a>
+<div class="flex justify-end mt-6">
+
+</div>
+
 <div>
     </section>
     </section>
