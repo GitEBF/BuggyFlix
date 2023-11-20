@@ -23,9 +23,8 @@ class UsagerRequest extends FormRequest
     {
         return [
             'email' => 'required',
-            'password' => 'required',
-            'password_confirmation' => 'required|confirmed',
-            'date' => 'required'
+            'password' => 'required|confirmed',
+            'birthDate' => 'required'
         ];  
 
         
@@ -36,8 +35,7 @@ class UsagerRequest extends FormRequest
         return [
             'email.required' => 'Sélectionner un email dans la liste',
             'password.required' => 'Sélectionner un password dans la liste',
-            'password_confirmation.required' => 'Sélectionner un check_password dans la liste',
-            'date.required' => 'Sélectionner un date dans la liste',
+            'birthDate.required' => 'Sélectionner un birthDate dans la liste',
             'confirm_password.confirmed' => 'confirm?'
         ];
     }
