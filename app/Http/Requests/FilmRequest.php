@@ -44,6 +44,8 @@ class FilmRequest extends FormRequest
             'type.required' => 'Veuillez insérer un type',
             'brand.required' => 'Veuillez insérer un brand',
             'pochette.required' => 'Veuillez insérer une pochette',
+            'pochette.max' => 'la taille de l\'image ne doit pas dépasser 16Mb',
+            'pochette.mimes' => 'le type n\'est pas reconnu (png,jpg,gif,jfif,webp)',
             'cote.required' => 'Veuillez insérer une cote',
             'duree.required' => 'Veuillez insérer une durée',
             'rating.required' => 'Veuillez insérer un rating',
