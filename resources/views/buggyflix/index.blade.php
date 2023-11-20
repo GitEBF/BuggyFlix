@@ -9,7 +9,7 @@
   <div class="location" id="home"> <h1 id="home">Popular on Netflix</h1> <div class="box">
     @if (count($films))
     @foreach ($filmsbyDate as $film)
-    <a href="{{ route('buggyflix.show', [$film]) }}"><img src="{{ $film->pochette}}" alt=""></a>
+    <a href="{{ route('buggyflix.show', [$film]) }}"><img src="{{ asset('img/films/' . $film->pochette)}}" alt="" title="{{$film->pochette}}"></a>
     @endforeach
 
     @else
@@ -23,7 +23,7 @@
   <div class="location" id="home"> <h1 id="home">Film pour enfant</h1> <div class="box">
     @if (count($films))
     @foreach ($filmsPG as $film)
-    <a href="{{ route('buggyflix.show', [$film]) }}"><img src="{{ $film->pochette}}" alt=""></a>
+    <a href="{{ route('buggyflix.show', [$film]) }}"><img src="{{ asset('img/films/' . $film->pochette)}}" alt="" title="{{$film->pochette}}"></a>
     @endforeach
 
     @else
@@ -38,14 +38,14 @@
   <h1 id="myList">Action</h1>
   <div class="box">
     @foreach ($actionfilms as $film)
-    <a href="{{ route('buggyflix.show', [$film]) }}"><img src="{{ $film->pochette}}" alt=""></a>
+    <a href="{{ route('buggyflix.show', [$film]) }}"><img src="{{ asset('img/films/' . $film->pochette)}}" alt="" title="{{$film->pochette}}"></a>
     @endforeach
   </div>
 
   <h1 id="myList">Horreur</h1>
   <div class="box">
     @foreach ($horrorfilms as $film)
-    <a href="{{ route('buggyflix.show', [$film]) }}"><img src="{{ $film->pochette}}" alt=""></a>
+    <a href="{{ route('buggyflix.show', [$film]) }}"><img src="{{ asset('img/films/' . $film->pochette)}}" alt="" title="{{$film->pochette}}"></a>
     @endforeach
   </div>
 
@@ -53,7 +53,7 @@
   <h1 id="myList">Drame</h1>
   <div class="box">
     @foreach ($dramefilms as $film)
-    <a href="{{ route('buggyflix.show', [$film]) }}"><img src="{{ $film->pochette}}" alt=""></a>
+    <a href="{{ route('buggyflix.show', [$film]) }}"><img src="{{ asset('img/films/' . $film->pochette)}}" alt="" title="{{$film->pochette}}"></a>
     @endforeach
   </div>
   @endrole

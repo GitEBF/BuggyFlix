@@ -13,7 +13,7 @@
       <div class="box">
       @if (count($persons))
         @foreach ($persons as $person)
-          <a href="{{ route('buggyflix.cinemographie', [$person]) }}"><img src="{{$person->img}}" alt="" class="h-48 w-48 mx-auto"></a>
+          <a href="{{ route('buggyflix.cinemographie', [$person]) }}"> <img src="{{ asset('img/persons/' . $person->img)}}" alt="" title="{{$person->img}}" class="h-48 w-48 mx-auto"></a>
           @endforeach 
         @else
           <a href=""><img src="https://github.com/carlosavilae/Netflix-Clone/blob/master/img/t1.PNG?raw=true" alt=""></a>
