@@ -22,6 +22,7 @@
             class="px-6 py-2 leading-5 text-white transition-colors duration-200 transform bg-red-600 rounded-md hover:bg-red-800 focus:outline-none focus:bg-gray-600">Connexion</button>
     </div>
 </form>
+<a href="{{ route('UsagersController.showSignInForm')}}">SignIn</a>
 <div>
     </section>
     </section>

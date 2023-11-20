@@ -37,7 +37,7 @@ class UsagersController extends Controller
         return redirect('/buggyflix');
     }
 
-    public function signin()
+    public function showSignInForm()
     {
      
         return view('buggyflix.signinForm');
@@ -58,13 +58,14 @@ class UsagersController extends Controller
         try{
             $usager=new Usager($request->all());
             $usager->save();
-            return redirect()->route('buggyflix.login');
+            return redirect()->route('UsagersController.index');
             }
             
             catch(\Throwable$e){
                 Log::debug($e);
+                return redirect()->route('UsagersController.signin');
             }
-            return redirect()->route('buggyflix.signin');
+            
             
     }
 
