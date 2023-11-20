@@ -66,6 +66,7 @@ Route::get('buggyflix/cinemographie/{person}',
 Route::post('buggyflix/create/film',
 [BuggyflixController::class, 'store'])->name('buggyflix.store');
 
+
 Route::delete('/persons/{id}', 
 [PersonsController::class, 'destroy'])->name('persons.destroy');
 
