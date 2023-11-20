@@ -21,7 +21,7 @@
       </div>
   </div>
   @else
-  <div class="main-container location" id="home">
+<div class="main-container location" id="home">
    <a class="location" href="{{ route('UsagersController.login')}}"><p>Veuillez vous connecter</p></a>
 </div>
   @endauth

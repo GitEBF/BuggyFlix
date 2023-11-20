@@ -57,17 +57,25 @@ class PersonsController extends Controller
      */
     public function store(PersonRequest $request)
     {
-        try{
-            $persons=new Person($request->all());
-            $persons->save();
-            return redirect()->route('buggyflix.index');
+        try {
+            $person = new Person(($request->all()));
+            $uploadedFile = $request->file('img');
+            $nomFichierUnique = str_replace(' ','_',$person->nom) . '_' . uniqid() . '.' . $uploadedFile->extension();
+
+            try {
+                    $request->img->move(public_path('img/persons'),$nomFichierUnique);
             }
-            
-            catch(\Throwable$e){
-                Log::debug($e);
+            catch(\Symfony\Component\HttpFoundation\File\Exception\FileException $e){
+                Log::error("Erreur lors du téléversement du fichier. ", [$e]);
             }
+            $person->img = $nomFichierUnique;
+            $person->save();
             return redirect()->route('buggyflix.index');
-            
+        }
+        catch(\Throwable$e){
+            Log::debug($e);
+            return redirect()->route('buggyflix.index');
+        }  
     }
 
     public function storeActeur(ActeurRequest $request)
