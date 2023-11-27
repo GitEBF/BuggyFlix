@@ -69,7 +69,16 @@ class BuggyflixController extends Controller
      */
     public function show(Film $film)
     {
+        
         return View('buggyflix.showfilm', compact('film'));
+    }
+
+    public function showAll()
+    {
+        $films = Film::all();
+        $filmsbyDate = Film::orderBy('date')->get()->reverse();
+        $filmsPG = Film::whereIn('rating',['PG', 'G'])->get();
+        return View('buggyflix.films', compact('films','filmsbyDate','filmsPG   '));
     }
 
     /**
