@@ -21,8 +21,10 @@ class PersonsController extends Controller
      */
     public function index()
     {
-        $persons = Person::all();
-        return view("buggyflix.person", compact('persons'));
+        $producteurs = Person::has('producteurs')->get();
+        $acteurs = Person::has('acteurs')->get();;
+        $realisateurs = Person::has('realisateurs')->get();;
+        return view("buggyflix.person", compact('producteurs', 'realisateurs', 'acteurs'));
     }
 
     /**
