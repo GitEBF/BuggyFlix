@@ -22,9 +22,6 @@
                 <a class="" href="{{ route('buggyflix.index')}}">Home</a>
                 <a class="" href="{{ route('buggyflix.person')}}">Acteur</a>
                 <a class="" href="{{ route('buggyflix.create.film')}}">Film</a>
-                <li>Latest</li>
-                <li>My List</li>
-                <li>Watch Again</li>
                 @role(1,2,3)
                 <a class="" href="{{ route('UsagersController.logout')}}">Deconnexion</a>
                 @endrole
