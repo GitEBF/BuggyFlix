@@ -25,7 +25,7 @@ class PersonRequest extends FormRequest
             'nom' => 'required',
             'dateNaissance' => 'required',
             'lieuNaissance' => 'required',
-            'img' => 'required|image|mimes:png,jpeg,jpg,gif,jfif,webp|max:4096',
+            'img' => 'required|image|mimes:png,jpeg,jpg,gif,jfif,webp|max:16384',
         ];
     }
 
@@ -36,7 +36,7 @@ class PersonRequest extends FormRequest
             'dateNaissance.required' => 'Le champ date de naissance est obligatoire',
             'lieuNaissance.required' => 'Le champ du lieu de naissance est obligatoire',
             'img.required' => 'Le champ image est obligatoire',
-            'img.max' => 'la taille de l\'image ne doit pas dépasser 4096Kb',
+            'img.max' => 'la taille de l\'image ne doit pas dépasser 16Mb',
             'img.mimes' => 'le type n\'est pas reconnu (png,jpg,gif,jfif,webp)'
         ];
     }

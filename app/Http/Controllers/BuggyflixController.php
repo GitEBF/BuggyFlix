@@ -45,14 +45,23 @@ class BuggyflixController extends Controller
     {
         try {
             $film = new Film($request->all());
+            $uploadedFile = $request->file('pochette');
+            $nomFichierUnique = str_replace(' ','_',$film->titre) . '_' . uniqid() . '.' . $uploadedFile->extension();
+
+            try {
+                    $request->pochette->move(public_path('img/films'),$nomFichierUnique);
+            }
+            catch(\Symfony\Component\HttpFoundation\File\Exception\FileException $e){
+                Log::error("Erreur lors du téléversement du fichier. ", [$e]);
+            }
+            $film->pochette = $nomFichierUnique;
             $film->save();
+            return redirect()->route("buggyflix.index");
         }
-
-        catch (\Throwable $e){
+        catch(\Throwable$e){
             Log::debug($e);
-        }
-
-        return redirect()->route("buggyflix.index");
+            return redirect()->route("buggyflix.index");
+        }  
     }
 
     /**
