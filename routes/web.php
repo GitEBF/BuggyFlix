@@ -34,13 +34,13 @@ Route::get('buggyflix/create/person',
 Route::get('buggyflix/edit/{person}', 
 [PersonsController::class, 'edit'])->name('buggyflix.edit.person')->middleware('CheckRole:1');
 
-Route::get('buggyflix/create/acteur', 
+Route::get('buggyflix/create/acteur/{film}', 
 [PersonsController::class, 'createActeur'])->name('buggyflix.create.acteur')->middleware('CheckRole:1');
 
-Route::get('buggyflix/create/producteur', 
+Route::get('buggyflix/create/producteur/{film}', 
 [PersonsController::class, 'createProducteur'])->name('buggyflix.create.producteur')->middleware('CheckRole:1');
 
-Route::get('buggyflix/create/realisateur', 
+Route::get('buggyflix/create/realisateur/{film}', 
 [PersonsController::class, 'createRealisateur'])->name('buggyflix.create.realisateur')->middleware('CheckRole:1');
 
 Route::post('/persons', 
@@ -59,9 +59,6 @@ Route::post('/realisateurs',
 [PersonsController::class, 'storeRealisateur'])->name('realisateurs.store');
 
 Route::get('buggyflix/person', [PersonsController::class, 'index'])->name('buggyflix.person')->middleware('CheckRole:1,2,3');
-
-Route::get('buggyflix/person/{person}', 
-[PersonsController::class, 'zoom'])->name('buggyflix.zoom')->middleware('CheckRole:1,2,3');
 
 Route::get('buggyflix/cinemographie/{person}', 
 [PersonsController::class, 'acteur'])->name('buggyflix.cinemographie')->middleware('CheckRole:1,2,3');

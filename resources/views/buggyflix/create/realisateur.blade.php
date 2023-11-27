@@ -25,7 +25,11 @@
             <select  id="film_id" name="film_id" 
                 class="block w-full px-4 py-2 mt-2  bg-white border border-gray-300 rounded-md bgFlixLight dark:text-gray-300 dark:border-gray-600 focus:border-blue-500 dark:focus:border-blue-500 focus:outline-none focus:ring">
                 @foreach ($films as $film)
-                    <option class="text-white"value="{{$film->id}}">{{$film->titre}}</option>
+                    @if($film->id == $test->id)
+                    <option class="text-white"value="{{$test->id}}" selected>{{$test->titre}}</option>
+                    @else
+                    <option class="text-white"value="{{$film->id}}" >{{$film->titre}}</option>
+                    @endif
                 @endforeach
             </select>   
     </div>
