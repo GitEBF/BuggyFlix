@@ -6,22 +6,22 @@
 
 
 <section class="max-w-4xl p-6 mx-auto bgFlix rounded-md shadow-md mt-20">
-<h1 class="text-xl font-bold text-white capitalize dark:text-white">Creation Producteur pour {{$test->titre}}</h1>
-<form method="post" action="{{ route('producteurs.store') }}">
+<h1 class="text-xl font-bold text-white capitalize dark:text-white">Ajout d'un genre pour {{$test->titre}}</h1>
+<form method="post" action="{{ route('genres.store') }}">
 @csrf
     <div class="grid grid-cols-1 gap-6 mt-4 sm:grid-cols-1">
     <div>
-    <label class="text-white dark:text-gray-200" for="nom">Personne</label>
-    <select id="person_id" name="person_id" 
+    <label class="text-white dark:text-gray-200" for="nom">Genre</label>
+    <select id="genre_id" name="genre_id" 
         class="block w-full px-4 py-2 mt-2  bg-white border border-gray-300 rounded-md bgFlixLight dark:text-gray-300 dark:border-gray-600 focus:border-blue-500 dark:focus:border-blue-500 focus:outline-none focus:ring">
-        @foreach ($persons as $person)
-            <option class="text-white" value="{{$person->id}}">{{$person->nom}}</option>
+        @foreach ($genres as $genre)
+            <option class="text-white" value="{{$genre->id}}">{{$genre->nom}}</option>
         @endforeach
     </select>     
 </div>
 
         <div>
-        <input type="hidden" value="{{$test->id}}" id="film_id" name="film_id" >  
+        <input type="hidden" value="{{$test->id}}" id="film_id" name="film_id" >    
     </div>
     </div>
 
