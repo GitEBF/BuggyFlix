@@ -111,7 +111,7 @@ class BuggyflixController extends Controller
         $films = Film::all();
         $filmsbyDate = Film::orderBy('date')->get()->reverse();
         $filmsPG = Film::whereIn('rating',['PG', 'G'])->get();
-        return View('buggyflix.films', compact('films','filmsbyDate','filmsPG   '));
+        return View('buggyflix.films', compact('films','filmsbyDate','filmsPG'));
     }
 
     /**

@@ -13,8 +13,10 @@
         @endrole
         <h1>Page de {{$person->nom}}</h1>
         @if (isset($person))
-            <li>{{$person->dateNaissance}} </li>
+            <li>Né en {{$person->dateNaissance}} </li>
             <li>{{$person->lieuNaissance}} </li>
+            <details>
+            <summary> Films ou il a été un acteur </summary>
             @if ($person->acteurs->count() > 0)
                     @foreach ($person->acteurs as $acteur)
                         <div class="rowRole">
@@ -34,8 +36,13 @@
                             @endrole
                         </div>  
                     @endforeach
+                    </details>
             @endif
+            @if ($person->producteurs->count() > 0)
+            <details>
+            <summary>Films ou il a été un producteur</summary>
             @foreach ($person->producteurs as $producteur)
+
             <div class="rowRole">
                 <div class="infoRole">
                     <h1>Film : {{$producteur->film->titre}}</h1>
@@ -51,7 +58,13 @@
                 </div>
                 @endrole
             </div>  
+
             @endforeach
+            </details>
+            @endif
+            @if ($person->realisateurs->count() > 0)
+            <details>
+            <summary> Films ou il a été un realisateur </summary>
             @foreach ($person->realisateurs as $realisateur)
             <div class="rowRole">
                 <div class="infoRole">
@@ -68,8 +81,10 @@
                     </div>
                     @endrole
                 </div>
+                
             @endforeach
-
+            </details>
+            @endif
         @else
             <p>Cette personne n'existe pas</p>
         @endif
