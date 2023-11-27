@@ -40,7 +40,7 @@
                         <a href="{{ route('buggyflix.cinemographie', [$acteur->person->id]) }}" class="persons">~{{$acteur->person->nom}}</a>
                     @endforeach
                     @role('1')
-                    <a href="{{ route('buggyflix.create.acteur')}}"class="ajoutRole">+ajouter acteur</a>
+                    <a href="{{ route('buggyflix.create.acteur', [$film->id] )}}"class="ajoutRole">+ajouter acteur</a>
                     @endrole
                 </a>
                 </div>
@@ -50,7 +50,7 @@
                         <a href="{{ route('buggyflix.cinemographie', [$producteur->person->id]) }}" class="persons">~{{$producteur->person->nom}}</a>
                     @endforeach
                     @role('1')
-                    <a href="{{ route('buggyflix.create.producteur')}}"class="ajoutRole">+ajouter producteur</a>
+                    <a href="{{ route('buggyflix.create.producteur', [$film->id] )}}"class="ajoutRole">+ajouter producteur</a>
                     @endrole
                 </a>
                 </div>
@@ -60,7 +60,7 @@
                         <a href="{{ route('buggyflix.cinemographie', [$realisateur->person->id]) }}" class="persons">~{{$realisateur->person->nom}}</a>
                     @endforeach
                     @role('1')
-                    <a href="{{ route('buggyflix.create.realisateur')}}"class="ajoutRole">+ajouter realisateur</a>
+                    <a href="{{ route('buggyflix.create.realisateur', [$film->id] )}}"class="ajoutRole">+ajouter realisateur</a>
                     @endrole
                 </a>
                 </div>

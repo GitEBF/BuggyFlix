@@ -31,13 +31,13 @@ Route::get('buggyflix/create/person',
 Route::get('buggyflix/edit/{person}', 
 [PersonsController::class, 'edit'])->name('buggyflix.edit.person')->middleware('CheckRole:1');
 
-Route::get('buggyflix/create/acteur', 
+Route::get('buggyflix/create/acteur/{film}', 
 [PersonsController::class, 'createActeur'])->name('buggyflix.create.acteur')->middleware('CheckRole:1');
 
-Route::get('buggyflix/create/producteur', 
+Route::get('buggyflix/create/producteur/{film}', 
 [PersonsController::class, 'createProducteur'])->name('buggyflix.create.producteur')->middleware('CheckRole:1');
 
-Route::get('buggyflix/create/realisateur', 
+Route::get('buggyflix/create/realisateur/{film}', 
 [PersonsController::class, 'createRealisateur'])->name('buggyflix.create.realisateur')->middleware('CheckRole:1');
 
 Route::post('/persons', 

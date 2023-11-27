@@ -34,25 +34,28 @@ class PersonsController extends Controller
         return view("buggyflix.create.person", compact('persons'));
     }
 
-    public function createActeur()
+    public function createActeur($filmClicked)
     {
         $persons = Person::all();
         $films = Film::all();
-        return View("buggyflix.create.acteur", compact('persons', 'films'));
+        $test = Film::find($filmClicked);
+        return View("buggyflix.create.acteur", compact('persons', 'films', 'test'));
     }
 
-    public function createRealisateur()
+    public function createRealisateur($filmClicked)
     {
         $persons = Person::all();
         $films = Film::all();
-        return View("buggyflix.create.realisateur", compact('persons', 'films'));
+        $test = Film::find($filmClicked);
+        return View("buggyflix.create.realisateur", compact('persons', 'films', 'test'));
     }
 
-    public function createProducteur()
+    public function createProducteur($filmClicked)
     {
         $persons = Person::all();
         $films = Film::all();
-        return View("buggyflix.create.producteur", compact('persons', 'films'));
+        $test = Film::find($filmClicked);
+        return View("buggyflix.create.producteur", compact('persons', 'films', 'test'));
     }
 
     /**
@@ -94,7 +97,7 @@ class PersonsController extends Controller
 
             $acteur->save();
 
-            return redirect()->route('buggyflix.index');
+            return redirect()->route('buggyflix.show', [$film]);
         } catch (\Throwable $e) {
             Log::debug($e);
         }
@@ -115,7 +118,7 @@ class PersonsController extends Controller
 
             $producteur->save();
 
-            return redirect()->route('buggyflix.index');
+            return redirect()->route('buggyflix.show', [$film]);
         } catch (\Throwable $e) {
             Log::debug($e);
         }
@@ -135,7 +138,7 @@ class PersonsController extends Controller
 
             $realisateur->save();
 
-            return redirect()->route('buggyflix.index');
+            return redirect()->route('buggyflix.show', [$film]);
         } catch (\Throwable $e) {
             Log::debug($e);
         }
