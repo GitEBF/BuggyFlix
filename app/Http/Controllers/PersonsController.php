@@ -34,28 +34,22 @@ class PersonsController extends Controller
         return view("buggyflix.create.person", compact('persons'));
     }
 
-    public function createActeur($filmClicked)
-    {
+    public function createActeur(){
         $persons = Person::all();
         $films = Film::all();
-        $test = Film::find($filmClicked);
-        return View("buggyflix.create.acteur", compact('persons', 'films', 'test'));
+        return View("buggyflix.create.acteur", compact('persons','films'));
+    }
+    
+    public function createRealisateur(){
+        $persons = Person::all();
+        $films = Film::all();
+        return View("buggyflix.create.realisateur" , compact('persons','films'));
     }
 
-    public function createRealisateur($filmClicked)
-    {
+    public function createProducteur(){
         $persons = Person::all();
         $films = Film::all();
-        $test = Film::find($filmClicked);
-        return View("buggyflix.create.realisateur", compact('persons', 'films', 'test'));
-    }
-
-    public function createProducteur($filmClicked)
-    {
-        $persons = Person::all();
-        $films = Film::all();
-        $test = Film::find($filmClicked);
-        return View("buggyflix.create.producteur", compact('persons', 'films', 'test'));
+        return View("buggyflix.create.producteur" , compact('persons','films'));
     }
 
     /**
@@ -66,82 +60,87 @@ class PersonsController extends Controller
         try {
             $person = new Person(($request->all()));
             $uploadedFile = $request->file('img');
-            $nomFichierUnique = str_replace(' ', '_', $person->nom) . '_' . uniqid() . '.' . $uploadedFile->extension();
+            $nomFichierUnique = str_replace(' ','_',$person->nom) . '_' . uniqid() . '.' . $uploadedFile->extension();
 
             try {
-                $request->img->move(public_path('img/persons'), $nomFichierUnique);
-            } catch (\Symfony\Component\HttpFoundation\File\Exception\FileException $e) {
+                    $request->img->move(public_path('img/persons'),$nomFichierUnique);
+            }
+            catch(\Symfony\Component\HttpFoundation\File\Exception\FileException $e){
                 Log::error("Erreur lors du téléversement du fichier. ", [$e]);
             }
             $person->img = $nomFichierUnique;
             $person->save();
             return redirect()->route('buggyflix.index');
-        } catch (\Throwable $e) {
+        }
+        catch(\Throwable$e){
             Log::debug($e);
             return redirect()->route('buggyflix.index');
-        }
+        }  
     }
 
     public function storeActeur(ActeurRequest $request)
     {
-        try {
+        try{
             $person = Person::find($request->person_id);
             $film = Film::find($request->film_id);
-
+            
             $acteur = new Acteur($request->all());
-
+            
             $acteur->save();
-
-            $acteur->person()->associate($person);
-            $acteur->film()->associate($film);
-
+            
+            $acteur->person()->associate($person); 
+            $acteur->film()->associate($film); 
+            
             $acteur->save();
-
-            return redirect()->route('buggyflix.show', [$film]);
-        } catch (\Throwable $e) {
-            Log::debug($e);
-        }
+            
+            return redirect()->route('buggyflix.index');
+            }
+            catch(\Throwable$e){
+                Log::debug($e);
+            }
     }
 
     public function storeProducteur(ProducteurRequest $request)
     {
-        try {
+        try{
             $person = Person::find($request->person_id);
             $film = Film::find($request->film_id);
-
+            
             $producteur = new Producteur($request->all());
-
+            
             $producteur->save();
-
-            $producteur->person()->associate($person);
-            $producteur->film()->associate($film);
-
+            
+            $producteur->person()->associate($person); 
+            $producteur->film()->associate($film); 
+            
             $producteur->save();
-
-            return redirect()->route('buggyflix.show', [$film]);
-        } catch (\Throwable $e) {
-            Log::debug($e);
-        }
+            
+            return redirect()->route('buggyflix.index');
+            }
+            catch(\Throwable$e){
+                Log::debug($e);
+            }
     }
     public function storeRealisateur(RealisateurRequest $request)
     {
-        try {
+        try{
             $person = Person::find($request->person_id);
             $film = Film::find($request->film_id);
-
+            
             $realisateur = new Realisateur($request->all());
-
+            
             $realisateur->save();
-
-            $realisateur->person()->associate($person);
-            $realisateur->film()->associate($film);
-
+            
+            $realisateur->person()->associate($person); 
+            $realisateur->film()->associate($film); 
+            
             $realisateur->save();
-
-            return redirect()->route('buggyflix.show', [$film]);
-        } catch (\Throwable $e) {
-            Log::debug($e);
-        }
+            
+            return redirect()->route('buggyflix.index');
+            }
+            catch(\Throwable$e){
+                Log::debug($e);
+            }
     }
     /**
      * Display the specified resource.
@@ -151,7 +150,7 @@ class PersonsController extends Controller
         return View('buggyflix.zoom', compact('person'));
     }
 
-
+ 
     public function acteur($person_id)
     {
         $person = Person::with('acteurs')->findOrFail($person_id);
@@ -163,73 +162,74 @@ class PersonsController extends Controller
      */
     public function edit(Person $person)
     {
-        return View('buggyflix.edit.person', compact('person'));
+         return View('buggyflix.edit.person', compact('person'));
     }
 
     /**
      * Update the specified resource in storage.
      */
     public function update(PersonRequest $request, Person $person)
-    {
-        try {
-            $person->nom = $request->nom;
-            $person->dateNaissance = $request->dateNaissance;
-            $person->lieuNaissance = $request->lieuNaissance;
-            $person->img = $request->img;
-
-            $person->save();
-            return redirect()->route('buggyflix.person')->with('message', "Modification de " . $person->nom . " réussi!");
-        } catch (\Throwable $e) {
-            Log::debug($e);
-            return redirect()->route('buggyflix.person')->withErrors(['la modification n\'a pas fonctionné']);
+        {
+            try{
+                $person->nom = $request->nom;
+                $person->dateNaissance = $request->dateNaissance;
+                $person->lieuNaissance = $request->lieuNaissance;
+                $person->img = $request->img;
+                
+                $person->save();
+                return redirect()->route('buggyflix.person')->with('message', "Modification de " . $person->nom . " réussi!");
+            }
+            catch(\Throwable $e){
+                Log::debug($e);
+                return redirect()->route('buggyflix.person')->withErrors(['la modification n\'a pas fonctionné']); 
+            }
         }
-    }
-
+    
 
     /**
      * Remove the specified resource from storage.
      */
     public function destroy($id)
     {
+      
+          $person = Person::findOrFail($id);
+          $person->acteurs()->delete();
+          $person->realisateurs()->delete();
+          $person->producteurs()->delete();
 
-        $person = Person::findOrFail($id);
-        $person->acteurs()->delete();
-        $person->realisateurs()->delete();
-        $person->producteurs()->delete();
-
-        $person->delete();
-        return redirect()->route('buggyflix.person')->with('message', "Suppression de " . $person->nom . " réussi!");
-
+          $person->delete();
+                return redirect()->route('buggyflix.person')->with('message', "Suppression de " . $person->nom . " réussi!");
+        
         //return redirect()->route('buggyflix.person');
     }
 
     public function destroyActeur($id)
     {
-        $acteur = Acteur::findOrFail($id);
-        $person = Person::findOrFail($acteur->person_id);
-        $acteur->delete();
-        return redirect()->route('buggyflix.cinemographie', [$person])->with('message', "Suppression du rôle réussi!");
+          $acteur = Acteur::findOrFail($id);
 
+          $acteur->delete();
+                return redirect()->route('buggyflix.person')->with('message', "Suppression du rôle réussi!");
+        
         //return redirect()->route('buggyflix.person');
     }
-
+    
     public function destroyProducteur($id)
     {
-        $producteur = Producteur::findOrFail($id);
-        $person = Person::findOrFail($producteur->person_id);
-        $producteur->delete();
-        return redirect()->route('buggyflix.cinemographie', [$person])->with('message', "Suppression du rôle réussi!");
+          $producteur = Producteur::findOrFail($id);
 
+          $producteur->delete();
+                return redirect()->route('buggyflix.person')->with('message', "Suppression du rôle réussi!");
+        
         //return redirect()->route('buggyflix.person');
     }
 
     public function destroyRealisateur($id)
     {
-        $realisateur = Realisateur::findOrFail($id);
-        $person = Person::findOrFail($realisateur->person_id);
-        $realisateur->delete();
-        return redirect()->route('buggyflix.cinemographie', [$person])->with('message', "Suppression du rôle réussi!");
+          $realisateur = Realisateur::findOrFail($id);
 
+          $realisateur->delete();
+                return redirect()->route('buggyflix.person')->with('message', "Suppression du rôle réussi!");
+        
         //return redirect()->route('buggyflix.person');
     }
 }

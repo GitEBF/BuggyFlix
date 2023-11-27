@@ -30,7 +30,7 @@
                     <a class="uneInfo"> {{$genre->genre->nom}} </a>
                 @endforeach
                 @role('1')
-                    <a href="{{ route('buggyflix.create.genre')}}" class="ajoutGenre"> + genre</a>
+                    <a href="{{ route('buggyflix.create.genre', [$film->id])}}" class="ajoutGenre"> + genre</a>
                 @endrole
             </div>
             <div class="resumeFilm">
