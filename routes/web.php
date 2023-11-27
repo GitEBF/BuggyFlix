@@ -40,6 +40,9 @@ Route::get('buggyflix/create/producteur',
 Route::get('buggyflix/create/realisateur', 
 [PersonsController::class, 'createRealisateur'])->name('buggyflix.create.realisateur')->middleware('CheckRole:1');
 
+Route::get('buggyflix/create/genre', 
+[BuggyflixController::class, 'createGenre'])->name('buggyflix.create.genre')->middleware('CheckRole:1');
+
 Route::post('/persons', 
 [PersonsController::class, 'store'])->name('persons.store');
 
@@ -54,6 +57,9 @@ Route::post('/producteurs',
 
 Route::post('/realisateurs', 
 [PersonsController::class, 'storeRealisateur'])->name('realisateurs.store');
+
+Route::post('/genres', 
+[BuggyflixController::class, 'storeGenre'])->name('genres.store');
 
 Route::get('buggyflix/person', [PersonsController::class, 'index'])->name('buggyflix.person')->middleware('CheckRole:1,2,3');
 
