@@ -57,9 +57,6 @@ Route::post('/realisateurs',
 
 Route::get('buggyflix/person', [PersonsController::class, 'index'])->name('buggyflix.person')->middleware('CheckRole:1,2,3');
 
-Route::get('buggyflix/person/{person}', 
-[PersonsController::class, 'zoom'])->name('buggyflix.zoom')->middleware('CheckRole:1,2,3');
-
 Route::get('buggyflix/cinemographie/{person}', 
 [PersonsController::class, 'acteur'])->name('buggyflix.cinemographie')->middleware('CheckRole:1,2,3');
 
