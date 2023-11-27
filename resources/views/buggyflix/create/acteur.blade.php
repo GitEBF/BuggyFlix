@@ -7,7 +7,7 @@
 
 
 <section class="max-w-4xl p-6 mx-auto bgFlix rounded-md shadow-md mt-20">
-<h1 class="text-xl font-bold text-white capitalize dark:text-white">Creation Acteur</h1>
+<h1 class="text-xl font-bold text-white capitalize dark:text-white">Creation Acteur pour {{$test->titre}}</h1>
 <form method="post" action="{{ route('acteurs.store') }}">
 @csrf
     <div class="grid grid-cols-1 gap-6 mt-4 sm:grid-cols-2">
@@ -20,29 +20,20 @@
         @endforeach
     </select>    
 </div>
-
-        <div>
-            <label class="text-white dark:text-gray-200" for="lieuNaissance">Film</label>
-            <select  id="film_id" name="film_id" 
-                class="block w-full px-4 py-2 mt-2  bg-white border border-gray-300 rounded-md bgFlixLight dark:text-gray-300 dark:border-gray-600 focus:border-blue-500 dark:focus:border-blue-500 focus:outline-none focus:ring">
-                @foreach ($films as $film)
-                    @if($film->id == $test->id)
-                    <option class="text-white"value="{{$test->id}}" selected>{{$test->titre}}</option>
-                    @else
-                    <option class="text-white"value="{{$film->id}}" >{{$film->titre}}</option>
-                    @endif
-                @endforeach
-            </select>   
+        <div> 
+        <label class="text-white dark:text-gray-200" for="dateNaissance">Role</label>
+            <input id="role" name="role" type="text"
+                class="block w-full px-4 py-2 mt-2 bg-white border border-gray-300 rounded-md bgFlixLight dark:text-gray-300 dark:border-gray-600 focus:border-blue-500 dark:focus:border-blue-500 focus:outline-none focus:ring">
+    
     </div>
         <div>
-            <label class="text-white dark:text-gray-200" for="dateNaissance">Role</label>
-            <input id="role" name="role" type="text"
+
+        <label class="text-white dark:text-gray-200" for="img">Nom personnage</label>
+            <input id="nomPersonnage" name="nomPersonnage" type="text"
                 class="block w-full px-4 py-2 mt-2 bg-white border border-gray-300 rounded-md bgFlixLight dark:text-gray-300 dark:border-gray-600 focus:border-blue-500 dark:focus:border-blue-500 focus:outline-none focus:ring">
         </div>
         <div>
-            <label class="text-white dark:text-gray-200" for="img">Nom personnage</label>
-            <input id="nomPersonnage" name="nomPersonnage" type="text"
-                class="block w-full px-4 py-2 mt-2 bg-white border border-gray-300 rounded-md bgFlixLight dark:text-gray-300 dark:border-gray-600 focus:border-blue-500 dark:focus:border-blue-500 focus:outline-none focus:ring">
+        <input type="hidden" value="{{$test->id}}" id="film_id" name="film_id" >
         </div>
     </div>
 
