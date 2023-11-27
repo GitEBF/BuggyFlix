@@ -23,12 +23,15 @@
                 <a class="uneInfo">{{$film->langue}} </a>
                 <a class="uneInfo">{{$film->subtitle}} </a>
             </div>
-            <div class="groupe">
+            <div class="groupe infoGenre">
                 <a class="uneInfo">{{$film->rating}} </a>
                 <a class="uneInfo">{{$film->type}} </a>
                 @foreach ($film->genres as $genre)
                     <a class="uneInfo"> {{$genre->genre->nom}} </a>
                 @endforeach
+                @role('1')
+                    <a href="{{ route('buggyflix.create.genre', [$film->id])}}" class="ajoutGenre"> + genre</a>
+                @endrole
             </div>
             <div class="resumeFilm">
                 <a >{{$film->resume}} </a>

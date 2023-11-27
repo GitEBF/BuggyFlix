@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\FilmRequest;
+use App\Http\Requests\GenreRequest;
 use App\Models\Film;
 use App\Models\Genre;
 use App\Models\FilmGenre;
@@ -38,6 +39,12 @@ class BuggyflixController extends Controller
         return View("buggyflix.create.film");
     }
 
+    public function createGenre(){
+        $genres = Genre::all();
+        $films = Film::all();
+        return View("buggyflix.create.genre" , compact('genres','films'));
+    }
+
     /**
      * Store a newly created resource in storage.
      */
@@ -64,12 +71,44 @@ class BuggyflixController extends Controller
         }  
     }
 
+    public function storeGenre(GenreRequest $request){
+        try{
+            $genre = Genre::find($request->genre_id);
+            $film = Film::find($request->film_id);
+            
+            $film_genre = new FilmGenre($request->all());
+            
+            $film_genre->save();
+            
+            $film_genre->genre()->associate($genre); 
+            $film_genre->film()->associate($film); 
+            
+            $film_genre->save();
+            
+
+            return redirect()->route('buggyflix.index');
+            }
+            catch(\Throwable$e){
+                Log::debug($e);
+                return redirect()->route('buggyflix.index');
+            }
+    }
+
     /**
      * Display the specified resource.
      */
     public function show(Film $film)
     {
+        
         return View('buggyflix.showfilm', compact('film'));
+    }
+
+    public function showAll()
+    {
+        $films = Film::all();
+        $filmsbyDate = Film::orderBy('date')->get()->reverse();
+        $filmsPG = Film::whereIn('rating',['PG', 'G'])->get();
+        return View('buggyflix.films', compact('films','filmsbyDate','filmsPG   '));
     }
 
     /**
