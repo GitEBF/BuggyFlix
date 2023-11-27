@@ -21,7 +21,10 @@
             <ul class="ml-12 hidden w-1/2 flex-row space-x-3 text-sm lg:flex">
                 <a class="" href="{{ route('buggyflix.index')}}">Home</a>
                 <a class="" href="{{ route('buggyflix.person')}}">Acteur</a>
-                <a class="" href="{{ route('buggyflix.create.film')}}">Film</a>
+                <a class="" href="{{ route('buggyflix.films')}}">Film</a>
+                @role(1)
+                <a class="" href="{{ route('UsagersController.logout')}}">Créer Admin</a>
+                @endrole
                 @role(1,2,3)
                 <a class="" href="{{ route('UsagersController.logout')}}">Deconnexion</a>
                 @endrole
