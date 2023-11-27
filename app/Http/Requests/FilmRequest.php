@@ -26,7 +26,7 @@ class FilmRequest extends FormRequest
             'resume' => 'required',
             'type' => 'required',
             'brand' => 'required',
-            'pochette' => 'required',
+            'pochette' => 'required|image|mimes:png,jpeg,jpg,gif,jfif,webp|max:16384',
             'cote' => 'required',
             'duree' => 'required',
             'rating' => 'required',
@@ -51,7 +51,10 @@ class FilmRequest extends FormRequest
             'rating.required' => 'Veuillez insérer un rating',
             'date.required' => 'Veuillez insérer une date',
             'langue.required' => 'Veuillez insérer une langue',
-            'subtitle.required' => 'Veuillez insérer un sous-titre'
+            'subtitle.required' => 'Veuillez insérer un sous-titre',
+            'pochette.required' => 'Le champ image est obligatoire',
+            'pochette.max' => 'la taille de l\'image ne doit pas dépasser 16Mb',
+            'pochette.mimes' => 'le type n\'est pas reconnu (png,jpg,gif,jfif,webp)'
         ];
     }
 }
