@@ -25,6 +25,9 @@ Route::get('buggyflix/film/{film}',
 Route::get('buggyflix/create/film', 
 [BuggyflixController::class, 'create'])->name('buggyflix.create.film')->middleware('CheckRole:1');
 
+Route::get('buggyflix/films', 
+[BuggyflixController::class, 'showAll'])->name('buggyflix.films')->middleware('CheckRole:1,2,3');
+
 Route::get('buggyflix/create/person', 
 [PersonsController::class, 'create'])->name('buggyflix.create.person')->middleware('CheckRole:1');
 
