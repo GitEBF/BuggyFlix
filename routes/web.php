@@ -43,7 +43,7 @@ Route::get('buggyflix/create/producteur/{film}',
 Route::get('buggyflix/create/realisateur/{film}', 
 [PersonsController::class, 'createRealisateur'])->name('buggyflix.create.realisateur')->middleware('CheckRole:1');
 
-Route::get('buggyflix/create/genre', 
+Route::get('buggyflix/create/genre/{film}', 
 [BuggyflixController::class, 'createGenre'])->name('buggyflix.create.genre')->middleware('CheckRole:1');
 
 Route::post('/persons', 

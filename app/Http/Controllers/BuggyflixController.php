@@ -39,10 +39,11 @@ class BuggyflixController extends Controller
         return View("buggyflix.create.film");
     }
 
-    public function createGenre(){
+    public function createGenre($filmSelected){
         $genres = Genre::all();
         $films = Film::all();
-        return View("buggyflix.create.genre" , compact('genres','films'));
+        $test = Film::find($filmSelected);
+        return View("buggyflix.create.genre" , compact('genres','films','test'));
     }
 
     /**
