@@ -12,23 +12,23 @@
     <div>
     <label class="text-white dark:text-gray-200" for="nom">Nom</label>
     <input name="nom" id="nom" type="text" value="{{ $person->nom }}"
-        class="block w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-300 rounded-md bgFlixLight dark:text-gray-300 dark:border-gray-600 focus:border-blue-500 dark:focus:border-blue-500 focus:outline-none focus:ring">
+        class="block w-full px-4 py-2 mt-2 bg-white border border-gray-300 rounded-md bgFlixLight dark:text-gray-300 dark:border-gray-600 focus:border-blue-500 dark:focus:border-blue-500 focus:outline-none focus:ring">
 </div>
 
         <div>
             <label class="text-white dark:text-gray-200" for="lieuNaissance">Lieu de naissance</label>
             <input id="lieuNaissance" name="lieuNaissance" type="text" value="{{ $person->lieuNaissance}}"
-                class="block w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-300 rounded-md bgFlixLight dark:text-gray-300 dark:border-gray-600 focus:border-blue-500 dark:focus:border-blue-500 focus:outline-none focus:ring">
+                class="block w-full px-4 py-2 mt-2 bg-white border border-gray-300 rounded-md bgFlixLight dark:text-gray-300 dark:border-gray-600 focus:border-blue-500 dark:focus:border-blue-500 focus:outline-none focus:ring">
         </div>
         <div>
             <label class="text-white dark:text-gray-200" for="dateNaissance">Date de naissance</label>
             <input id="dateNaissance" name="dateNaissance" type="date" value="{{ $person->dateNaissance}}"
-                class="block w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-300 rounded-md bgFlixLight dark:text-gray-300 dark:border-gray-600 focus:border-blue-500 dark:focus:border-blue-500 focus:outline-none focus:ring">
+                class="block w-full px-4 py-2 mt-2 bg-white border border-gray-300 rounded-md bgFlixLight dark:text-gray-300 dark:border-gray-600 focus:border-blue-500 dark:focus:border-blue-500 focus:outline-none focus:ring">
         </div>
         <div>
             <label class="text-white dark:text-gray-200" for="img">Image</label>
             <input id="img" name="img" type="text" value="{{ $person->img}}"
-                class="block w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-300 rounded-md bgFlixLight dark:text-gray-300 dark:border-gray-600 focus:border-blue-500 dark:focus:border-blue-500 focus:outline-none focus:ring">
+                class="block w-full px-4 py-2 mt-2 bg-white border border-gray-300 rounded-md bgFlixLight dark:text-gray-300 dark:border-gray-600 focus:border-blue-500 dark:focus:border-blue-500 focus:outline-none focus:ring">
         </div>
     </div>
 

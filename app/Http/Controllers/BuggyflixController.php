@@ -41,9 +41,11 @@ class BuggyflixController extends Controller
     }
 
     public function createGenre($filmSelected){
-        $genres = Genre::all();
         $films = Film::all();
-        $test = Film::find($filmSelected);
+        $genres = Genre::whereDoesntHave('filmGenre', function ($query) use ($filmSelected) {
+            $query->where('film_id', $filmSelected);
+        })->get();
+        $test = Film::with('genres')->find($filmSelected);
         return View("buggyflix.create.genre" , compact('genres','films','test'));
     }
 

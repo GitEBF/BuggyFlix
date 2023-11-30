@@ -47,16 +47,20 @@ class PersonsController extends Controller
 
     public function createRealisateur($filmClicked)
     {
-        $persons = Person::all();
         $films = Film::all();
+        $persons = Person::whereDoesntHave('realisateurs', function ($query) use ($filmClicked) {
+            $query->where('film_id', $filmClicked);
+        })->get();
         $test = Film::find($filmClicked);
         return View("buggyflix.create.realisateur", compact('persons', 'films', 'test'));
     }
 
     public function createProducteur($filmClicked)
     {
-        $persons = Person::all();
         $films = Film::all();
+        $persons = Person::whereDoesntHave('producteurs', function ($query) use ($filmClicked) {
+            $query->where('film_id', $filmClicked);
+        })->get();
         $test = Film::find($filmClicked);
         return View("buggyflix.create.producteur", compact('persons', 'films', 'test'));
     }
