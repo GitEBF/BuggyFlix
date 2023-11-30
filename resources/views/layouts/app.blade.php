@@ -23,7 +23,7 @@
                 <a class="" href="{{ route('buggyflix.person')}}">Acteur</a>
                 <a class="" href="{{ route('buggyflix.films')}}">Film</a>
                 @role(1)
-                <a class="" href="{{ route('UsagersController.logout')}}">Créer Admin</a>
+                <a class="" href="{{ route('UsagersController.admin')}}">Admin</a>
                 @endrole
                 @role(1,2,3)
                 <a class="" href="{{ route('UsagersController.logout')}}">Deconnexion</a>
