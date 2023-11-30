@@ -1,12 +1,12 @@
 
-
 .rowRole{
     display: flex;
     flex-direction:row;
     justify-content: flex-start;
     align-items: center;
-    margin-top: none;
-   
+    margin-bottom: 30px;
+    margin-top: -30px;
+    margin-left: 20px;
 }
 
 .supRole{
