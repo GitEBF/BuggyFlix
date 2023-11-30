@@ -8,6 +8,7 @@ use App\Models\Realisateur;
 use Illuminate\Http\Request;
 use App\Models\Person;
 use App\Models\Film;
+use App\Http\Requests\ModPersonRequest;
 use App\Http\Requests\PersonRequest;
 use App\Http\Requests\ActeurRequest;
 use App\Http\Requests\ProducteurRequest;
@@ -175,14 +176,27 @@ class PersonsController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(PersonRequest $request, Person $person)
+    public function update(ModPersonRequest $request, Person $person)
     {
         try {
             $person->nom = $request->nom;
             $person->dateNaissance = $request->dateNaissance;
             $person->lieuNaissance = $request->lieuNaissance;
-            $person->img = $request->img;
 
+            if($request->file('img') == NULL){
+                $person->img = $person->img;
+            } else {
+                $uploadedFile = $request->file('img');
+                $nomFichierUnique = str_replace(' ', '_', $person->nom) . '_' . uniqid() . '.' . $uploadedFile->extension();
+
+                try {
+                    $request->img->move(public_path('img/persons'), $nomFichierUnique);
+                } catch (\Symfony\Component\HttpFoundation\File\Exception\FileException $e) {
+                    Log::error("Erreur lors du téléversement du fichier. ", [$e]);
+                }
+                $person->img = $nomFichierUnique;
+            }
+            
             $person->save();
             return redirect()->route('buggyflix.person')->with('message', "Modification de " . $person->nom . " réussi!");
         } catch (\Throwable $e) {

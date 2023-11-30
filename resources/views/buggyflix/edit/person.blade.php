@@ -5,7 +5,7 @@
 <section class="main-container"> <!-- component -->
 <section class="max-w-4xl p-6 mx-auto bgFlix rounded-md shadow-md mt-20">
 <h1 class="text-xl font-bold text-white capitalize dark:text-white">Modifier {{ $person->nom}}</h1>
-<form method="post" action="{{route('persons.update', [$person]) }}">
+<form method="post" action="{{route('persons.update', [$person]) }}" enctype="multipart/form-data">
 @csrf
 @method('PATCH')
     <div class="grid grid-cols-1 gap-6 mt-4 sm:grid-cols-2">
@@ -26,9 +26,11 @@
                 class="block w-full px-4 py-2 mt-2 bg-white border border-gray-300 rounded-md bgFlixLight dark:text-gray-300 dark:border-gray-600 focus:border-blue-500 dark:focus:border-blue-500 focus:outline-none focus:ring">
         </div>
         <div>
-            <label class="text-white dark:text-gray-200" for="img">Image</label>
-            <input id="img" name="img" type="text" value="{{ $person->img}}"
-                class="block w-full px-4 py-2 mt-2 bg-white border border-gray-300 rounded-md bgFlixLight dark:text-gray-300 dark:border-gray-600 focus:border-blue-500 dark:focus:border-blue-500 focus:outline-none focus:ring">
+        <img src="{{ asset('img/persons/' . $person->img)}}" alt="" title="{{$person->img}}" class="h-48 w-48 mx-auto"></a>
+        <label class="text-white dark:text-gray-200" for="img">Image</label>
+            <input id="img" name="img" type="file"
+                class="block w-full px-4 py-2 mt-2 bg-white border border-gray-300 rounded-md bgFlixLight dark:text-white dark:border-gray-600 focus:border-blue-500 dark:focus:border-blue-500 focus:outline-none focus:ring
+                 form-control-file">
         </div>
     </div>
 

@@ -54,22 +54,22 @@
                 <summary>Langues</summary>
                 <ul>
                     <li>
-                        <label><input type="checkbox" name="langue" value="FR"/>Francais</label>
+                        <label><input type="checkbox" name="langue[]" value="FR"/>Francais</label>
                     </li>
                     <li>
-                        <label><input type="checkbox" name="langue" value="EN" />Englais</label>
+                        <label><input type="checkbox" name="langue[]" value="EN" />Englais</label>
                     </li>
                     <li>
-                        <label><input type="checkbox" name="langue" value="ES" />Espagnol</label>
+                        <label><input type="checkbox" name="langue[]" value="ES" />Espagnol</label>
                     </li>
                     <li>
-                        <label><input type="checkbox" name="langue" value="JA" />Japonais</label>
+                        <label><input type="checkbox" name="langue[]" value="JA" />Japonais</label>
                     </li>
                     <li>
-                        <label><input type="checkbox" name="langue" value="HI" />Hindou</label>
+                        <label><input type="checkbox" name="langue[]" value="HI" />Hindou</label>
                     </li>
                     <li>
-                        <label><input type="checkbox" name="langue" value="DE" />Allemand</label>
+                        <label><input type="checkbox" name="langue[]" value="DE" />Allemand</label>
                     </li>
                 </ul>
             </details>
@@ -85,22 +85,22 @@
                 <summary>Sous-Titres</summary>
                 <ul>
                     <li>
-                        <label><input type="checkbox" name="subtitle" value="FR"/>Francais</label>
+                        <label><input type="checkbox" name="subtitle[]" value="FR"/>Francais</label>
                     </li>
                     <li>
-                        <label><input type="checkbox" name="subtitle" value="EN" />Englais</label>
+                        <label><input type="checkbox" name="subtitle[]" value="EN" />Englais</label>
                     </li>
                     <li>
-                        <label><input type="checkbox" name="subtitle" value="ES" />Espagnol</label>
+                        <label><input type="checkbox" name="subtitle[]" value="ES" />Espagnol</label>
                     </li>
                     <li>
-                        <label><input type="checkbox" name="subtitle" value="JA" />Japonais</label>
+                        <label><input type="checkbox" name="subtitle[]" value="JA" />Japonais</label>
                     </li>
                     <li>
-                        <label><input type="checkbox" name="subtitle" value="HI" />Hindou</label>
+                        <label><input type="checkbox" name="subtitle[]" value="HI" />Hindou</label>
                     </li>
                     <li>
-                        <label><input type="checkbox" name="subtitle" value="DE" />Allemand</label>
+                        <label><input type="checkbox" name="subtitle[]" value="DE" />Allemand</label>
                     </li>
                 </ul>
             </details>
