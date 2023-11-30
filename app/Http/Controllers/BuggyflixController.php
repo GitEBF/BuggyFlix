@@ -10,6 +10,7 @@ use App\Models\Genre;
 use App\Models\FilmGenre;
 use Illuminate\Http\Response;
 use Illuminate\Support\Facades\Log;
+use Brian2694\Toastr\Facades\Toastr;
 
 class BuggyflixController extends Controller
 {
@@ -162,7 +163,8 @@ class BuggyflixController extends Controller
                     $film->pochette = $nomFichierUnique;
                 }
                 $film->save();
-                return redirect()->route('buggyflix.index')->with('message', "Modification de " . $film->titre . " réussi!");
+                $message = "Modification de " . $film->titre . " réussi!";
+                return redirect()->route('buggyflix.index')->with('message');
             }
             catch(\Throwable $e){
                 Log::debug($e);

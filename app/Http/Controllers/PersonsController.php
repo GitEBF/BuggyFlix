@@ -42,6 +42,7 @@ class PersonsController extends Controller
         $persons = Person::all();
         $films = Film::all();
         $test = Film::find($filmClicked);
+        
         return View("buggyflix.create.acteur", compact('persons', 'films', 'test'));
     }
 
@@ -103,8 +104,8 @@ class PersonsController extends Controller
             $acteur->film()->associate($film);
 
             $acteur->save();
-
-            return redirect()->route('buggyflix.show', [$film]);
+            $message = "Ajout du role de" . $acteur->nomPersonnage . " pour l'acteur " . $person->nom . "réussi!";
+            return redirect()->route('buggyflix.show', [$film])->with('message', $message);
         } catch (\Throwable $e) {
             Log::debug($e);
         }
@@ -124,8 +125,8 @@ class PersonsController extends Controller
             $producteur->film()->associate($film);
 
             $producteur->save();
-
-            return redirect()->route('buggyflix.show', [$film]);
+            $message = "Ajout de" . $person->nom .  " comme producteur pour le film " . $film->titre . "réussi!";
+            return redirect()->route('buggyflix.show', [$film])->with('message', $message);
         } catch (\Throwable $e) {
             Log::debug($e);
         }
@@ -144,8 +145,8 @@ class PersonsController extends Controller
             $realisateur->film()->associate($film);
 
             $realisateur->save();
-
-            return redirect()->route('buggyflix.show', [$film]);
+            $message = "Ajout de" . $person->nom .  " comme realisateur pour le film " . $film->titre . "réussi!";
+            return redirect()->route('buggyflix.show', [$film])->with('message', $message);
         } catch (\Throwable $e) {
             Log::debug($e);
         }
@@ -198,7 +199,8 @@ class PersonsController extends Controller
             }
             
             $person->save();
-            return redirect()->route('buggyflix.person')->with('message', "Modification de " . $person->nom . " réussi!");
+            $message = "Modifications des informations pour " . $person->nom .  " réussi!";
+            return redirect()->route('buggyflix.person')->with('message', $message);
         } catch (\Throwable $e) {
             Log::debug($e);
             return redirect()->route('buggyflix.person')->withErrors(['la modification n\'a pas fonctionné']);
@@ -218,7 +220,8 @@ class PersonsController extends Controller
         $person->producteurs()->delete();
 
         $person->delete();
-        return redirect()->route('buggyflix.person')->with('message', "Suppression de " . $person->nom . " réussi!");
+        $message = "Suppression de " . $person->nom . " réussi!";
+        return redirect()->route('buggyflix.person')->with('message', $message);
 
         //return redirect()->route('buggyflix.person');
     }
@@ -227,8 +230,10 @@ class PersonsController extends Controller
     {
         $acteur = Acteur::findOrFail($id);
         $person = Person::findOrFail($acteur->person_id);
+        $message = "Suppression du role " . $acteur->nomPersonnage . " réussi!";
         $acteur->delete();
-        return redirect()->route('buggyflix.cinemographie', [$person])->with('message', "Suppression du rôle réussi!");
+        
+        return redirect()->route('buggyflix.cinemographie', [$person])->with('message', $message);
 
         //return redirect()->route('buggyflix.person');
     }
@@ -238,7 +243,7 @@ class PersonsController extends Controller
         $producteur = Producteur::findOrFail($id);
         $person = Person::findOrFail($producteur->person_id);
         $producteur->delete();
-        return redirect()->route('buggyflix.cinemographie', [$person])->with('message', "Suppression du rôle réussi!");
+        return redirect()->route('buggyflix.cinemographie', [$person]);
 
         //return redirect()->route('buggyflix.person');
     }
@@ -248,7 +253,7 @@ class PersonsController extends Controller
         $realisateur = Realisateur::findOrFail($id);
         $person = Person::findOrFail($realisateur->person_id);
         $realisateur->delete();
-        return redirect()->route('buggyflix.cinemographie', [$person])->with('message', "Suppression du rôle réussi!");
+        return redirect()->route('buggyflix.cinemographie', [$person]);
 
         //return redirect()->route('buggyflix.person');
     }

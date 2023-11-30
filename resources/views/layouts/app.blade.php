@@ -9,10 +9,39 @@
     crossorigin="anonymous"></script>
 <link rel="stylesheet" href="{{asset('css/main.css')}}">
 <link href="{{asset('css/tailwind.css')}}" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.rawgit.com/kamranahmedse/jquery-toast-plugin/master/dist/jquery.toast.min.css">
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+    <script src="https://cdn.rawgit.com/kamranahmedse/jquery-toast-plugin/master/dist/jquery.toast.min.js"></script>
 
 </head>
 
 <body>
+@isset($message)
+@if($message)
+        <script>
+            // Show the toast message
+            $.toast({
+                text: "{{ $message }}",
+                showHideTransition: 'slide',
+                icon: 'success',
+                position: 'top-right',
+            });
+        </script>
+    @endif
+    @endisset
+    @if(session()->has('message'))
+    @if(session('message'))
+        <script>
+            // Show the toast message
+            $.toast({
+                text: "{{ session('message') }}",
+                showHideTransition: 'slide',
+                icon: 'success',
+                position: 'top-right',
+            });
+        </script>
+    @endif
+@endif
     <div class="body-font fixed top-0 z-50 w-full bg-black text-white">
         <div class="flex flex-col flex-wrap items-center p-5 px-16 md:flex-row">
             <a class="title-font mb-4 flex items-center text-2xl font-bold uppercase md:mb-0" style="color: #e50914">

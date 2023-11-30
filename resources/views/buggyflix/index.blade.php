@@ -2,8 +2,12 @@
 
 
 @section("contenu")
+<link rel="stylesheet" href="https://cdn.rawgit.com/kamranahmedse/jquery-toast-plugin/master/dist/jquery.toast.min.css">
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+    <script src="https://cdn.rawgit.com/kamranahmedse/jquery-toast-plugin/master/dist/jquery.toast.min.js"></script>
 <!-- MAIN CONTAINER -->
 <section class="main-container">
+
   @auth
   @role(1,2)
   <div class="location" id="home"> <h1 id="home">Nouveau sur Buggyflix</h1> <div class="box">
