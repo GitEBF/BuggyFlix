@@ -27,7 +27,7 @@
         <div class="box">
           @if (count($films))
             @foreach ($filmsPG->take(6) as $film)
-              <a href="{{ route('buggyflix.show', [$film]) }}"><img src="{{ asset('img/films/' . $film->pochette)}}" alt="" title="{{$film->pochette}}" class="h-50 w-50 mx-auto"></a>
+              <a href="{{ route('buggyflix.show', [$film]) }}"><img src="{{ asset('img/films/' . $film->pochette)}}" alt="" title="{{$film->pochette}}" class="h-48 w-48 mx-auto"></a>
             @endforeach
           @else
             <a href=""><img src="https://github.com/carlosavilae/Netflix-Clone/blob/master/img/t1.PNG?raw=true" alt=""></a>
@@ -60,4 +60,5 @@
     </div>
   @endauth
   <!-- END OF MAIN CONTAINER -->
+</section>
 @endsection
