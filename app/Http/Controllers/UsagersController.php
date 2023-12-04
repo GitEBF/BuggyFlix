@@ -77,7 +77,7 @@ class UsagersController extends Controller
             $usager = new Usager($request->all());
             $usager->role = $role;
             $usager->save();
-            return redirect()->route('buggyflix.index')->with('message', "Création réussi!");
+            return redirect()->route('buggyflix.index')->with('message', "Création de " . $usager->email . "réussi!");
             }
             
             catch(\Throwable$e){
@@ -125,7 +125,7 @@ class UsagersController extends Controller
                 $user->birthDate = $request->birthDate;
                 $user->password = $request->password;
                 $user->save();
-                return redirect()->route('buggyflix.index');
+                return redirect()->route('buggyflix.index')->with('message', "Modification de " . $user->email . "réussi!");
                 }
                 
                 catch(\Throwable$e){
