@@ -57,7 +57,6 @@ class BuggyflixController extends Controller
             $film = new Film($request->all());
             $uploadedFile = $request->file('pochette');
             $nomFichierUnique = str_replace(' ','_',$film->titre) . '_' . uniqid() . '.' . $uploadedFile->extension();
-
             try {
                     $request->pochette->move(public_path('img/films'),$nomFichierUnique);
             }
@@ -89,7 +88,7 @@ class BuggyflixController extends Controller
             $film_genre->save();
             
 
-            return redirect()->route('buggyflix.index');
+            return View('buggyflix.showfilm', compact('film'));
             }
             catch(\Throwable$e){
                 Log::debug($e);
