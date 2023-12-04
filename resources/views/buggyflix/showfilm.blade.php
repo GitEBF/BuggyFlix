@@ -83,8 +83,8 @@
 <style>
     .top-right-link {
       position: absolute;
-      top: 80px;
-      right: 10px; 
+      top: 90px;
+      left: 50px; 
       background-color: #D81f26;
       color: #ffffff; 
       padding: 10px 15px;
@@ -93,8 +93,8 @@
 
     .top-right-link-2 {
       position: absolute;
-      top: 80px;
-      right: 60px; 
+      top: 90px;
+      left: 100px; 
       background-color: #D81f26;
       color: #ffffff; 
       padding: 10px 15px;
