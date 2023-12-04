@@ -32,7 +32,14 @@
             </nav>
         </div>
     </div>
+    @auth
     @yield('contenu')
+    @else
+    @yield('contenu')
+        @php
+            return redirect()->route('UsagersController.showLoginForm');
+        @endphp
+    @endauth
     <footer class="mx-auto max-w-screen-lg py-8 text-sm" style="color: #7c7c7c">
         <div class="my-4 ml-6 flex space-x-6" style="color: #808080">
         </div>
@@ -62,5 +69,6 @@
         </div>
     </footer>
 </body>
+
 
 </html>
