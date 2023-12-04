@@ -107,7 +107,7 @@ Route::get('buggyflix/admin',
 Route::get('buggyflix/user/edit/{user}', 
 [UsagersController::class, 'edit'])->name('UsagersController.user.edit')->middleware('CheckRole:1');
 
-Route::patch('buggyflix/user/update', 
+Route::patch('buggyflix/user/{user}/update', 
 [UsagersController::class, 'update'])->name('UsagersController.update');
 
 Route::delete('delete/user/{id}', 
