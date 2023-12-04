@@ -149,10 +149,13 @@ class BuggyflixController extends Controller
                 $film->langue = $languesString;
                 $subtitlesString = implode('-', $request->input('subtitle'));
                 $film->subtitle = $subtitlesString;
-
                 if($request->file('pochette') == NULL){
                     $film->pochette = $film->pochette;
                 } else {
+                    $previousPochette = $film->pochette;
+                    if ($previousPochette && Storage::disk('public')->exists('img/films/' . $previousPochette)) {
+                        Storage::disk('public')->delete('img/films/' . $previousPochette);
+                    }
                     $uploadedFile = $request->file('pochette');
                     $nomFichierUnique = str_replace(' ','_',$film->titre) . '_' . uniqid() . '.' . $uploadedFile->extension();
                     try {
@@ -183,7 +186,10 @@ class BuggyflixController extends Controller
         $film->realisateurs()->delete();
         $film->producteurs()->delete();
         $film->genres()->delete();
-
+        $Pochette = $film->pochette;
+        if ($Pochette && Storage::disk('public')->exists('img/films/' . $Pochette)) {
+            Storage::disk('public')->delete('img/films/' . $Pochette);
+        }
         $film->delete();
               return redirect()->route('buggyflix.index')->with('message', "Suppression de " . $film->titre . " réussi!");
     }
