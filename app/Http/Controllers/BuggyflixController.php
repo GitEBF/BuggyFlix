@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\ModFilmRequest;
 use App\Http\Requests\FilmRequest;
 use App\Http\Requests\GenreRequest;
 use App\Models\Film;
@@ -58,7 +59,10 @@ class BuggyflixController extends Controller
             $film = new Film($request->all());
             $uploadedFile = $request->file('pochette');
             $nomFichierUnique = str_replace(' ','_',$film->titre) . '_' . uniqid() . '.' . $uploadedFile->extension();
-
+            $languesString = implode('-', $request->input('langue'));
+            $film->langue = $languesString;
+            $subtitlesString = implode('-', $request->input('subtitle'));
+            $film->subtitle = $subtitlesString;
             try {
                     $request->pochette->move(public_path('img/films'),$nomFichierUnique);
             }
@@ -121,27 +125,44 @@ class BuggyflixController extends Controller
      */
     public function edit(Film $film)
     {
-        return View('buggyflix.edit.film', compact('film'));
+        $selectedLangues = explode('-', $film->langue);
+        $selectedSubtitles = explode('-', $film->subtitle); 
+        return View('buggyflix.edit.film', compact('film','selectedLangues','selectedSubtitles'));
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(FilmRequest $request, Film $film)
+    public function update(ModFilmRequest $request, Film $film)
         {
             try{
                 $film->titre = $request->titre;
                 $film->resume = $request->resume;
-                $film->pochette = $request->pochette;
                 $film->type = $request->type;
                 $film->brand = $request->brand;
                 $film->duree = $request->duree;
                 $film->date = $request->date;
                 $film->rating = $request->rating;
                 $film->cote = $request->cote;
-                $film->langue = $request->langue;
-                $film->subtitle = $request->subtitle;
-                
+
+                $languesString = implode('-', $request->input('langue'));
+                $film->langue = $languesString;
+                $subtitlesString = implode('-', $request->input('subtitle'));
+                $film->subtitle = $subtitlesString;
+
+                if($request->file('pochette') == NULL){
+                    $film->pochette = $film->pochette;
+                } else {
+                    $uploadedFile = $request->file('pochette');
+                    $nomFichierUnique = str_replace(' ','_',$film->titre) . '_' . uniqid() . '.' . $uploadedFile->extension();
+                    try {
+                        $request->pochette->move(public_path('img/films'),$nomFichierUnique);
+                    }
+                    catch(\Symfony\Component\HttpFoundation\File\Exception\FileException $e){
+                        Log::error("Erreur lors du téléversement du fichier. ", [$e]);
+                    }
+                    $film->pochette = $nomFichierUnique;
+                }
                 $film->save();
                 $message = "Modification de " . $film->titre . " réussi!";
                 return redirect()->route('buggyflix.index')->with('message');

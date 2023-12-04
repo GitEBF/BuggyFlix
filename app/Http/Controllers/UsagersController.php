@@ -45,6 +45,14 @@ class UsagersController extends Controller
      
         return view('buggyflix.signinForm');
     }
+
+    public function admin()
+    {
+        $users = Usager::all();
+        return view('buggyflix.admin', compact('users'));
+    }
+
+
     /**
      * Show the form for creating a new resource.
      */
@@ -91,17 +99,39 @@ class UsagersController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(string $id)
+    public function edit(Usager $user)
     {
-        //
+        return View('buggyflix.edit.user', compact('user'));
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, string $id)
+    public function update(UsagerRequest $request, Usager $user)
     {
-        //
+        try{
+            // Calculate age based on birthDate
+            $birthDate = strtotime($request->birthDate);
+            $age = date('Y') - date('Y', $birthDate);
+
+            // Assign role based on age
+            if ($request->has('role')) {
+                $role = 1;
+            } else {
+                $role = ($age >= 14) ? '2' : '3';
+            }
+                $user->role = $role;
+                $user->email = $request->email;
+                $user->birthDate = $request->birthDate;
+                $user->password = $request->password;
+                $user->save();
+                return redirect()->route('buggyflix.index');
+                }
+                
+                catch(\Throwable$e){
+                    Log::debug($e);
+                }
+    
     }
 
     /**
@@ -109,6 +139,8 @@ class UsagersController extends Controller
      */
     public function destroy(string $id)
     {
-        //
+        $user = Usager::findOrFail($id);
+        $user->delete();
+              return redirect()->route('buggyflix.index')->with('message', "Suppression de " . $user->email . " réussi!");
     }
 }

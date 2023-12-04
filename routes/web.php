@@ -106,6 +106,18 @@ Route::post('buggyflix/signin',
 Route::get('buggyflix/signin', 
 [UsagersController::class, 'showSignInForm'])->name('UsagersController.showSignInForm');
 
+Route::get('buggyflix/admin', 
+[UsagersController::class, 'admin'])->name('UsagersController.admin')->middleware('CheckRole:1');
+
+Route::get('buggyflix/user/edit/{user}', 
+[UsagersController::class, 'edit'])->name('UsagersController.user.edit')->middleware('CheckRole:1');
+
+Route::patch('buggyflix/user/{user}/update', 
+[UsagersController::class, 'update'])->name('UsagersController.update');
+
+Route::delete('delete/user/{id}', 
+[UsagersController::class, 'destroy'])->name('user.destroy');
+
 
 // Films
 Route::delete('delete/film/{id}', 
