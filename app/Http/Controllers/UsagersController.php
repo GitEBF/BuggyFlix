@@ -69,7 +69,7 @@ class UsagersController extends Controller
             $usager = new Usager($request->all());
             $usager->role = $role;
             $usager->save();
-            return redirect()->route('buggyflix.index');
+            return redirect()->route('buggyflix.index')->with('message', "Création réussi!");
             }
             
             catch(\Throwable$e){
