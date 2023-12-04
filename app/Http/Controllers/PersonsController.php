@@ -83,7 +83,8 @@ class PersonsController extends Controller
             }
             $person->img = $nomFichierUnique;
             $person->save();
-            return redirect()->route('buggyflix.index');
+            $message = "Création de la personne : " . $person->nom . "réussi!";
+            return redirect()->route('buggyflix.index')->with('message', $message);
         } catch (\Throwable $e) {
             Log::debug($e);
             return redirect()->route('buggyflix.index');
@@ -242,8 +243,10 @@ class PersonsController extends Controller
     {
         $producteur = Producteur::findOrFail($id);
         $person = Person::findOrFail($producteur->person_id);
+        $film = Film::findOrFail($producteur->film_id);
         $producteur->delete();
-        return redirect()->route('buggyflix.cinemographie', [$person]);
+        $message = "Suppression du producteur " . $person->nom . " pour le film " . $film->titre . " réussi!";
+        return redirect()->route('buggyflix.cinemographie', [$person])->with('message', $message);
 
         //return redirect()->route('buggyflix.person');
     }
@@ -252,8 +255,10 @@ class PersonsController extends Controller
     {
         $realisateur = Realisateur::findOrFail($id);
         $person = Person::findOrFail($realisateur->person_id);
+        $film = Film::findOrFail($realisateur->film_id);
+        $message = "Suppression du réalisateur " . $person->nom . " pour le film " . $film->titre . " réussi!";
         $realisateur->delete();
-        return redirect()->route('buggyflix.cinemographie', [$person]);
+        return redirect()->route('buggyflix.cinemographie', [$person])->with('message', $message);
 
         //return redirect()->route('buggyflix.person');
     }
