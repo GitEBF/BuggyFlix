@@ -144,12 +144,9 @@
             <label class="text-white dark:text-gray-200" for="resume">Resume</label>
             <input id="resume" type="text" name="resume" value="{{ old('resume') }}"
                 class="block w-full px-4 py-2 mt-2 text-white-700 bg-white border border-gray-300 rounded-md bgFlixLight dark:text-gray-300 dark:border-gray-600 focus:border-red-500 dark:focus:border-red-500 focus:outline-none focus:ring ring-red-600">
-        </div>
-</form>
-<div>
-    </section>
-    </section>
-    @if(isset($errors) && $errors->any())
+        
+            </div>
+            @if(isset($errors) && $errors->any())
     
     <div class="alert alert-danger">
         @foreach($errors->all() as $error)
@@ -158,5 +155,10 @@
     </div>
 
 @endif
+</form>
+<div>
+    </section>
+    </section>
+
 
     @endsection

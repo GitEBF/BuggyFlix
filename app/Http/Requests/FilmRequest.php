@@ -29,7 +29,7 @@ class FilmRequest extends FormRequest
             'pochette' => 'required|image|mimes:png,jpeg,jpg,gif,jfif,webp|max:16384',
             'cote' => 'required',
             'duree' => 'required',
-            'rating' => 'required|numeric|min:1|max:10',
+            'rating' => 'required',
             'date' => 'required',
             'langue' => 'required',
             'subtitle' => 'required'
