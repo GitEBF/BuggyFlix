@@ -190,7 +190,11 @@ class PersonsController extends Controller
             } else {
                 $uploadedFile = $request->file('img');
                 $nomFichierUnique = str_replace(' ', '_', $person->nom) . '_' . uniqid() . '.' . $uploadedFile->extension();
-
+                $oldImage = $person->img;
+                $imagePath = public_path('img/persons/' . $oldImage);
+                if ($oldImage && File::exists($imagePath)) {
+                    File::delete($imagePath);
+                }
                 try {
                     $request->img->move(public_path('img/persons'), $nomFichierUnique);
                 } catch (\Symfony\Component\HttpFoundation\File\Exception\FileException $e) {
@@ -219,7 +223,11 @@ class PersonsController extends Controller
         $person->acteurs()->delete();
         $person->realisateurs()->delete();
         $person->producteurs()->delete();
-
+        $oldImage = $person->img;
+        $imagePath = public_path('img/persons/' . $oldImage);
+        if ($oldImage && File::exists($imagePath)) {
+            File::delete($imagePath);
+        }
         $person->delete();
         $message = "Suppression de " . $person->nom . " réussi!";
         return redirect()->route('buggyflix.person')->with('message', $message);
