@@ -16,6 +16,11 @@ use App\Http\Middleware\CheckRole;
 |
 */
 
+Route::get('/', function () {
+    return redirect('/buggyflix');
+});
+
+
 Route::get('/buggyflix', 
 [BuggyflixController::class, 'index'])->name('buggyflix.index')->middleware('CheckRole:1,2,3');
 

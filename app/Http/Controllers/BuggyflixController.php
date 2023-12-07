@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\ModFilmRequest;
 use App\Http\Requests\FilmRequest;
 use App\Http\Requests\GenreRequest;
 use App\Models\Film;
@@ -9,6 +10,8 @@ use App\Models\Genre;
 use App\Models\FilmGenre;
 use Illuminate\Http\Response;
 use Illuminate\Support\Facades\Log;
+use Brian2694\Toastr\Facades\Toastr;
+use Illuminate\Support\Facades\File;
 
 class BuggyflixController extends Controller
 {
@@ -57,6 +60,10 @@ class BuggyflixController extends Controller
             $film = new Film($request->all());
             $uploadedFile = $request->file('pochette');
             $nomFichierUnique = str_replace(' ','_',$film->titre) . '_' . uniqid() . '.' . $uploadedFile->extension();
+            $languesString = implode('-', $request->input('langue'));
+            $film->langue = $languesString;
+            $subtitlesString = implode('-', $request->input('subtitle'));
+            $film->subtitle = $subtitlesString;
             try {
                     $request->pochette->move(public_path('img/films'),$nomFichierUnique);
             }
@@ -65,7 +72,8 @@ class BuggyflixController extends Controller
             }
             $film->pochette = $nomFichierUnique;
             $film->save();
-            return redirect()->route("buggyflix.index");
+            $message = "Création du film : " . $film->titre . " réussit!";
+            return redirect()->route("buggyflix.index")->with('message', $message);
         }
         catch(\Throwable$e){
             Log::debug($e);
@@ -87,8 +95,8 @@ class BuggyflixController extends Controller
             
             $film_genre->save();
             
-
-            return View('buggyflix.showfilm', compact('film'));
+            $message = "Ajout du genre " . $genre->nom . " pour le film : " . $film->titre . " réussi!";
+            return redirect()->route('buggyflix.index')->with('message', $message);
             }
             catch(\Throwable$e){
                 Log::debug($e);
@@ -118,29 +126,52 @@ class BuggyflixController extends Controller
      */
     public function edit(Film $film)
     {
-        return View('buggyflix.edit.film', compact('film'));
+        $selectedLangues = explode('-', $film->langue);
+        $selectedSubtitles = explode('-', $film->subtitle); 
+        return View('buggyflix.edit.film', compact('film','selectedLangues','selectedSubtitles'));
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(FilmRequest $request, Film $film)
+    public function update(ModFilmRequest $request, Film $film)
         {
             try{
                 $film->titre = $request->titre;
                 $film->resume = $request->resume;
-                $film->pochette = $request->pochette;
                 $film->type = $request->type;
                 $film->brand = $request->brand;
                 $film->duree = $request->duree;
                 $film->date = $request->date;
                 $film->rating = $request->rating;
                 $film->cote = $request->cote;
-                $film->langue = $request->langue;
-                $film->subtitle = $request->subtitle;
-                
+
+                $languesString = implode('-', $request->input('langue'));
+                $film->langue = $languesString;
+                $subtitlesString = implode('-', $request->input('subtitle'));
+                $film->subtitle = $subtitlesString;
+                if($request->file('pochette') == NULL){
+                    $film->pochette = $film->pochette;
+                } else {
+                    $previousPochette = $film->pochette;
+                    $previousPochettePath = public_path('img/films/' . $previousPochette);
+
+                    if ($previousPochette && File::exists($previousPochettePath)) {
+                        File::delete($previousPochettePath);
+                    }
+                    $uploadedFile = $request->file('pochette');
+                    $nomFichierUnique = str_replace(' ','_',$film->titre) . '_' . uniqid() . '.' . $uploadedFile->extension();
+                    try {
+                        $request->pochette->move(public_path('img/films'),$nomFichierUnique);
+                    }
+                    catch(\Symfony\Component\HttpFoundation\File\Exception\FileException $e){
+                        Log::error("Erreur lors du téléversement du fichier. ", [$e]);
+                    }
+                    $film->pochette = $nomFichierUnique;
+                }
                 $film->save();
-                return redirect()->route('buggyflix.index')->with('message', "Modification de " . $film->titre . " réussi!");
+                $message = "Modification de " . $film->titre . " réussi!";
+                return redirect()->route('buggyflix.index')->with('message');
             }
             catch(\Throwable $e){
                 Log::debug($e);
@@ -158,7 +189,13 @@ class BuggyflixController extends Controller
         $film->realisateurs()->delete();
         $film->producteurs()->delete();
         $film->genres()->delete();
+        $pochette = $film->pochette;
+        $pochettePath = public_path('img/films/' . $pochette);
 
+        if ($pochette && File::exists($pochettePath)) {
+            File::delete($pochettePath);
+        }
+        
         $film->delete();
               return redirect()->route('buggyflix.index')->with('message', "Suppression de " . $film->titre . " réussi!");
     }

@@ -1,8 +1,9 @@
 @extends("layouts.app")
 <link rel="stylesheet" href="{{asset('css/pageInfoPerson.css')}}">
+<link rel="stylesheet" href="{{asset('css/pageFilm.css')}}">
 @section("contenu")
-<section class="main-container">
-    <div>
+<section class="main-container pageFilm">
+    <div class="infoFilm">
     @role('1')
         <a class="top-right-link-2" href="{{ route('buggyflix.edit.person', [$person])}}"><i class="fa fa-wrench"></i></a>
         <form method="POST" action="{{route('persons.destroy', [$person->id]) }}">
@@ -15,28 +16,28 @@
         @if (isset($person))
             <li>Né en {{$person->dateNaissance}} </li>
             <li>{{$person->lieuNaissance}} </li>
+            @if ($person->acteurs->count() > 0)
             <details>
             <summary> Films ou il a été un acteur </summary>
-            @if ($person->acteurs->count() > 0)
-                    @foreach ($person->acteurs as $acteur)
-                        <div class="rowRole">
-                            <div class="infoRole">
-                                <h1>Film : {{$acteur->film->titre}}</h1>
-                                <li>Role: {{$acteur->role}}</li>
-                                <li>Nom du personnage : {{$acteur->nomPersonnage}}</li>
-                            </div>
-                            @role('1')
-                            <div class="supRole">
+                @foreach ($person->acteurs as $acteur)
+                    <div class="rowRole">
+                        <div class="infoRole">
+                            <h1>Film : {{$acteur->film->titre}}</h1>
+                            <li>Role: {{$acteur->role}}</li>
+                            <li>Nom du personnage : {{$acteur->nomPersonnage}}</li>
+                        </div>
+                        @role('1')
+                        <div class="supRole">
                             <form method="POST" action="{{route('acteurs.destroy', [$acteur->id]) }}">
                                 @csrf
                                 @method('DELETE')
                                 <button type="submit"><i class="fa fa-trash"></i></button>
                             </form>
-                            </div>
-                            @endrole
-                        </div>  
-                    @endforeach
-                    </details>
+                        </div>
+                        @endrole
+                    </div>  
+                @endforeach
+            </details>
             @endif
             @if ($person->producteurs->count() > 0)
             <details>
@@ -89,6 +90,9 @@
             <p>Cette personne n'existe pas</p>
         @endif
     </div>
+    <div class="imgFilm">
+      <img src="{{ asset('img/persons/' . $person->img)}}" alt="" title="{{$person->img}}">
+    </div> 
 </section>
 
 <style>

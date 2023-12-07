@@ -95,8 +95,8 @@ class ActeursSeeder extends Seeder
                 'id' => 13,
                 'person_id' => 5,
                 'film_id' => 10,
-                'role' => "Personnage principal",
-                'nomPersonnage' => 'Mouad Asfour'
+                'role' => "Personnage secondaire",
+                'nomPersonnage' => 'Mali Asfour (le frère jumeau)'
             ],
             [
                 'id' => 15,
