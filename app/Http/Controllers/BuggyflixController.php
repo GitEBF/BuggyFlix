@@ -72,7 +72,7 @@ class BuggyflixController extends Controller
             }
             $film->pochette = $nomFichierUnique;
             $film->save();
-            $message = "Création du film : " . $film->titre . " réussit!";
+            $message = "Création du film : " . $film->titre . " réussi!";
             return redirect()->route("buggyflix.index")->with('message', $message);
         }
         catch(\Throwable$e){
@@ -96,7 +96,7 @@ class BuggyflixController extends Controller
             $film_genre->save();
             
             $message = "Ajout du genre " . $genre->nom . " pour le film : " . $film->titre . " réussi!";
-            return redirect()->route('buggyflix.index')->with('message', $message);
+            return redirect()->route('buggyflix.show', [$film])->with('message', $message);
             }
             catch(\Throwable$e){
                 Log::debug($e);
