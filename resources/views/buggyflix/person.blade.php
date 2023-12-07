@@ -9,6 +9,16 @@
 @role('1')
   <a class="top-right-link" href="{{ route('buggyflix.create.person')}}"><i class="fa fa-plus"></i></a>
   @endrole
+      <h1 id="home">Toutes les personnes</h1>
+      <div class="box">
+      @if (count($persons))
+        @foreach ($persons as $person)
+          <a href="{{ route('buggyflix.cinemographie', [$person]) }}"> <img src="{{ asset('img/persons/' . $person->img)}}" alt="" title="{{$person->img}}" class="h-48 w-48 mx-auto"></a>
+          @endforeach 
+        @else
+          <a href=""><img src="https://github.com/carlosavilae/Netflix-Clone/blob/master/img/t1.PNG?raw=true" alt=""></a>
+        @endif
+        </div>
       <h1 id="home">Les Acteurs</h1>
       <div class="box">
       @if (count($acteurs))
