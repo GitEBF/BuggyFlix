@@ -24,7 +24,7 @@ class UsagersController extends Controller
         $reussi = Auth::attempt(['email' => $request->email, 'password' => $request->password]);
 
         if ($reussi) {
-            return redirect()->route('buggyflix.index')->with('message', "Connexion réussie");
+            return redirect()->route('buggyflix.index')->with('message', "Connexion réussie !");
         } else {
             return redirect()->route('UsagersController.login')->withErrors(['Informations invalides']);
         }
@@ -33,13 +33,11 @@ class UsagersController extends Controller
     public function logout()
     {
         Auth::logout();
-     
-        return redirect()->route('buggyflix.index')->with('message', "Déconnexion réussie");
+        return redirect()->route('buggyflix.index')->with('message', "Déconnexion réussie !");
     }
 
     public function showSignInForm()
     {
-     
         return view('buggyflix.signinForm');
     }
 
