@@ -17,7 +17,10 @@
             <li>Né en {{$person->dateNaissance}} </li>
             <li>{{$person->lieuNaissance}} </li>
             @if ($person->acteurs->count() > 0)
+            <div class="scrollbar" id="style-1">
+      <div class="force-overflow">
             <details>
+            
             <summary> Films ou il a été un acteur </summary>
                 @foreach ($person->acteurs as $acteur)
                     <div class="rowRole">
@@ -85,6 +88,8 @@
                 
             @endforeach
             </details>
+            </div>
+            </div>
             @endif
         @else
             <p>Cette personne n'existe pas</p>
