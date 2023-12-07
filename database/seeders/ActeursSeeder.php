@@ -78,13 +78,6 @@ class ActeursSeeder extends Seeder
                 'nomPersonnage' => 'Arthur Crise-Cardiaque'
             ],
             [
-                'id' => 10,
-                'person_id' => 7,
-                'film_id' => 9,
-                'role' => "Personnage principal",
-                'nomPersonnage' => 'Juju Predateur'
-            ],
-            [
                 'id' => 11,
                 'person_id' => 10,
                 'film_id' => 9,
@@ -106,40 +99,12 @@ class ActeursSeeder extends Seeder
                 'nomPersonnage' => 'Mouad Asfour'
             ],
             [
-                'id' => 14,
-                'person_id' => 3,
-                'film_id' => 11,
-                'role' => "Personnage principal",
-                'nomPersonnage' => 'Buggy Cheese'
-            ],
-            [
                 'id' => 15,
                 'person_id' => 6,
                 'film_id' => 11,
                 'role' => "La victime",
                 'nomPersonnage' => 'Racoon dog'
-            ],
-            [
-                'id' => 16,
-                'person_id' => 11,
-                'film_id' => 11,
-                'role' => "Le témoin",
-                'nomPersonnage' => 'Charle Oscar 2ieme du nom'
-            ],
-            [
-                'id' => 17,
-                'person_id' => 7,
-                'film_id' => 12,
-                'role' => "Personnage principal",
-                'nomPersonnage' => 'Juju lePuits'
-            ],
-            [
-                'id' => 18,
-                'person_id' => 3,
-                'film_id' => 12,
-                'role' => "Ennemie",
-                'nomPersonnage' => 'La main couper'
-            ],
+            ]
         ]);
     }
 }
