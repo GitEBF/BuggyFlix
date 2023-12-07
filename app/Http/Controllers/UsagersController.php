@@ -37,7 +37,7 @@ class UsagersController extends Controller
     {
         Auth::logout();
      
-        return redirect('/buggyflix');
+        return redirect()->route('buggyflix.index')->with('message', "Déconnexion réussie");
     }
 
     public function showSignInForm()
