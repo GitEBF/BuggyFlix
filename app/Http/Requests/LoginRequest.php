@@ -30,8 +30,8 @@ class LoginRequest extends FormRequest
     public function messages(): array
     {
         return [
-            'email.required' => 'essaye pas de hack le gros',
-            'password.required' => 'Eille big il faut un password',
+            'email.required' => 'Veuillez insérer un email valide',
+            'password.required' => 'Veuillez insérer un mot de passe valide',
         ];
     }
 }
