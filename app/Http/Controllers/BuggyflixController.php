@@ -11,6 +11,7 @@ use App\Models\FilmGenre;
 use Illuminate\Http\Response;
 use Illuminate\Support\Facades\Log;
 use Brian2694\Toastr\Facades\Toastr;
+use Illuminate\Support\Facades\File;
 
 class BuggyflixController extends Controller
 {
@@ -153,8 +154,10 @@ class BuggyflixController extends Controller
                     $film->pochette = $film->pochette;
                 } else {
                     $previousPochette = $film->pochette;
-                    if ($previousPochette && Storage::disk('public')->exists('img/films/' . $previousPochette)) {
-                        Storage::disk('public')->delete('img/films/' . $previousPochette);
+                    $previousPochettePath = public_path('img/films/' . $previousPochette);
+
+                    if ($previousPochette && File::exists($previousPochettePath)) {
+                        File::delete($previousPochettePath);
                     }
                     $uploadedFile = $request->file('pochette');
                     $nomFichierUnique = str_replace(' ','_',$film->titre) . '_' . uniqid() . '.' . $uploadedFile->extension();
@@ -186,10 +189,13 @@ class BuggyflixController extends Controller
         $film->realisateurs()->delete();
         $film->producteurs()->delete();
         $film->genres()->delete();
-        $Pochette = $film->pochette;
-        if ($Pochette && Storage::disk('public')->exists('img/films/' . $Pochette)) {
-            Storage::disk('public')->delete('img/films/' . $Pochette);
+        $pochette = $film->pochette;
+        $pochettePath = public_path('img/films/' . $pochette);
+
+        if ($pochette && File::exists($pochettePath)) {
+            File::delete($pochettePath);
         }
+        
         $film->delete();
               return redirect()->route('buggyflix.index')->with('message', "Suppression de " . $film->titre . " réussi!");
     }

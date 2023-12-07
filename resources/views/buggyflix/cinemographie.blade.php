@@ -1,8 +1,9 @@
 @extends("layouts.app")
 <link rel="stylesheet" href="{{asset('css/pageInfoPerson.css')}}">
+<link rel="stylesheet" href="{{asset('css/pageFilm.css')}}">
 @section("contenu")
-<section class="main-container">
-    <div>
+<section class="main-container pageFilm">
+    <div class="infoFilm">
     @role('1')
         <a class="top-right-link-2" href="{{ route('buggyflix.edit.person', [$person])}}"><i class="fa fa-wrench"></i></a>
         <form method="POST" action="{{route('persons.destroy', [$person->id]) }}">
@@ -89,6 +90,9 @@
             <p>Cette personne n'existe pas</p>
         @endif
     </div>
+    <div class="imgFilm">
+      <img src="{{ asset('img/persons/' . $person->img)}}" alt="" title="{{$person->img}}">
+    </div> 
 </section>
 
 <style>
