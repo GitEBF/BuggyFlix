@@ -127,4 +127,8 @@ Route::get('buggyflix/edit/film/{film}',
 [BuggyflixController::class, 'edit'])->name('buggyflix.edit.film')->middleware('CheckRole:1');
 
 Route::patch('/buggyflix/film/{film}/modifier', 
+
 [BuggyflixController::class, 'update'])->name('buggyflix.update')->middleware('CheckRole:1');
+
+Route::get('/filmGenres/{id}', 
+[BuggyflixController::class, 'destroyFilmGenre'])->name('filmGenres.destroy');

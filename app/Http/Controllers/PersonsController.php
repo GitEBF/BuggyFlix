@@ -14,6 +14,7 @@ use App\Http\Requests\ActeurRequest;
 use App\Http\Requests\ProducteurRequest;
 use App\Http\Requests\RealisateurRequest;
 use Illuminate\Support\Facades\Log;
+use Illuminate\Support\Facades\File;
 
 class PersonsController extends Controller
 {

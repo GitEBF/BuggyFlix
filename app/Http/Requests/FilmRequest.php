@@ -29,7 +29,7 @@ class FilmRequest extends FormRequest
             'pochette' => 'required|image|mimes:png,jpeg,jpg,gif,jfif,webp|max:16384',
             'cote' => 'required',
             'duree' => 'required',
-            'rating' => 'required',
+            'rating' => 'required|numeric|min:1|max:10',
             'date' => 'required',
             'langue' => 'required',
             'subtitle' => 'required'
@@ -54,7 +54,7 @@ class FilmRequest extends FormRequest
             'subtitle.required' => 'Veuillez insérer un sous-titre',
             'pochette.required' => 'Le champ image est obligatoire',
             'pochette.max' => 'la taille de l\'image ne doit pas dépasser 16Mb',
-            'pochette.mimes' => 'le type n\'est pas reconnu (png,jpg,gif,jfif,webp)'
+            'pochette.mimes' => 'le type n\'est pas reconnu (png,jpg,gif,jfif,webp)',
         ];
     }
 }
