@@ -40,9 +40,18 @@
     margin-right: 10px;
   }
 
+  .genreDuFilm:hover{
+    color:red
+  }
+
   .ajoutGenre{
     color:rgb(184, 184, 184);
     margin-right: 10px;
+    
+  }
+
+  .ajoutGenre:hover{
+    color:rgb(6, 236, 6);
   }
 
   .infoCote{
