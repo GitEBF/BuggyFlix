@@ -128,3 +128,6 @@ Route::get('buggyflix/edit/film/{film}',
 
 Route::patch('/buggyflix/film/{film}/modifier', 
 [BuggyflixController::class, 'update'])->name('buggyflix.update');
+
+Route::get('/filmGenres/{id}', 
+[BuggyflixController::class, 'destroyFilmGenre'])->name('filmGenres.destroy');

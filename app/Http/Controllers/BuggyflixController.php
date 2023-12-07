@@ -104,6 +104,14 @@ class BuggyflixController extends Controller
             }
     }
 
+    public function destroyFilmGenre(string $id)
+    {
+        $film_genre = FilmGenre::findOrFail($id);
+        $film = Film::findOrFail($film_genre->film_id);
+        $film_genre->delete();
+        return redirect()->route('buggyflix.show', [$film]);
+    }
+
     /**
      * Display the specified resource.
      */

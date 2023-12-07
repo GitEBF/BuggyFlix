@@ -27,7 +27,7 @@
                 <a class="uneInfo">{{$film->rating}} </a>
                 <a class="uneInfo">{{$film->type}} </a>
                 @foreach ($film->genres as $genre)
-                    <a class="uneInfo"> {{$genre->genre->nom}} </a>
+                    <a class="uneInfo genreDuFilm" href="{{ route('filmGenres.destroy', [$genre->id])}}">{{$genre->genre->nom}}</a>
                 @endforeach
                 @role('1')
                     <a href="{{ route('buggyflix.create.genre', [$film->id])}}" class="ajoutGenre"> + genre</a>
